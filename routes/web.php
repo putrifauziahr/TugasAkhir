@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
+Route::get('admin/showKategori', 'KategoriController@index')->name('admin/showKategori');
+Route::get('admin/showKelompokTani', 'KelompokTaniController@index')->name('admin/showKelompokTani');
