@@ -138,7 +138,7 @@
                             </div>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
+                                <li>
                                     <a href="index.html">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
@@ -153,50 +153,55 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li>
-                                            <a>
+                                            <a href="{{route('admin/showKategori')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kategori</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
+                                        </li>
+                                        <li>
                                             <a>
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kuisioner</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
-                                            <a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('admin/showKelompokTani')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kelompk Tani</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kelompok Tani</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
+                                        </li>
+                                        <li>
                                             <a>
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petani</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
                                     </ul>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Hasil Kuisioner</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="chart.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Proses Data</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="map-google.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Hasil Kuisioner</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="chart.html">
+                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Proses Data</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="map-google.html">
+                                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                             </ul>
                         </div>
                     </nav>
