@@ -102,7 +102,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="{{asset('assets/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                    <span>Administrator</span>
+                                    <span>Pengguna</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -131,8 +131,8 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>Administrator</span>
-                                        <span>Admin</span>
+                                        <span>Pengguna</span>
+                                        <span>Petani</span>
                                     </div>
                                 </div>
                             </div>
@@ -145,42 +145,6 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main"></span>
-                                        <span class="pcoded-mcaret">Data Master</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li>
-                                            <a href="{{route('admin/showKategori')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kategori</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('admin/showKuisioner')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kuisioner</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('admin/showKelompokTani')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kelompok Tani</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('admin/showPetani')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petani</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 <li>
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>

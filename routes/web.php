@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('petani/dashboard', 'UserPetaniController@dashboard')->name('petani/dashboard');
 Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
 
 //Kategori
@@ -30,5 +30,19 @@ Route::match(['get', 'post'], 'admin/postUpdateKategori/{id_kategori}', 'Kategor
 Route::get('admin/showKelompokTani', 'KelompokTaniController@index')->name('admin/showKelompokTani');
 Route::post('admin/tambahKelompokTani', 'KelompokTaniController@tambahKelompokTani')->name('admin/tambahKelompokTani');
 Route::get('admin/hapusKelompokTani/{poktan}', 'KelompokTaniController@hapusKelompokTani')->name('admin/hapusKelompokTani');
-Route::get('admin/showDetailKelompokTani/{poktan}', 'KelompokTaniController@showDetailKelompokTani')->name('guru/showDetailKelompokTani');
+Route::get('admin/showDetailKelompokTani/{poktan}', 'KelompokTaniController@showDetailKelompokTani')->name('admin/showDetailKelompokTani');
 Route::match(['get', 'post'], 'admin/postUpdateKelompokTani/{id_kategori}', 'KelompokTaniController@postUpdateKelompokTani')->name('admin/postUpdateKelompokTani');
+
+//Kuisioner
+Route::get('admin/showKuisioner', 'KuisionerController@index')->name('admin/showKuisioner');
+Route::post('admin/tambahKuisioner', 'KuisionerController@tambahKuisioner')->name('admin/tambahKuisioner');
+Route::get('admin/hapusKuisioner', 'KuisionerController@hapusKuisioner')->name('admin/hapusKuisioner');
+Route::get('admin/showDetailKuisioner', 'KuisionerController@showDetailKuisioner')->name('admin/showDetailKuisioner');
+Route::match(['get', 'post'], 'admin/postUpdateKuisioner', 'KuisionerController@postUpdateKuisioner')->name('admin/postUpdateKuisioner');
+
+//Petani
+Route::get('admin/showPetani', 'PetaniController@index')->name('admin/showPetani');
+Route::post('admin/tambahPetani', 'PetaniController@tambahPetani')->name('admin/tambahPetani');
+Route::get('admin/hapusPetani', 'PetaniController@hapusPetani')->name('admin/hapusPetani');
+Route::get('admin/showDetailPetani', 'PetaniController@showDetailPetani')->name('admin/showDetailPetani');
+Route::match(['get', 'post'], 'admin/postUpdatePetani', 'PetaniController@postUpdatePetani')->name('admin/postUpdatePetani');

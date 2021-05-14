@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Kategori Pertanyaan')
+@section('title', 'Admin | Petani')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kategori Pertanyaan</h4>
+                                    <h4>Data Petani</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kategori Pertanyaan</a>
+                                    <li class="breadcrumb-item"><a href="#!">Data Petani</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,7 +52,7 @@
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kategori Pertanyaan</h5>
+                        <h5>Data Petani</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
@@ -60,23 +60,18 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kategori</th>
+                                        <th>Nama</th>
+                                        <th>Kelompok Tani</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no = 0; ?>
-                                    @foreach($kategori as $a)
-                                    <?php $no++; ?>
                                     <tr>
-                                        <th scope="row">{{$no}}</th>
-                                        <td>{{$a->kategori}}</td>
-                                        <td>
-                                            <a href="/admin/showDetailKategori/{{$a->id_kategori}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
-                                            <a href="/admin/hapusKategori/{{$a->id_kategori}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
-                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -93,18 +88,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kategori Pertanyaan</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Petani</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahKategori" method="POST">
+                <form action="" method="POST">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="InputNamaAktivitas">Kategori Pertanyaan</label>
-                        <input name="kategori" type="text" class="form-control @error('kategori') is-invalid @enderror" placeholder="Masukan Kategori Pertanyaan">
-                        @error('kategori')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label for="InputPertanyaan">Nama</label>
+                        <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukan Nama">
+                        @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="modal-footer">

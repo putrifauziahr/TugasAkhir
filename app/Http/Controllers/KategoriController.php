@@ -33,7 +33,7 @@ class KategoriController extends Controller
     public function hapusKategori(Kategori $kategori)
     {
         Kategori::destroy($kategori->id_kategori);
-        return redirect('admin/showKategori')->with('alert', 'Data Kategori Berhasil dihapus');
+        return redirect('admin/showKategori')->with('alertF', 'Data Kategori Berhasil dihapus');
     }
 
     public function showDetailKategori(Kategori $kategori)

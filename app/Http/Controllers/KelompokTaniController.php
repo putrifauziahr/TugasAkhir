@@ -33,7 +33,7 @@ class KelompokTaniController extends Controller
     public function hapusKelompokTani(KelompokTani $poktan)
     {
         KelompokTani::destroy($poktan->id_kategori);
-        return redirect('admin/showKelompokTani')->with('alert', 'Data Kelompok Tani Berhasil dihapus');
+        return redirect('admin/showKelompokTani')->with('alertF', 'Data Kelompok Tani Berhasil dihapus');
     }
 
     public function showDetailKelompokTani(KelompokTani $poktan)
