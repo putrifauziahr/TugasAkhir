@@ -46,3 +46,10 @@ Route::post('admin/tambahPetani', 'PetaniController@tambahPetani')->name('admin/
 Route::get('admin/hapusPetani', 'PetaniController@hapusPetani')->name('admin/hapusPetani');
 Route::get('admin/showDetailPetani', 'PetaniController@showDetailPetani')->name('admin/showDetailPetani');
 Route::match(['get', 'post'], 'admin/postUpdatePetani', 'PetaniController@postUpdatePetani')->name('admin/postUpdatePetani');
+
+//Penyuluhan
+Route::get('admin/showPenyuluhan', 'PenyuluhanController@index')->name('admin/showPenyuluhan');
+Route::post('admin/tambahPenyuluhan', 'PenyuluhanController@tambahPenyuluhan')->name('admin/tambahPenyuluhan');
+Route::get('admin/hapusPenyuluhan', 'PenyuluhanController@hapusPenyuluhan')->name('admin/hapusPenyuluhan');
+Route::get('admin/showDetailPenyuluhan', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
+Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');

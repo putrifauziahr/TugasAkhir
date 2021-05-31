@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelompokTanisTable extends Migration
+class CreatePetanisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateKelompokTanisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelompok_tanis', function (Blueprint $table) {
+        Schema::create('petanis', function (Blueprint $table) {
+            $table->bigIncrements('id_petani');
+            $table->string('nama');
+            $table->string('email');
+            $table->string('alamat');
+            $table->string('no_hp');
             $table->bigIncrements('id_poktan');
-            $table->string('kelompok_tani');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateKelompokTanisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelompok_tanis');
+        Schema::dropIfExists('petanis');
     }
 }

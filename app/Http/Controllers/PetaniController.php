@@ -1,5 +1,5 @@
 <?php
-
+//controller petani pada halaman admin
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

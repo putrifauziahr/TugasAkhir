@@ -1,5 +1,5 @@
 <?php
-
+//controller petani untuk halaman dashboard petani
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

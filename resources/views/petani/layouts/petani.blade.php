@@ -169,9 +169,7 @@
                             </ul>
                         </div>
                     </nav>
-
                     @yield('container')
-
                 </div>
             </div>
         </div>
