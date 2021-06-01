@@ -66,12 +66,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach($petani as $ptn)
+                                    <?php $no++; ?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$no}}</td>
+                                        <td>{{$ptn->nama}}</td>
+                                        <td>{{$ptn->id_poktan}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailPetani/{{$ptn->id_petani}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusPetani/{{$ptn->id_petani}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                        </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -94,7 +101,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="/admin/tambahPetani" method="POST">
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -111,13 +118,14 @@
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan Email">
+                        <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Password">
                         @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label> Kelompok Tani</label>
                         <select name="id_poktan" class="form-control">
+                            <option> Pilih </option>
                             @foreach($poktan as $p)
                             <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
                             @endforeach

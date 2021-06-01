@@ -20,6 +20,7 @@ class CreatePetanisTable extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->string('kontak');
+            $table->string('image');
             $table->integer('id_poktan')->references('id_poktan')->on('kelompok_tanis');
             $table->timestamps();
         });

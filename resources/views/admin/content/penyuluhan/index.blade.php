@@ -62,16 +62,25 @@
                                         <th>No</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Hari</th>
+                                        <th>Tanggal</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach($penyuluhan as $p)
+                                    <?php $no++; ?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$no}}</td>
+                                        <td>{{$p->kegiatan}}</td>
+                                        <td>{{$p->hari}}</td>
+                                        <td>{{$p->tanggal}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                        </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -94,7 +103,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="/admin/tambahPenyuluhan" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -150,15 +159,20 @@
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukan Deskripsi">
-                        @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        @error('deskripsi') <div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input name="image" type="file" class="form-control">
                     </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>

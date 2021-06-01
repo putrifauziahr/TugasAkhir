@@ -43,13 +43,18 @@ Route::match(['get', 'post'], 'admin/postUpdateKuisioner/{id_kuis}', 'KuisionerC
 //Petani
 Route::get('admin/showPetani', 'PetaniController@index')->name('admin/showPetani');
 Route::post('admin/tambahPetani', 'PetaniController@tambahPetani')->name('admin/tambahPetani');
-Route::get('admin/hapusPetani', 'PetaniController@hapusPetani')->name('admin/hapusPetani');
-Route::get('admin/showDetailPetani', 'PetaniController@showDetailPetani')->name('admin/showDetailPetani');
-Route::match(['get', 'post'], 'admin/postUpdatePetani', 'PetaniController@postUpdatePetani')->name('admin/postUpdatePetani');
+Route::get('admin/hapusPetani/{petani}', 'PetaniController@hapusPetani')->name('admin/hapusPetani');
+Route::get('admin/showDetailPetani/{petani}', 'PetaniController@showDetailPetani')->name('admin/showDetailPetani');
+Route::match(['get', 'post'], 'admin/postUpdatePetani/{id_petani}', 'PetaniController@postUpdatePetani')->name('admin/postUpdatePetani');
 
 //Penyuluhan
 Route::get('admin/showPenyuluhan', 'PenyuluhanController@index')->name('admin/showPenyuluhan');
 Route::post('admin/tambahPenyuluhan', 'PenyuluhanController@tambahPenyuluhan')->name('admin/tambahPenyuluhan');
-Route::get('admin/hapusPenyuluhan', 'PenyuluhanController@hapusPenyuluhan')->name('admin/hapusPenyuluhan');
-Route::get('admin/showDetailPenyuluhan', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
-Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');
+Route::get('admin/hapusPenyuluhan/{penyuluhan}', 'PenyuluhanController@hapusPenyuluhan')->name('admin/hapusPenyuluhan');
+Route::get('admin/showDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
+Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan/{id_penyuluhan}', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');
+
+
+
+//============PETANI==========
+Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');

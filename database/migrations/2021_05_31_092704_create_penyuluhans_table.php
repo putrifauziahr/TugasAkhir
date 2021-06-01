@@ -23,6 +23,7 @@ class CreatePenyuluhansTable extends Migration
             $table->string('pemateri');
             $table->string('peserta');
             $table->text('deskripsi');
+            $table->string('image');
             $table->timestamps();
         });
     }

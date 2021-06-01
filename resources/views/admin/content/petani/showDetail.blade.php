@@ -39,44 +39,43 @@
                     <div class="card-header">
                         <h5>Data Petani</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="" method="POST">
+                    <form class="form-horizontal form-material" action="/admin/postUpdatePetani/{{$petani->id_petani}}" method="POST">
                         {{csrf_field()}}
 
                         <div class="form-group">
-                            <label>Nama</label>
-                            <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukan Nama">
-                            @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            <label class="col-md-3">Nama</label>
+                            <div class="col-md-3">
+                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
+                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Email</label>
-                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan Email">
-                            @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-3">
+                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$petani->email}}">
+                                @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Password</label>
-                            <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Password">
-                            @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            <label class="col-md-3">Password</label>
+                            <div class="col-md-3">
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
+                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label> Kelompok Tani</label>
-                            <select name="id_poktan">
-                                <option value="id_poktan"></option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Alamat</label>
-                            <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukan Alamat">
-                            @error('alamat')<div class="invalid-feedback">{{$message}}</div> @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label>Kontak</label>
-                            <input name="kontak" type="password" class="form-control @error('kontak') is-invalid @enderror" placeholder="Masukan Kontak">
-                            @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            <label class="col-md-3"> Kelompok Tani</label>
+                            <div class="col-md-3">
+                                <select name="id_poktan" class="form-control">
+                                    <option>{{$petani->id_poktan}}</option>
+                                    @foreach($poktan as $p)
+                                    <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
