@@ -8,5 +8,5 @@ class KelompokTani extends Model
 {
     protected $fillable = ['kelompok_tani'];
     protected $table = "kelompok_tanis";
-    protected $primaryKey = "id_kategori";
+    protected $primaryKey = "id_poktan";
 }

@@ -17,6 +17,7 @@ class CreateAdminsTable extends Migration
             $table->bigIncrements('id_admin');
             $table->string('nama');
             $table->string('email');
+            $table->string('password');
             $table->string('alamat');
             $table->string('no_hp');
             $table->timestamps();

@@ -18,9 +18,8 @@ class CreatePenyuluhansTable extends Migration
             $table->string('kegiatan');
             $table->string('tempat');
             $table->string('hari');
-            $table->string('jam');
             $table->string('tanggal');
-            $table->string('materi');
+            $table->string('jam');
             $table->string('pemateri');
             $table->string('peserta');
             $table->text('deskripsi');

@@ -32,7 +32,7 @@ class KelompokTaniController extends Controller
 
     public function hapusKelompokTani(KelompokTani $poktan)
     {
-        KelompokTani::destroy($poktan->id_kategori);
+        KelompokTani::destroy($poktan->id_poktan);
         return redirect('admin/showKelompokTani')->with('alertF', 'Data Kelompok Tani Berhasil dihapus');
     }
 
@@ -41,7 +41,7 @@ class KelompokTaniController extends Controller
         return view('admin/content/kelompokTani/showDetail', compact('poktan'));
     }
 
-    public function postUpdateKelompokTani(Request $request, $id_kategori)
+    public function postUpdateKelompokTani(Request $request, $id_poktan)
     {
         $request->validate([
             'kelompok_tani' => 'required'
@@ -52,7 +52,7 @@ class KelompokTaniController extends Controller
         ];
 
         $update['kelompok_tani'] = $request->get('kelompok_tani');
-        KelompokTani::where('id_kategori', $id_kategori)->update($update);
+        KelompokTani::where('id_poktan', $id_poktan)->update($update);
         return redirect('admin/showKelompokTani')->with('alert', 'Data Kelompok Tani Berhasil diperbarui');
     }
 }

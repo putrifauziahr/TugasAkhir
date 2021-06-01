@@ -31,14 +31,14 @@ Route::get('admin/showKelompokTani', 'KelompokTaniController@index')->name('admi
 Route::post('admin/tambahKelompokTani', 'KelompokTaniController@tambahKelompokTani')->name('admin/tambahKelompokTani');
 Route::get('admin/hapusKelompokTani/{poktan}', 'KelompokTaniController@hapusKelompokTani')->name('admin/hapusKelompokTani');
 Route::get('admin/showDetailKelompokTani/{poktan}', 'KelompokTaniController@showDetailKelompokTani')->name('admin/showDetailKelompokTani');
-Route::match(['get', 'post'], 'admin/postUpdateKelompokTani/{id_kategori}', 'KelompokTaniController@postUpdateKelompokTani')->name('admin/postUpdateKelompokTani');
+Route::match(['get', 'post'], 'admin/postUpdateKelompokTani/{id_poktan}', 'KelompokTaniController@postUpdateKelompokTani')->name('admin/postUpdateKelompokTani');
 
 //Kuisioner
 Route::get('admin/showKuisioner', 'KuisionerController@index')->name('admin/showKuisioner');
 Route::post('admin/tambahKuisioner', 'KuisionerController@tambahKuisioner')->name('admin/tambahKuisioner');
-Route::get('admin/hapusKuisioner', 'KuisionerController@hapusKuisioner')->name('admin/hapusKuisioner');
-Route::get('admin/showDetailKuisioner', 'KuisionerController@showDetailKuisioner')->name('admin/showDetailKuisioner');
-Route::match(['get', 'post'], 'admin/postUpdateKuisioner', 'KuisionerController@postUpdateKuisioner')->name('admin/postUpdateKuisioner');
+Route::get('admin/hapusKuisioner/{kuis}', 'KuisionerController@hapusKuisioner')->name('admin/hapusKuisioner');
+Route::get('admin/showDetailKuisioner/{kuis}', 'KuisionerController@showDetailKuisioner')->name('admin/showDetailKuisioner');
+Route::match(['get', 'post'], 'admin/postUpdateKuisioner/{id_kuis}', 'KuisionerController@postUpdateKuisioner')->name('admin/postUpdateKuisioner');
 
 //Petani
 Route::get('admin/showPetani', 'PetaniController@index')->name('admin/showPetani');

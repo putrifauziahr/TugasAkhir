@@ -17,9 +17,10 @@ class CreatePetanisTable extends Migration
             $table->bigIncrements('id_petani');
             $table->string('nama');
             $table->string('email');
+            $table->string('password');
             $table->string('alamat');
-            $table->string('no_hp');
-            $table->bigIncrements('id_poktan');
+            $table->string('kontak');
+            $table->integer('id_poktan')->references('id_poktan')->on('kelompok_tanis');
             $table->timestamps();
         });
     }

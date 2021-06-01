@@ -49,38 +49,36 @@
                     @endphp
                 </div>
                 @endif
-                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>        
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>
                 <div class="card">
-                            <div class="card-header">
-                                <h5>Data Kelompok Tani</h5>
-                            </div>
-                            <div class="card-block table-border-style">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Kelompok Tani</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $no = 0; ?>
-                                            @foreach($poktan as $a)
-                                            <?php $no++; ?>
-                                            <tr>
-                                                <th scope="row">{{$no}}</th>
-                                                <td>{{$a->kelompok_tani}}</td>
-                                                <td>
-                                                    <a href="/admin/showDetailKelompokTani/{{$a->id_kategori}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
-                                                    <a href="/admin/hapusKelompokTani/{{$a->id_kategori}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="card-header">
+                        <h5>Data Kelompok Tani</h5>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kelompok Tani</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach($poktan as $a)
+                                    <?php $no++; ?>
+                                    <tr>
+                                        <th scope="row">{{$no}}</th>
+                                        <td>{{$a->kelompok_tani}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailKelompokTani/{{$a->id_poktan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusKelompokTani/{{$a->id_poktan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -88,32 +86,34 @@
         </div>
     </div>
 </div>
+</div>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelompok Tani</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="/admin/tambahKelompokTani" method="POST">
-					{{csrf_field()}}
-					<div class="form-group">
-						<label for="InputNamaAktivitas">Nama Kelompok Tani</label>
-						<input name="kelompok_tani" type="text" class="form-control @error('kelompok_tani') is-invalid @enderror" placeholder="Masukan Kelompok Tani">
-						@error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
-					</div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelompok Tani</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/admin/tambahKelompokTani" method="POST">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <label for="InputNamaAktivitas">Nama Kelompok Tani</label>
+                        <input name="kelompok_tani" type="text" class="form-control @error('kelompok_tani') is-invalid @enderror" placeholder="Masukan Kelompok Tani">
+                        @error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
 
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					</div>
-			    </div>
-			</form>
-		</div>
-	</div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

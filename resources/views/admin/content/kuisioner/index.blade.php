@@ -66,12 +66,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach($kuis as $k)
+                                    <?php $no++; ?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$no}}</td>
+                                        <td>{{$k->pertanyaan}}</td>
+                                        <td>{{$k->kategori}}</td>
+                                        <td>
+                                            <a href="/admin/showDetailKuisioner/{{$k->id_kuis}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusKuisioner/{{$k->id_kuis}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                        </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -94,8 +101,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="/admin/tambahKuisioner" method="POST">
                     {{csrf_field()}}
+
                     <div class="form-group">
                         <label for="InputPertanyaan">Pertanyaan</label>
                         <input name="pertanyaan" type="text" class="form-control @error('pertanyaan') is-invalid @enderror" placeholder="Masukan Pertanyaan">
@@ -103,9 +111,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="InputNamaAktivitas">Kategori Pertanyaan</label>
-                        <input name="kategori" type="text" class="form-control @error('kategori') is-invalid @enderror" placeholder="Masukan Kategori Pertanyaan">
-                        @error('kategori')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label>Kategori Pertanyaan</label>
+                        <select name="id_kategori" class="form-control">
+                            <option>Pilih</option>
+                            @foreach($kategori as $k)
+                            <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="modal-footer">

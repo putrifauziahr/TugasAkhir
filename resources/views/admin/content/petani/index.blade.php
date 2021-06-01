@@ -96,10 +96,32 @@
             <div class="modal-body">
                 <form action="" method="POST">
                     {{csrf_field()}}
+
                     <div class="form-group">
-                        <label for="InputPertanyaan">Nama</label>
+                        <label>Nama</label>
                         <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukan Nama">
                         @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan Email">
+                        @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan Email">
+                        @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label> Kelompok Tani</label>
+                        <select name="id_poktan" class="form-control">
+                            @foreach($poktan as $p)
+                            <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="modal-footer">
