@@ -44,7 +44,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Nama Kegiatan</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="kegiatan" type="text" class="form-control @error('kegiatan') is-invalid @enderror" value="{{$penyuluhan->kegiatan}}">
                                 @error('kegiatan')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Tempat</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="tempat" type="text" class="form-control @error('tempat') is-invalid @enderror" value="{{$penyuluhan->tempat}}">
                                 @error('tempat')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -60,7 +60,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Hari</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <select name="hari" class="form-control">
                                     <option>{{$penyuluhan->hari}}</option>
                                     <option value="Senin">Senin</option>
@@ -76,15 +76,15 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Tanggal</label>
-                            <div class="col-md-3">
-                                <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" placeholder="Masukan Tanggal">
+                            <div class="col-md-5">
+                                <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" value="{{$penyuluhan->tanggal}}">
                                 @error('tanggal')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3">Waktu / Jam</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="jam" type="text" class="form-control @error('jam') is-invalid @enderror" value="{{$penyuluhan->jam}}">
                                 @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -92,7 +92,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Pemateri</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="pemateri" type="text" class="form-control @error('pemateri') is-invalid @enderror" value="{{$penyuluhan->pemateri}}">
                                 @error('pemateri')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -100,7 +100,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Peserta</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="peserta" type="text" class="form-control @error('peserta') is-invalid @enderror" value="{{$penyuluhan->peserta}}">
                                 @error('peserta')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -108,7 +108,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Deskripsi</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" value="{{$penyuluhan->deskripsi}}">
                                 @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -116,10 +116,12 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Image</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                                <img src="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" alt="Image" class="img-circle" style="height: 250px; width:250px">
-                                @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <a href="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" data-fancybox="gal">
+                                    <img src="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" alt="Image" class="img-fluid" style="height: 250px; width:250px">
+                                    @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                </a>
                             </div>
                         </div>
 

@@ -58,3 +58,5 @@ Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan/{id_penyuluhan}', 'Pen
 
 //============PETANI==========
 Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
+
+//==========UMUM==========

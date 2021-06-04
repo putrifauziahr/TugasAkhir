@@ -25,7 +25,8 @@
                                             <i class="icofont icofont-home"></i>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kuisioner</a>
+                                    <li class="breadcrumb-item">
+                                        Kuisioner
                                     </li>
                                 </ul>
                             </div>
@@ -51,7 +52,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Kuisioner</h4>
+                        <h4 class="sub-title" style="font-weight: bold; font-size:20px; text-align:center">Kuisioner</h4>
                     </div>
 
                     <?php $no = 0; ?>

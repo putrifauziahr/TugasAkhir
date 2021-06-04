@@ -15,7 +15,7 @@
                             <div class="card widget-card-1">
                                 <div class="card-block-small">
                                     <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
-                                    <span class="text-c-blue f-w-600">Use space</span>
+                                    <span class="text-c-blue f-w-600">Kategori</span>
                                     <h4>49/50GB</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
@@ -31,7 +31,7 @@
                             <div class="card widget-card-1">
                                 <div class="card-block-small">
                                     <i class="icofont icofont-ui-home bg-c-pink card1-icon"></i>
-                                    <span class="text-c-pink f-w-600">Revenue</span>
+                                    <span class="text-c-pink f-w-600">Kuisioner</span>
                                     <h4>$23,589</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
@@ -47,7 +47,7 @@
                             <div class="card widget-card-1">
                                 <div class="card-block-small">
                                     <i class="icofont icofont-warning-alt bg-c-green card1-icon"></i>
-                                    <span class="text-c-green f-w-600">Fixed issue</span>
+                                    <span class="text-c-green f-w-600">KelompokTani</span>
                                     <h4>45</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
@@ -63,7 +63,7 @@
                             <div class="card widget-card-1">
                                 <div class="card-block-small">
                                     <i class="icofont icofont-social-twitter bg-c-yellow card1-icon"></i>
-                                    <span class="text-c-yellow f-w-600">Followers</span>
+                                    <span class="text-c-yellow f-w-600">Petani</span>
                                     <h4>+562</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">

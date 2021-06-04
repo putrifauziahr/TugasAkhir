@@ -23,7 +23,7 @@ class PenyuluhanController extends Controller
             'jam' => 'required',
             'pemateri' => 'required',
             'peserta' => 'required',
-            'deskirpsi' => 'required',
+            'deskripsi' => 'required',
             'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -73,7 +73,7 @@ class PenyuluhanController extends Controller
             'jam' => 'required',
             'pemateri' => 'required',
             'peserta' => 'required',
-            'deskirpsi' => 'required'
+            'deskripsi' => 'required'
         ], $messages);
 
         $update = [

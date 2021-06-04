@@ -120,7 +120,7 @@
 
                     <div class="form-group">
                         <label>Hari</label>
-                        <select name="hari" class="form-control">
+                        <select name="hari" class="form-control @error('hari') is-invalid @enderror">
                             <option>Pilih</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>

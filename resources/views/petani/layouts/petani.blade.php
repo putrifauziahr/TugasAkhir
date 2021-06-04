@@ -148,7 +148,7 @@
                                 <li>
                                     <a href="{{route('petani/showKuisioner')}}">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Hasil Kuisioner</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Kuisioner</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
