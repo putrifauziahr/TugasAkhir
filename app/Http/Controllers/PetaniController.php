@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\model\Petani;
 use App\model\KelompokTani;
+use Illuminate\Support\Facades\DB;
 
 class PetaniController extends Controller
 {
     public function index()
     {
         $poktan = KelompokTani::all();
-        $petani = Petani::all();
+        $petani = DB::table('petanis')
+            ->join('kelompok_tanis', 'petanis.id_poktan', '=', 'petanis.id_poktan')
+            ->orderBy('petanis.id_poktan', 'asc')
+            ->get();
         return view('admin/content/petani/index', compact('poktan', 'petani'));
     }
 
@@ -43,6 +47,12 @@ class PetaniController extends Controller
     {
         Petani::destroy($petani->id_petani);
         return redirect('admin/showPetani')->with('alertF', 'Data Petani Berhasil dihapus');
+    }
+
+    public function viewDetailPetani(Petani $petani)
+    {
+        $poktan = KelompokTani::all();
+        return view('admin/content/petani/viewDetail', compact('petani', 'poktan'));
     }
 
     public function showDetailPetani(Petani $petani)

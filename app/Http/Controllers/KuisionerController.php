@@ -44,6 +44,12 @@ class KuisionerController extends Controller
         return redirect('admin/showKuisioner')->with('alertF', 'Data Kuisioner Berhasil dihapus');
     }
 
+    public function viewDetailKuisioner(Kuisioner $kuis)
+    {
+        $kategori = Kategori::all();
+        return view('admin/content/kuisioner/viewDetail', compact('kuis', 'kategori'));
+    }
+
     public function showDetailKuisioner(Kuisioner $kuis)
     {
         $kategori = Kategori::all();

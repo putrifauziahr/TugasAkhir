@@ -74,6 +74,7 @@
                                         <td>{{$k->pertanyaan}}</td>
                                         <td>{{$k->kategori}}</td>
                                         <td>
+                                            <a href="/admin/viewDetailKuisioner/{{$k->id_kuis}}" class="btn btn-success"><i class="ti-pencil-alt"></i>Detail</a>
                                             <a href="/admin/showDetailKuisioner/{{$k->id_kuis}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
                                             <a href="/admin/hapusKuisioner/{{$k->id_kuis}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>
@@ -87,8 +88,6 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

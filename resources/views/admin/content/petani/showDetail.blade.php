@@ -44,7 +44,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Nama</label>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
                                 @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Email</label>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$petani->email}}">
                                 @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -60,7 +60,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3">Password</label>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
                                 @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
@@ -68,7 +68,7 @@
 
                         <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <select name="id_poktan" class="form-control">
                                     <option>{{$petani->id_poktan}}</option>
                                     @foreach($poktan as $p)
@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPenyuluhan')}}">Back</a>
+                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPetani')}}">Back</a>
                             </div>
                         </div>
                     </form>

@@ -42,6 +42,7 @@ Route::match(['get', 'post'], 'admin/postUpdateKelompokTani/{id_poktan}', 'Kelom
 Route::get('admin/showKuisioner', 'KuisionerController@index')->name('admin/showKuisioner');
 Route::post('admin/tambahKuisioner', 'KuisionerController@tambahKuisioner')->name('admin/tambahKuisioner');
 Route::get('admin/hapusKuisioner/{kuis}', 'KuisionerController@hapusKuisioner')->name('admin/hapusKuisioner');
+Route::get('admin/viewDetailKuisioner/{kuis}', 'KuisionerController@viewDetailKuisioner')->name('admin/viewDetailKuisioner');
 Route::get('admin/showDetailKuisioner/{kuis}', 'KuisionerController@showDetailKuisioner')->name('admin/showDetailKuisioner');
 Route::match(['get', 'post'], 'admin/postUpdateKuisioner/{id_kuis}', 'KuisionerController@postUpdateKuisioner')->name('admin/postUpdateKuisioner');
 
@@ -49,6 +50,7 @@ Route::match(['get', 'post'], 'admin/postUpdateKuisioner/{id_kuis}', 'KuisionerC
 Route::get('admin/showPetani', 'PetaniController@index')->name('admin/showPetani');
 Route::post('admin/tambahPetani', 'PetaniController@tambahPetani')->name('admin/tambahPetani');
 Route::get('admin/hapusPetani/{petani}', 'PetaniController@hapusPetani')->name('admin/hapusPetani');
+Route::get('admin/viewDetailPetani/{petani}', 'PetaniController@viewDetailPetani')->name('admin/viewDetailPetani');
 Route::get('admin/showDetailPetani/{petani}', 'PetaniController@showDetailPetani')->name('admin/showDetailPetani');
 Route::match(['get', 'post'], 'admin/postUpdatePetani/{id_petani}', 'PetaniController@postUpdatePetani')->name('admin/postUpdatePetani');
 
@@ -56,6 +58,7 @@ Route::match(['get', 'post'], 'admin/postUpdatePetani/{id_petani}', 'PetaniContr
 Route::get('admin/showPenyuluhan', 'PenyuluhanController@index')->name('admin/showPenyuluhan');
 Route::post('admin/tambahPenyuluhan', 'PenyuluhanController@tambahPenyuluhan')->name('admin/tambahPenyuluhan');
 Route::get('admin/hapusPenyuluhan/{penyuluhan}', 'PenyuluhanController@hapusPenyuluhan')->name('admin/hapusPenyuluhan');
+Route::get('admin/viewDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@viewDetailPenyuluhan')->name('admin/viewDetailPenyuluhan');
 Route::get('admin/showDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
 Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan/{id_penyuluhan}', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');
 

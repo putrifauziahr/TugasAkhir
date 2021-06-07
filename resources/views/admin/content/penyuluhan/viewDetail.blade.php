@@ -117,7 +117,6 @@
                         <div class="form-group">
                             <label class="col-md-3">Image</label>
                             <div class="col-md-5">
-                                <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
                                 <a href="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" data-fancybox="gal">
                                     <img src="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" alt="Image" class="img-fluid" style="height: 250px; width:250px">
                                     @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
@@ -127,7 +126,6 @@
 
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
                                 <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPenyuluhan')}}">Back</a>
                             </div>
                         </div>

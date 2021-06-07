@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Detail Kuisioner')
+@section('title', 'Admin | Detail Petani')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kuisioner</h4>
+                                    <h4>Petani</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kuisioner</a>
+                                    <li class="breadcrumb-item"><a href="#!">Petani</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,35 +37,45 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kuisioner</h5>
+                        <h5>Data Petani</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
+                    <form class="form-horizontal form-material" action="/admin/postUpdatePetani/{{$petani->id_petani}}" method="POST">
                         {{csrf_field()}}
 
                         <div class="form-group">
-                            <label class="col-md-3">Pertanyaan</label>
+                            <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
-                                <input name="pertanyaan" type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pertanyaan}}">
-                                @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
+                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Kategori Pertanyaan</label>
+                            <label class="col-md-3">Email</label>
                             <div class="col-md-12">
-                                <select name="id_kategori" class="form-control">
-                                    <option>Pilih</option>
-                                    @foreach($kategori as $k)
-                                    <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
-                                    @endforeach
-                                </select>
+                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$petani->email}}">
+                                @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Password</label>
                             <div class="col-md-12">
-                                <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showKuisioner')}}">Back</a>
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
+                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3"> Kelompok Tani</label>
+                            <div class="col-md-12">
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$petani->id_poktan}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPetani')}}">Back</a>
                             </div>
                         </div>
                     </form>

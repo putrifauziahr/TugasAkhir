@@ -39,36 +39,27 @@
                     <div class="card-header">
                         <h5>Data Kuisioner</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
-                        {{csrf_field()}}
-
-                        <div class="form-group">
-                            <label class="col-md-3">Pertanyaan</label>
-                            <div class="col-md-12">
-                                <input name="pertanyaan" type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pertanyaan}}">
-                                @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Pertanyaan</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pertanyaan}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3">Kategori Pertanyaan</label>
-                            <div class="col-md-12">
-                                <select name="id_kategori" class="form-control">
-                                    <option>Pilih</option>
-                                    @foreach($kategori as $k)
-                                    <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Kategori Pertanyaan</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->id_kategori}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showKuisioner')}}">Back</a>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showKuisioner')}}">Back</a>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

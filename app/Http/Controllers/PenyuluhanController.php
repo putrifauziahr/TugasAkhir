@@ -57,6 +57,11 @@ class PenyuluhanController extends Controller
         return view('admin/content/penyuluhan/showDetail', compact('penyuluhan'));
     }
 
+    public function viewDetailPenyuluhan(Penyuluhan $penyuluhan)
+    {
+        return view('admin/content/penyuluhan/viewDetail', compact('penyuluhan'));
+    }
+
     public function postUpdatePenyuluhan(Request $request, $id_penyuluhan)
     {
         $messages = [
