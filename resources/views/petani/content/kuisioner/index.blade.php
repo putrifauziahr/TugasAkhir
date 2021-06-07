@@ -58,9 +58,45 @@
                     <?php $no = 0; ?>
                     @foreach($kuiss as $k)
                     <?php $no++; ?>
+
                     <div class="form-group">
-                        <div class="col-md-6">
-                            <p style="font-weight: bold; font-size:16px">{{$no}}. {{$k->pertanyaan}}</>
+                        <div class="col-md-12">
+                            <p style="font-weight: bold; font-size:16px">{{$no}}. {{$k->pertanyaan}}</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Tidak Puas
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Kurang Puas
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Cukup Puas
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Puas
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Sangat Puas
+                                </label>
+                            </div>
+
                         </div>
                     </div>
 

@@ -19,6 +19,11 @@ Route::get('/', function () {
 Route::get('petani/dashboard', 'UserPetaniController@dashboard')->name('petani/dashboard');
 Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
 
+Route::get('admin/login', 'AdminController@login')->name('admin/login');
+Route::post('admin/login', 'AdminController@loginProses')->name('admin/loginProses');
+
+Route::get('petani/login', 'UserPetaniController@login')->name('petani/login');
+
 //Kategori
 Route::get('admin/showKategori', 'KategoriController@index')->name('admin/showKategori');
 Route::post('admin/tambahKategori', 'KategoriController@tambahKategori')->name('admin/tambahKategori');
