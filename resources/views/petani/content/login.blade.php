@@ -3,13 +3,6 @@
 
 <head>
     <title>Login Petani</title>
-    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -70,52 +63,49 @@
     </div>
     <!-- Pre-loader end -->
 
+    <!-- Pre-loader end -->
     <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
         <!-- Container-fluid starts -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
-                    <div class="login-card card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material">
+                    <div class="signup-card card-block auth-body mr-auto ml-auto">
+                        <form action="/petani/login" class="md-float-material" method="POST">
+                            {{csrf_field()}}
                             <div class="text-center">
                                 <img src="{{ asset('assets/images/auth/logo-dark.png')}}" alt="logo.png">
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-left txt-primary">Masuk</h3>
+                                        <h3 class="text-center txt-primary">Masuk</h3>
                                     </div>
                                 </div>
                                 <hr />
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Masukan Email">
+                                    <input name="email" type="text" class="form-control" placeholder="Masukan Email">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input name="password" type="password" class="form-control" placeholder="Masukan Password">
                                     <span class="md-line"></span>
-                                </div>
-                                <div class="row m-t-25 text-left">
-                                    <div class="col-sm-7 col-xs-12">
-                                        <div class="checkbox-fade fade-in-primary">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                <span class="text-inverse">Ingat Saya</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5 col-xs-12 forgot-phone text-right">
-                                        <a href="auth-reset-password.html" class="text-right f-w-600 text-inverse">Lupa Password</a>
-                                    </div>
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Masuk</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Masuk</button>
                                     </div>
                                 </div>
                                 <hr />
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
+                                        <p class="text-inverse text-left"><b>Terimakasih</b></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="{{ asset('assets/images/auth/Logo-small-bottom.png')}}" alt="small-logo.png">
+                                    </div>
+                                </div>
                             </div>
                         </form>
                         <!-- end of form -->
@@ -129,7 +119,7 @@
         <!-- end of container-fluid -->
     </section>
 
-    <!-- Required Jquery -->
+
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/popper.js/popper.min.js')}}"></script>

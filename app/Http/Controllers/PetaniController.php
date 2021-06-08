@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\model\Petani;
 use App\model\KelompokTani;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class PetaniController extends Controller
 {
@@ -36,7 +38,7 @@ class PetaniController extends Controller
         $post = new Petani();
         $post->nama = $request->nama;
         $post->email = $request->email;
-        $post->password = $request->password;
+        $post->password = Hash::make($request->password);
         $post->id_poktan = $request->id_poktan;
         $post->save();
         return redirect('admin/showPetani')->with('alert', 'Data Petani Berhasil ditambah');

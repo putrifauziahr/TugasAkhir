@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login Admin</title>
+    <title>Register </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -61,7 +61,6 @@
             </div>
         </div>
     </div>
-    <!-- Pre-loader end -->
 
     <!-- Pre-loader end -->
     <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
@@ -71,7 +70,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <div class="signup-card card-block auth-body mr-auto ml-auto">
-                        <form action="/admin/login" class="md-float-material" method="POST">
+                        <form action="/admin/registerProses" class="md-float-material" method="POST">
                             {{csrf_field()}}
                             <div class="text-center">
                                 <img src="{{ asset('assets/images/auth/logo-dark.png')}}" alt="logo.png">
@@ -79,10 +78,14 @@
                             <div class="auth-box">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center txt-primary">Masuk</h3>
+                                        <h3 class="text-center txt-primary">Daftar</h3>
                                     </div>
                                 </div>
                                 <hr />
+                                <div class="input-group">
+                                    <input name="nama" type="text" class="form-control" placeholder="Masukan Nama">
+                                    <span class="md-line"></span>
+                                </div>
                                 <div class="input-group">
                                     <input name="email" type="text" class="form-control" placeholder="Masukan Email">
                                     <span class="md-line"></span>
@@ -93,7 +96,7 @@
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Masuk</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Daftar</button>
                                     </div>
                                 </div>
                                 <hr />
@@ -118,7 +121,6 @@
         </div>
         <!-- end of container-fluid -->
     </section>
-
 
     <script type="text/javascript" src="{{ asset('assets/js/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-ui/jquery-ui.min.js')}}"></script>

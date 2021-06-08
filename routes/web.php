@@ -21,8 +21,11 @@ Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboar
 
 Route::get('admin/login', 'AdminController@login')->name('admin/login');
 Route::post('admin/login', 'AdminController@loginProses')->name('admin/loginProses');
+Route::get('admin/register', 'AdminController@register')->name('admin/register');
+Route::post('admin/registerProses', 'AdminController@registerProses')->name('admin/registerProses');
 
 Route::get('petani/login', 'UserPetaniController@login')->name('petani/login');
+Route::post('petani/login', 'UserPetaniController@loginProses')->name('petani/login');
 
 //Kategori
 Route::get('admin/showKategori', 'KategoriController@index')->name('admin/showKategori');
