@@ -112,7 +112,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="auth-normal-sign-in.html">
+                                        <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
@@ -139,7 +139,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="{{route('admin/dashboard')}}">
+                                    <a href="admin/dashboard">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>

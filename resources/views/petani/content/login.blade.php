@@ -82,15 +82,38 @@
                                         <h3 class="text-center txt-primary">Masuk</h3>
                                     </div>
                                 </div>
+
+                                @if(\Session::has('alert'))
+                                <div class="alert alert-danger">
+                                    <div>{{Session::get('alert')}}</div>
+                                </div>
+                                @endif
+                                @if(\Session::has('alert-success'))
+                                <div class="alert alert-success">
+                                    <div>{{Session::get('alert-success')}}</div>
+                                </div>
+                                @endif
+
                                 <hr />
                                 <div class="input-group">
-                                    <input name="email" type="text" class="form-control" placeholder="Masukan Email">
-                                    <span class="md-line"></span>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Masukan Email">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+
                                 <div class="input-group">
-                                    <input name="password" type="password" class="form-control" placeholder="Masukan Password">
-                                    <span class="md-line"></span>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukan Password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Masuk</button>

@@ -31,9 +31,16 @@ class UserPetaniController extends Controller
                 session(['berhasil_login' => true]);
                 return redirect('/petani/dashboard');
             }
-            return redirect('/petani/login')->with('message', 'password salah');
+            return redirect('/petani/login')->with('alert', 'Cek Kembali Email dan Password Anda !');
         }
     }
+
+    public function logoutPetani(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/petani/login');
+    }
+    //=============================================================================================//
 
     public function dashboard()
     {

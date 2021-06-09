@@ -35,7 +35,7 @@ class AdminController extends Controller
                 session(['berhasil_login' => true]);
                 return redirect('/admin/dashboard');
             }
-            return redirect('/admin/login')->with('message', 'password salah');
+            return redirect('/admin/login')->with('alert', 'Password atau Email Salah !');
         }
     }
 
@@ -59,6 +59,12 @@ class AdminController extends Controller
         );
         //Redirect dengan status 
         return redirect('/admin/login')->with('status', 'Data Berhasil Ditambahkan');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/admin/login');
     }
 
     //===================================================================================//
