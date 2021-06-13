@@ -53,7 +53,8 @@ class PetaniController extends Controller
 
     public function viewDetailPetani(Petani $petani)
     {
-        $poktan = KelompokTani::all();
+        $idpoktan = $petani->id_poktan;
+        $poktan = KelompokTani::where('id_poktan', $idpoktan)->get();
         return view('admin/content/petani/viewDetail', compact('petani', 'poktan'));
     }
 

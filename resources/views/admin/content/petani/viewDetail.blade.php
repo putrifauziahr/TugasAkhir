@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <label class="col-md-3">Password</label>
                             <div class="col-md-12">
-                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror">
                                 @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
@@ -69,7 +69,9 @@
                         <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
-                                <input class="form-control @error('password') is-invalid @enderror" value="{{$petani->id_poktan}}">
+                                @foreach ($poktan as $p)
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$p->kelompok_tani}}">
+                                @endforeach
                             </div>
                         </div>
 

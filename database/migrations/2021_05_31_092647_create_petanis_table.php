@@ -15,11 +15,11 @@ class CreatePetanisTable extends Migration
     {
         Schema::create('petanis', function (Blueprint $table) {
             $table->bigIncrements('id_petani');
-            $table->string('nama');
-            $table->string('email');
-            $table->string('password');
+            $table->string('nama', 30);
+            $table->string('email', 30);
+            $table->string('password', 50);
             $table->string('alamat');
-            $table->string('kontak');
+            $table->string('kontak', 15);
             $table->string('image');
             $table->integer('id_poktan')->references('id_poktan')->on('kelompok_tanis');
             $table->timestamps();

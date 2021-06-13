@@ -46,7 +46,8 @@ class KuisionerController extends Controller
 
     public function viewDetailKuisioner(Kuisioner $kuis)
     {
-        $kategori = Kategori::all();
+        $idkategori = $kuis->id_kategori;
+        $kategori = Kategori::where('id_kategori', $idkategori)->get();
         return view('admin/content/kuisioner/viewDetail', compact('kuis', 'kategori'));
     }
 

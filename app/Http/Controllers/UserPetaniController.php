@@ -27,6 +27,7 @@ class UserPetaniController extends Controller
             if (Hash::check($request->password, $data->password)) {
                 Session::put('email', $data->email);
                 Session::put('id_petani', $data->id);
+                Session::put('nama', $data->nama);
 
                 session(['berhasil_login' => true]);
                 return redirect('/petani/dashboard');
@@ -35,7 +36,7 @@ class UserPetaniController extends Controller
         }
     }
 
-    public function logoutPetani(Request $request)
+    public function logout(Request $request)
     {
         $request->session()->flush();
         return redirect('/petani/login');

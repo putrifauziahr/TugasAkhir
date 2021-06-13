@@ -31,6 +31,7 @@ class AdminController extends Controller
             if (Hash::check($request->password, $data->password)) {
                 Session::put('email', $data->email);
                 Session::put('id_admin', $data->id);
+                Session::put('nama', $data->nama);
 
                 session(['berhasil_login' => true]);
                 return redirect('/admin/dashboard');

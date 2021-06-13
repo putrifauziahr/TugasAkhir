@@ -50,8 +50,10 @@
                     <div class="form-group">
                         <label class="col-md-3">Kategori Pertanyaan</label>
                         <div class="col-md-12">
-                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->id_kategori}}">
+                            @foreach ($kategori as $k)
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $k->kategori}}">
                             @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            @endforeach
                         </div>
                     </div>
 

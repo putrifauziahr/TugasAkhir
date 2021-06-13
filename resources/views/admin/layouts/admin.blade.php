@@ -102,7 +102,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="{{asset('assets/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                    <span>Administrator</span>
+                                    <span>Hi, {{Session::get('nama')}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -131,7 +131,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>Administrator</span>
+                                        <span>{{Session::get('nama')}}</span>
                                         <span>Admin</span>
                                     </div>
                                 </div>

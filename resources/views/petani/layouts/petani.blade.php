@@ -102,7 +102,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="{{asset('assets/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                    <span>Pengguna</span>
+                                    <span>Hi, {{Session::get('nama')}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -131,7 +131,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>Pengguna</span>
+                                        <span>{{Session::get('nama')}}</span>
                                         <span>Petani</span>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="{{route('petani/dashboard')}}">
+                                    <a href="petani/dashboard">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>

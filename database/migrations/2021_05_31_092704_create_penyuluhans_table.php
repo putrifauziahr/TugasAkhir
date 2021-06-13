@@ -17,11 +17,11 @@ class CreatePenyuluhansTable extends Migration
             $table->bigIncrements('id_penyuluhan');
             $table->string('kegiatan');
             $table->string('tempat');
-            $table->string('hari');
+            $table->string('hari', 10);
             $table->string('tanggal');
-            $table->string('jam');
-            $table->string('pemateri');
-            $table->string('peserta');
+            $table->string('jam', 30);
+            $table->string('pemateri', 50);
+            $table->string('peserta', 50);
             $table->text('deskripsi');
             $table->string('image');
             $table->timestamps();
