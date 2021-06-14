@@ -87,10 +87,15 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     Route::get('admin/viewDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@viewDetailPenyuluhan')->name('admin/viewDetailPenyuluhan');
     Route::get('admin/showDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
     Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan/{id_penyuluhan}', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');
+
+    //Profil Admin
+    Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
+    Route::match(['get', 'post'], 'admin/postUpdateProfil/{id_admin}', 'AdminController@postUpdateProfil')->name('admin/postProfil');
 });
 
 
 //============PETANI==========
 Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
-
+Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
+Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
 //==========UMUM==========

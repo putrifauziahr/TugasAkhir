@@ -102,12 +102,12 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="{{asset('assets/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                    <span>Hi, {{Session::get('nama')}}</span>
+                                    <span>Hi, {{Session::get('nama')}} </span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
                                     <li>
-                                        <a href="#">
+                                        <a href="{{url('admin/showProfil/'.Session::get('id_admin'))}}">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>
@@ -131,7 +131,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>{{Session::get('nama')}}</span>
+                                        <span>{{Session::get('id_admin')}}</span>
                                         <span>Admin</span>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="admin/dashboard">
+                                    <a href="/admin/dashboard">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>

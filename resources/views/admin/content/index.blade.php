@@ -19,7 +19,8 @@
                                     <h4>{{$kategori}}</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Lihat Selengkapnya
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showKategori')}}">Lihat Selengkapnya</a>
                                         </span>
                                     </div>
                                 </div>
@@ -35,7 +36,9 @@
                                     <h4>{{$kuis}}</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Lihat Selengkapnya
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showKuisioner')}}">Lihat Selengkapnya</a>
+
                                         </span>
                                     </div>
                                 </div>
@@ -51,7 +54,8 @@
                                     <h4>{{$poktan}}</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Lihat Selengkapnya
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showKelompokTani')}}">Lihat Selengkapnya</a>
                                         </span>
                                     </div>
                                 </div>
@@ -67,7 +71,8 @@
                                     <h4>{{$petani}}</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Lihat Selengkapnya
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showPetani')}}">Lihat Selengkapnya</a>
                                         </span>
                                     </div>
                                 </div>
@@ -83,7 +88,8 @@
                                     <h4>{{$penyuluhan}}</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
-                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Lihat Selengkapnya
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showPenyuluhan')}}">Lihat Selengkapnya</a>
                                         </span>
                                     </div>
                                 </div>

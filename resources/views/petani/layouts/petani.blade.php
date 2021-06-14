@@ -107,7 +107,7 @@
                                 </a>
                                 <ul class="show-notification profile-notification">
                                     <li>
-                                        <a href="#">
+                                        <a href="{{url('petani/showProfil/'.Session::get('id_petani'))}}">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>

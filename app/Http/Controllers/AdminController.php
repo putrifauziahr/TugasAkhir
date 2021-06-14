@@ -30,7 +30,7 @@ class AdminController extends Controller
         } else {
             if (Hash::check($request->password, $data->password)) {
                 Session::put('email', $data->email);
-                Session::put('id_admin', $data->id);
+                Session::put('id_admin', $data->id_admin);
                 Session::put('nama', $data->nama);
 
                 session(['berhasil_login' => true]);
@@ -59,7 +59,7 @@ class AdminController extends Controller
             ]
         );
         //Redirect dengan status 
-        return redirect('/admin/login')->with('status', 'Data Berhasil Ditambahkan');
+        return redirect('/admin/login')->with('alert-success', 'Selamat Anda Berhasil Login');
     }
 
     public function logout(Request $request)
@@ -68,6 +68,39 @@ class AdminController extends Controller
         return redirect('/admin/login');
     }
 
+    //===================================================================================//
+    public function showProfil($id_admin)
+    {
+        $admin = Admin::where('id_admin', $id_admin)->first();
+        return view('admin.content.profil', compact('admin'));
+    }
+
+    public function postUpdateProfil(Request $request, $id_admin)
+    {
+        if ($request->hasFile('image')) {
+            $resorce = $request->file('image');
+            $name   = $resorce->getClientOriginalName();
+            $resorce->move(\base_path() . "/public/profilAdmin/", $name);
+            DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
+                [
+                    'nama' => $request->nama,
+                    'alamat' => $request->alamat,
+                    'no_hp' => $request->no_hp,
+                    'image' => $name
+                ]
+            );
+            return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');
+        } else {
+            DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
+                [
+                    'nama' => $request->nama,
+                    'alamat' => $request->alamat,
+                    'no_hp' => $request->no_hp
+                ]
+            );
+            return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');
+        }
+    }
     //===================================================================================//
     public function dashboard()
     {
