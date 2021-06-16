@@ -19,13 +19,13 @@ class UserPetaniController extends Controller
 
     public function loginProses(Request $request)
     {
-        $data = Petani::where('email', $request->email)->first();
+        $data = Petani::where('username', $request->username)->first();
 
         if (!$data) {
-            return redirect('/petani/login')->with('message', 'email salah');
+            return redirect('/petani/login')->with('alert', 'Username salah');
         } else {
             if (Hash::check($request->password, $data->password)) {
-                Session::put('email', $data->email);
+                Session::put('username', $data->username);
                 Session::put('id_petani', $data->id_petani);
                 Session::put('nama', $data->nama);
 

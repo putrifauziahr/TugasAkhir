@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         <div class="col-md-3">
-                            <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showKuisioner')}}">Back</a>
+                            <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKuisioner')}}">Back</a>
                         </div>
                     </div>
                 </div>

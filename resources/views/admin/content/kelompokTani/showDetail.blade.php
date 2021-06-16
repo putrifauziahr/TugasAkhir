@@ -50,9 +50,9 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-12">
+                            <div class="col-sm-4">
                                 <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showKelompokTani')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKelompokTani')}}">Back</a>
                             </div>
                         </div>
                     </form>

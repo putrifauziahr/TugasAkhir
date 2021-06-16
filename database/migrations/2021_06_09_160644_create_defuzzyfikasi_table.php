@@ -15,7 +15,7 @@ class CreateDefuzzyfikasiTable extends Migration
     {
         Schema::create('defuzzyfikasi', function (Blueprint $table) {
             $table->bigIncrements('id_defuzzy');
-            $table->bigInteger('id_fuzzy', 20);
+            $table->bigInteger('id_fuzzy')->length(20);
             $table->string('harapan', 12);
             $table->string('persepsi', 12);
             $table->timestamps();

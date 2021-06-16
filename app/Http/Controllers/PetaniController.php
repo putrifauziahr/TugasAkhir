@@ -30,14 +30,14 @@ class PetaniController extends Controller
         ];
         $this->validate($request, [
             'nama' => 'required',
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
             'id_poktan' => 'required',
         ], $messages);
 
         $post = new Petani();
         $post->nama = $request->nama;
-        $post->email = $request->email;
+        $post->username = $request->username;
         $post->password = Hash::make($request->password);
         $post->id_poktan = $request->id_poktan;
         $post->save();
@@ -66,22 +66,28 @@ class PetaniController extends Controller
 
     public function postUpdatePetani(Request $request, $id_petani)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
         $request->validate([
             'nama' => 'required',
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
             'id_poktan' => 'required',
-        ]);
+        ], $messages);
 
         $update = [
             'nama' => $request->nama,
-            'email' => $request->email,
+            'username' => $request->username,
             'password' => $request->password,
             'id_poktan' => $request->id_poktan,
         ];
 
         $update['nama'] = $request->get('nama');
-        $update['email'] = $request->get('email');
+        $update['username'] = $request->get('username');
         $update['password'] = $request->get('password');
         $update['id_poktan'] = $request->get('id_poktan');
         Petani::where('id_petani', $id_petani)->update($update);

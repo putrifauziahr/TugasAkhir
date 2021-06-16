@@ -16,12 +16,12 @@ class CreatePetanisTable extends Migration
         Schema::create('petanis', function (Blueprint $table) {
             $table->bigIncrements('id_petani');
             $table->string('nama', 30);
-            $table->string('email', 30);
-            $table->string('password', 50);
-            $table->string('alamat');
+            $table->string('username', 30);
+            $table->string('password', 30);
+            $table->text('alamat');
             $table->string('kontak', 15);
             $table->string('image');
-            $table->integer('id_poktan')->references('id_poktan')->on('kelompok_tanis');
+            $table->bigInteger('id_poktan')->length(20);
             $table->timestamps();
         });
     }

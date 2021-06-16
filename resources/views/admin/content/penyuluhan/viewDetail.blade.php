@@ -126,7 +126,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPenyuluhan')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showPenyuluhan')}}">Back</a>
                             </div>
                         </div>
                     </form>

@@ -16,10 +16,10 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id_admin');
             $table->string('nama', 30);
-            $table->string('email', 30);
-            $table->string('password', 50);
-            $table->string('alamat');
-            $table->string('no_hp', 15);
+            $table->string('username', 30);
+            $table->string('password', 30);
+            $table->text('alamat');
+            $table->string('kontak', 15);
             $table->string('image');
             $table->timestamps();
         });

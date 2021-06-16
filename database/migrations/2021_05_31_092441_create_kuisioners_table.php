@@ -16,7 +16,7 @@ class CreateKuisionersTable extends Migration
         Schema::create('kuisioners', function (Blueprint $table) {
             $table->bigIncrements('id_kuis');
             $table->string('pertanyaan');
-            $table->integer('id_kategori')->references('id_kategori')->on('kategoris');
+            $table->bigInteger('id_kategori')->length(20);
             $table->timestamps();
         });
     }

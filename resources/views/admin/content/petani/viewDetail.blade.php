@@ -51,22 +51,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Email</label>
-                            <div class="col-md-12">
-                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$petani->email}}">
-                                @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-3">Password</label>
-                            <div class="col-md-12">
-                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror">
-                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
                                 @foreach ($poktan as $p)
@@ -76,8 +60,33 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Username</label>
+                            <div class="col-md-12">
+                                <input class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
+                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Kontak</label>
+                            <div class="col-md-12">
+                                <input name="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$petani->kontak}}">
+                                @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Alamat</label>
+                            <div class="col-md-12">
+                                <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" value="{{$petani->alamat}}">
+                                @error('alamat')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <div class="col-sm-12">
-                                <a type="button" class="btn btn-danger d-none d-md-inline-block text-white" href="{{route('admin/showPetani')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showPetani')}}">Back</a>
                             </div>
                         </div>
                     </form>

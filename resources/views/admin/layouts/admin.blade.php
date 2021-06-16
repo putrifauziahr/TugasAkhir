@@ -131,7 +131,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="{{asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>{{Session::get('id_admin')}}</span>
+                                        <span>{{Session::get('username')}}</span>
                                         <span>Admin</span>
                                     </div>
                                 </div>

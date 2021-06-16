@@ -43,9 +43,15 @@ class KategoriController extends Controller
 
     public function postUpdateKategori(Request $request, $id_kategori)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
         $request->validate([
             'kategori' => 'required'
-        ]);
+        ], $messages);
 
         $update = [
             'kategori' => $request->kategori,

@@ -23,20 +23,20 @@ class AdminController extends Controller
 
     public function loginProses(Request $request)
     {
-        $data = Admin::where('email', $request->email)->first();
+        $data = Admin::where('username', $request->username)->first();
 
         if (!$data) {
-            return redirect('/admin/login')->with('message', 'email salah');
+            return redirect('/admin/login')->with('alert', 'Username salah');
         } else {
             if (Hash::check($request->password, $data->password)) {
-                Session::put('email', $data->email);
+                Session::put('username', $data->username);
                 Session::put('id_admin', $data->id_admin);
                 Session::put('nama', $data->nama);
 
                 session(['berhasil_login' => true]);
                 return redirect('/admin/dashboard');
             }
-            return redirect('/admin/login')->with('alert', 'Password atau Email Salah !');
+            return redirect('/admin/login')->with('alert', 'Username atau Password Salah !');
         }
     }
 
@@ -54,12 +54,12 @@ class AdminController extends Controller
         DB::table('admins')->insert(
             [
                 'nama' => $request->nama,
-                'email' => $request->email,
+                'username' => $request->username,
                 'password' => Hash::make($request->password),
             ]
         );
         //Redirect dengan status 
-        return redirect('/admin/login')->with('alert-success', 'Selamat Anda Berhasil Login');
+        return redirect('/admin/login')->with('alert-success', 'Selamat Anda Berhasil Mendaftar');
     }
 
     public function logout(Request $request)
@@ -85,7 +85,7 @@ class AdminController extends Controller
                 [
                     'nama' => $request->nama,
                     'alamat' => $request->alamat,
-                    'no_hp' => $request->no_hp,
+                    'kontak' => $request->kontak,
                     'image' => $name
                 ]
             );
@@ -95,7 +95,7 @@ class AdminController extends Controller
                 [
                     'nama' => $request->nama,
                     'alamat' => $request->alamat,
-                    'no_hp' => $request->no_hp
+                    'kontak' => $request->kontak,
                 ]
             );
             return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');

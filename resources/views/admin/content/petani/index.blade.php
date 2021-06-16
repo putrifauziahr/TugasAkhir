@@ -112,15 +112,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Email</label>
-                        <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan Email">
-                        @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label>Username</label>
+                        <input name="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan Username">
+                        @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
                         <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Password">
-                        @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="form-group">

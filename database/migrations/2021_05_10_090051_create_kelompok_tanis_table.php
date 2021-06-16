@@ -15,7 +15,7 @@ class CreateKelompokTanisTable extends Migration
     {
         Schema::create('kelompok_tanis', function (Blueprint $table) {
             $table->bigIncrements('id_poktan');
-            $table->string('kelompok_tani', 20);
+            $table->string('kelompok_tani', 30);
             $table->timestamps();
         });
     }

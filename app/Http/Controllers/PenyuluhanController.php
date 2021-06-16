@@ -15,6 +15,12 @@ class PenyuluhanController extends Controller
 
     public function tambahPenyuluhan(Request $request)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
         $request->validate([
             'kegiatan' => 'required',
             'tempat' => 'required',
@@ -25,7 +31,7 @@ class PenyuluhanController extends Controller
             'peserta' => 'required',
             'deskripsi' => 'required',
             'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        ], $messages);
 
         // menyimpan data file yang diupload ke variabel $gambar
         $image = $request->file('image');

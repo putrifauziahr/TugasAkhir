@@ -43,9 +43,15 @@ class KelompokTaniController extends Controller
 
     public function postUpdateKelompokTani(Request $request, $id_poktan)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
         $request->validate([
             'kelompok_tani' => 'required'
-        ]);
+        ], $messages);
 
         $update = [
             'kelompok_tani' => $request->kelompok_tani,

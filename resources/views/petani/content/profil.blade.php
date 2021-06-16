@@ -51,18 +51,18 @@
                         {{csrf_field()}}
 
                         <div class="form-group">
-                            <label class="col-md-3">Nama</label>
+                            <label class="col-md-3">Username</label>
                             <div class="col-md-12">
-                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
+                                <input disabled type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->username}}">
                                 @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Email</label>
+                            <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
-                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$petani->email}}">
-                                @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
+                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
@@ -95,9 +95,9 @@
 
 
                         <div class="form-group">
-                            <div class="col-sm-12 d-flex">
-                                <button class="btn btn-success mx-auto mx-md-0 text-white">Update
-                                    Profile</button>
+                            <div class="col-sm-4">
+                                <button class="btn btn-info mx-auto mx-md-0 text-white">Update Profile</button>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="/petani/dashboard">Back</a>
                             </div>
                         </div>
                     </form>

@@ -52,6 +52,14 @@
                         {{csrf_field()}}
 
                         <div class="form-group">
+                            <label class="col-md-3">Username</label>
+                            <div class="col-md-12">
+                                <input disabled type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$admin->username}}">
+                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
                                 <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$admin->nama}}">
@@ -60,26 +68,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Email</label>
-                            <div class="col-md-12">
-                                <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{$admin->email}}">
-                                @error('email')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label class="col-md-3">Alamat</label>
                             <div class="col-md-12">
                                 <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" value="{{$admin->alamat}}">
-                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                @error('alamat')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3">Kontak</label>
                             <div class="col-md-12">
-                                <input name="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" value="{{$admin->no_hp}}">
-                                @error('no_hp')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input name="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$admin->kontak}}">
+                                @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
@@ -97,11 +97,12 @@
 
 
                         <div class="form-group">
-                            <div class="col-sm-12 d-flex">
-                                <button class="btn btn-success mx-auto mx-md-0 text-white">Update
-                                    Profile</button>
+                            <div class="col-sm-4">
+                                <button class="btn btn-info mx-auto mx-md-0 text-white">Update Profile</button>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="/admin/dashboard">Back</a>
                             </div>
                         </div>
+
                     </form>
                 </div>
                 @endsection

@@ -59,10 +59,16 @@ class KuisionerController extends Controller
 
     public function postUpdateKuisioner(Request $request, $id_kuis)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
         $request->validate([
             'pertanyaan' => 'required',
             'id_kategori' => 'required',
-        ]);
+        ], $messages);
 
         $update = [
             'pertanyaan' => $request->pertanyaan,

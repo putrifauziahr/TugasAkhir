@@ -83,11 +83,11 @@
                                 </div>
                                 <hr />
                                 <div class="input-group">
-                                    <input name="nama" type="text" class="form-control" placeholder="Masukan Nama">
+                                    <input name="nama" type="text" class="form-control" placeholder="Masukan Nama Lengkap">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
-                                    <input name="email" type="text" class="form-control" placeholder="Masukan Email">
+                                    <input name="username" type="text" class="form-control" placeholder="Masukan Username">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">

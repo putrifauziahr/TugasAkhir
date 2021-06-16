@@ -15,10 +15,10 @@ class CreatePenyuluhansTable extends Migration
     {
         Schema::create('penyuluhans', function (Blueprint $table) {
             $table->bigIncrements('id_penyuluhan');
-            $table->string('kegiatan');
-            $table->string('tempat');
+            $table->text('kegiatan');
+            $table->text('tempat');
             $table->string('hari', 10);
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->string('jam', 30);
             $table->string('pemateri', 50);
             $table->string('peserta', 50);

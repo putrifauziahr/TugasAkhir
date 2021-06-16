@@ -15,7 +15,7 @@ class CreateFuzzyfikasiTable extends Migration
     {
         Schema::create('fuzzyfikasi', function (Blueprint $table) {
             $table->bigIncrements('id_fuzzy');
-            $table->bigInteger('id_hasil', 20);
+            $table->bigInteger('id_hasil')->length(20);
             $table->string('batasBawahHarapan', 12);
             $table->string('batasTengahHarapan', 12);
             $table->string('batasAtasHarapan', 12);
