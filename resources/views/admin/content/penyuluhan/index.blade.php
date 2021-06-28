@@ -164,6 +164,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" class="form-control @error('status') is-invalid @enderror">
+                            <option>Pilih</option>
+                            <option value="Belum Dilaksanakan">Belum Dilaksanakan</option>
+                            <option value="Sedang Dilaksanakan">Sedang Dilaksanakan</option>
+                            <option value="Sudah Dilaksanakan">Sudah Dilaksanakan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Image</label>
                         <input name="image" type="file" class="form-control">
                     </div>

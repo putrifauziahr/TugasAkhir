@@ -115,6 +115,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Status</label>
+                            <div class="col-md-12">
+                                <select name="status" class="form-control">
+                                    <option>{{$penyuluhan->status}}</option>
+                                    <option value="Belum Dilaksanakan">Belum Dilaksanakan</option>
+                                    <option value="Sedang Dilaksanakan">Sedang Dilaksanakan</option>
+                                    <option value="Sudah Dilaksanakan">Sudah Dilaksanakan</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3">Image</label>
                             <div class="col-md-5">
                                 <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">

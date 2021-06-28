@@ -2,7 +2,9 @@
 //controller petani untuk halaman dashboard petani
 namespace App\Http\Controllers;
 
+use App\model\HasilKuisioner;
 use App\model\Kuisioner;
+use App\model\Penyuluhan;
 use App\model\Petani;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -79,10 +81,34 @@ class UserPetaniController extends Controller
     {
         return view('petani/content/index');
     }
-
+    //====================================================================================================//
     public function showKuisioner()
     {
         $kuiss = Kuisioner::all();
-        return view('petani/content/kuisioner/index', compact('kuiss'));
+        $penyuluhan = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->get();
+        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan'));
+    }
+
+    public function postTambahKuisioner(Request $request)
+    {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'id_penyuluhan' => 'required',
+            'id_petani' => 'required',
+            'jawaban_har' => 'required',
+            'jawaban_per' => 'required'
+        ], $messages);
+
+        $post = new HasilKuisioner();
+        $post->id_penyuluhan = $request->id_penyuluhan;
+        $post->id_petani = $request->id_petani;
+        $post->jawaban_har = $request->jawaban_har;
+        $post->jawaban_per = $request->jawaban_per;
+        $post->save();
+        return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
     }
 }

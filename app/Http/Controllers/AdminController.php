@@ -84,6 +84,7 @@ class AdminController extends Controller
             DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
                 [
                     'nama' => $request->nama,
+                    'username' => $request->username,
                     'alamat' => $request->alamat,
                     'kontak' => $request->kontak,
                     'image' => $name
@@ -94,6 +95,7 @@ class AdminController extends Controller
             DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
                 [
                     'nama' => $request->nama,
+                    'username' => $request->username,
                     'alamat' => $request->alamat,
                     'kontak' => $request->kontak,
                 ]

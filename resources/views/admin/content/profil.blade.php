@@ -48,22 +48,35 @@
                     <div class="card-header">
                         <h5>Data Petani</h5>
                     </div>
+
+                    <center class="m-t-30">
+                        <a href="{{ url('/profilAdmin/'. $admin->image) }}" data-fancybox="gal">
+                            @if($admin->image != null)
+                            <img src="{{ url('/profilAdmin/'. $admin->image) }}" alt="Image" class="img-circle" style="height: 200px; width:200px">
+                            @else
+                            <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                            @endif
+                            <h6 class="card-title m-t-10">{{ $admin->username }}</h6>
+                        </a>
+                    </center>
+
                     <form class="form-horizontal form-material" action="/admin/postUpdateProfil/{{$admin->id_admin}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
 
-                        <div class="form-group">
-                            <label class="col-md-3">Username</label>
-                            <div class="col-md-12">
-                                <input disabled type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$admin->username}}">
-                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
                                 <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$admin->nama}}">
                                 @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Username</label>
+                            <div class="col-md-12">
+                                <input name="username" type="text" class="form-control @error('username') is-invalid @enderror" value="{{$admin->username}}">
+                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
@@ -87,10 +100,6 @@
                             <label class="col-md-3">Image</label>
                             <div class="col-md-5">
                                 <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
-                                <a href="{{ url('/profilAdmin/'. $admin->image) }}" data-fancybox="gal">
-                                    <img src="{{ url('/profilAdmin/'. $admin->image) }}" alt="Image" class="img-fluid" style="height: 250px; width:250px">
-                                    @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                </a>
                             </div>
                         </div>
 

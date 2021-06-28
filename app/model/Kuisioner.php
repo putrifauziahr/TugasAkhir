@@ -10,6 +10,7 @@ class Kuisioner extends Model
     protected $table = "kuisioners";
     protected $primaryKey = "id_kuis";
 
+    //ID_KATEGORI BERELASI DENGAN ID_KATEGORI TABEL KATEGORI (BERGANTUNG)
     public function Kategoris()
     {
         return $this->belongsTo('App\Model\Kategori', 'id_kategori');

@@ -97,6 +97,23 @@
                                     <i class="ti-fullscreen"></i>
                                 </a>
                             </li>
+
+                            <li>
+                                <span id="tanggalwaktu"></span>
+                                <script>
+                                    var tw = new Date();
+                                    if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
+                                    else(a = tw.getTime());
+                                    tw.setTime(a);
+                                    var tahun = tw.getFullYear();
+                                    var hari = tw.getDay();
+                                    var bulan = tw.getMonth();
+                                    var tanggal = tw.getDate();
+                                    var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
+                                    var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
+                                    document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] + " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ? "0" : "") + tw.getMinutes() + (" W.I.B ");
+                                </script>
+                            </li>
                         </ul>
                         <ul class="nav-right">
                             <li class="user-profile header-notification">

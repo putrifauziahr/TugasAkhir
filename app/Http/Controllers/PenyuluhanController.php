@@ -30,6 +30,7 @@ class PenyuluhanController extends Controller
             'pemateri' => 'required',
             'peserta' => 'required',
             'deskripsi' => 'required',
+            'status' => 'required',
             'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ], $messages);
 
@@ -47,6 +48,7 @@ class PenyuluhanController extends Controller
             'pemateri' => $request->pemateri,
             'peserta' => $request->peserta,
             'deskripsi' => $request->deskripsi,
+            'status' => $request->status,
             'image' => $nama_image,
         ]);
         return redirect('admin/showPenyuluhan')->with('alert', 'Data Penyuluhan Berhasil ditambah');
@@ -84,7 +86,8 @@ class PenyuluhanController extends Controller
             'jam' => 'required',
             'pemateri' => 'required',
             'peserta' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'status' => 'required'
         ], $messages);
 
         $update = [
@@ -96,6 +99,7 @@ class PenyuluhanController extends Controller
             'pemateri' => $request->pemateri,
             'peserta' => $request->peserta,
             'deskripsi' => $request->deskripsi,
+            'status' => $request->status,
         ];
 
 
@@ -114,6 +118,7 @@ class PenyuluhanController extends Controller
         $update['pemateri'] = $request->get('pemateri');
         $update['peserta'] = $request->get('peserta');
         $update['deskripsi'] = $request->get('deskripsi');
+        $update['status'] = $request->get('status');
         Penyuluhan::where('id_penyuluhan', $id_penyuluhan)->update($update);
         return redirect('admin/showPenyuluhan')->with('alert', 'Data Penyuluhan Berhasil diperbarui');
     }

@@ -9,7 +9,7 @@ use App\model\Petani;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('petani/content/beranda/home');
 });
 //Dashboard Admin dan Petani
 
