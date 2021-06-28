@@ -57,7 +57,7 @@
                     </div>
                     <form action="">
                         @foreach($penyuluhan as $pen)
-                        <div class="form-group">
+                        <div class="col-md-12">
                             <select name="id_penyuluhan" class="form-control">
                                 <option value="{{$pen->id_penyuluhan}}">{{$pen->kegiatan}}</option>
                             </select>
