@@ -77,31 +77,28 @@ class AdminController extends Controller
 
     public function postUpdateProfil(Request $request, $id_admin)
     {
-        if ($request->hasFile('image')) {
-            $resorce = $request->file('image');
-            $name   = $resorce->getClientOriginalName();
-            $resorce->move(\base_path() . "/public/profilAdmin/", $name);
-            DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
-                [
-                    'nama' => $request->nama,
-                    'username' => $request->username,
-                    'alamat' => $request->alamat,
-                    'kontak' => $request->kontak,
-                    'image' => $name
-                ]
-            );
-            return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');
-        } else {
-            DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
-                [
-                    'nama' => $request->nama,
-                    'username' => $request->username,
-                    'alamat' => $request->alamat,
-                    'kontak' => $request->kontak,
-                ]
-            );
-            return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');
+        DB::table('admins')->where('id_admin', Session::get('id_admin'))->update(
+            [
+                'nama' => $request->nama,
+                'username' => $request->username,
+                'alamat' => $request->alamat,
+                'kontak' => $request->kontak,
+            ]
+        );
+        return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Profil Berhasil Di Update');
+    }
+
+    public function updateFotoProfil(Request $request, $id_admin)
+    {
+
+        if ($imagee = $request->file('image')) {
+            $destinationPath = 'profilAdmin'; // upload path
+            $nama_image = date('YmdHis') . "." . $imagee->getClientOriginalExtension();
+            $imagee->move($destinationPath, $nama_image);
+            $update['image'] = "$nama_image";
         }
+        Admin::where(['id_admin' => $id_admin])->update($update);
+        return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Foto Profil Berhasil diperbarui');
     }
     //===================================================================================//
     public function dashboard()

@@ -55,44 +55,50 @@
                     <div class="card-header">
                         <h4 class="sub-title" style="font-weight: bold; font-size:20px; text-align:center">Kuisioner</h4>
                     </div>
-                    <form action="">
+                    <form action="/petani/postTambahKuisioner" method="POST">
+                        {{csrf_field()}}
+
+                        <input type="text" name="id_petani" value="{{Session::get('id_petani')}}" hidden>
+
                         @foreach($penyuluhan as $pen)
                         <div class="col-md-12">
-                            <select name="id_penyuluhan" class="form-control">
+                            <select name="id_penyuluhan" class="form-control" hidden>
                                 <option value="{{$pen->id_penyuluhan}}">{{$pen->kegiatan}}</option>
                             </select>
                         </div>
                         @endforeach
-
-                        <input type="text" name="id_petani" value="{{Session::get('id_petani')}}" hidden>
 
                         <?php $no = 0; ?>
                         @foreach($kuiss as $k)
                         <?php $no++; ?>
 
                         <div class="col-md-12">
-                            <input name="{{$k->id_kuis}}" class="form-control" style="font-weight: bold; font-size:15px" value="{{$no}} . {{$k->pertanyaan}}"></input>
+                            <select name="id_kuis" class="form-control">
+                                <option style="font-weight: bold; font-size:15px" value="{{$k->id_kuis}}" hidden>
+                                    {{$no}} . {{$k->pertanyaan}}
+                                </option>
+                            </select>
                         </div>
                         <div class="position-relative form-group ml-3">
                             <div class="form-row ml-3">
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio1{{$no}}" name="jawaban_har{{$no}}" value="1" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio1{{$no}}" name="jawabanhar{{$no}}" value="1" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio1{{$no}}">Sangat Kurang</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio2{{$no}}" name="jawaban_har{{$no}}" value="2" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio2{{$no}}" name="jawabanhar{{$no}}" value="2" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio2{{$no}}">Kurang</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio3{{$no}}" name="jawaban_har{{$no}}" value="3" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio3{{$no}}" name="jawabanhar{{$no}}" value="3" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio3{{$no}}">Cukup Puas</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio4{{$no}}" name="jawaban_har{{$no}}" value="4" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio4{{$no}}" name="jawabanhar{{$no}}" value="4" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio4{{$no}}">Puas</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio5{{$no}}" name="jawaban_har{{$no}}" value="5" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio5{{$no}}" name="jawabanhar{{$no}}" value="5" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio5{{$no}}">Sangat Puas</label>
                                 </div>
                             </div>
@@ -102,23 +108,23 @@
                         <div class="position-relative form-group ml-3">
                             <div class="form-row ml-3">
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio1{{$no}}" name="jawaban_per{{$no}}" value="1" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio1{{$no}}" name="jawabanper{{$no}}" value="1" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio1{{$no}}">Sangat Kurang</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio2{{$no}}" name="jawaban_per{{$no}}" value="2" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio2{{$no}}" name="jawabanper{{$no}}" value="2" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio2{{$no}}">Kurang</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio3{{$no}}" name="jawaban_per{{$no}}" value="3" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio3{{$no}}" name="jawabanper{{$no}}" value="3" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio3{{$no}}">Cukup Puas</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio4{{$no}}" name="jawaban_per{{$no}}" value="4" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio4{{$no}}" name="jawabanper{{$no}}" value="4" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio4{{$no}}">Puas</label>
                                 </div>
                                 <div class="custom-radio custom-control col-md-2">
-                                    <input type="radio" id="exampleCustomRadio5{{$no}}" name="jawaban_per{{$no}}" value="5" class="form-check-input" required>
+                                    <input type="radio" id="exampleCustomRadio5{{$no}}" name="jawabanper{{$no}}" value="5" class="form-check-input" required>
                                     <label class="custom-control-label" for="exampleCustomRadio5{{$no}}">Sangat Puas</label>
                                 </div>
                             </div>

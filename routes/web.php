@@ -97,6 +97,7 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //Profil Admin
     Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
     Route::match(['get', 'post'], 'admin/postUpdateProfil/{id_admin}', 'AdminController@postUpdateProfil')->name('admin/postProfil');
+    Route::match(['get', 'post'], 'admin/updateFotoProfil/{id_admin}', 'AdminController@updateFotoProfil')->name('admin/updateFotoProfil');
 });
 
 
@@ -111,6 +112,8 @@ Route::get('beranda/showkontak', 'UserBerandaController@showKontak')->name('bera
 Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
 
 Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
+Route::post('petani/postTambahKuisioner', 'UserPetaniController@postTambahKuisioner')->name('petani/postTambahKuisioner');
 
 Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
+Route::match(['get', 'post'], 'petani/updateFotoProfil/{id_petani}', 'UserPetaniController@updateFotoProfil')->name('petani/updateFotoProfil');
 Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');

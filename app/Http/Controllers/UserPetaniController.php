@@ -54,31 +54,28 @@ class UserPetaniController extends Controller
 
     public function postUpdateProfil(Request $request, $id_petani)
     {
-        if ($request->hasFile('image')) {
-            $resorce = $request->file('image');
-            $name   = $resorce->getClientOriginalName();
-            $resorce->move(\base_path() . "/public/profilPetani/", $name);
-            DB::table('petanis')->where('id_petani', Session::get('id_petani'))->update(
-                [
-                    'nama' => $request->nama,
-                    'alamat' => $request->alamat,
-                    'kontak' => $request->kontak,
-                    'image' => $name
-                ]
-            );
-            return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Profil Berhasil Di Update');
-        } else {
-            DB::table('petanis')->where('id_petani', Session::get('id_petani'))->update(
-                [
-                    'nama' => $request->nama,
-                    'alamat' => $request->alamat,
-                    'kontak' => $request->kontak,
-                ]
-            );
-            return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Profil Berhasil Di Update');
-        }
+        DB::table('petanis')->where('id_petani', Session::get('id_petani'))->update(
+            [
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'kontak' => $request->kontak,
+            ]
+        );
+        return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Profil Berhasil Di Update');
     }
 
+    public function updateFotoProfil(Request $request, $id_petani)
+    {
+
+        if ($imagee = $request->file('image')) {
+            $destinationPath = 'profilPetani'; // upload path
+            $nama_image = date('YmdHis') . "." . $imagee->getClientOriginalExtension();
+            $imagee->move($destinationPath, $nama_image);
+            $update['image'] = "$nama_image";
+        }
+        Petani::where(['id_petani' => $id_petani])->update($update);
+        return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Foto Profil Berhasil diperbarui');
+    }
 
     //================================PENYULUHAN===================================================================//
     public function showDetailPenyuluhan(Penyuluhan $penyuluhan)
@@ -92,8 +89,9 @@ class UserPetaniController extends Controller
     public function showKuisioner()
     {
         $kuiss = Kuisioner::all();
+        $opsi = DB::table('opsi')->get();
         $penyuluhan = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->get();
-        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan'));
+        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan', 'opsi'));
     }
 
     public function postTambahKuisioner(Request $request)
@@ -104,17 +102,35 @@ class UserPetaniController extends Controller
             'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
         ];
         $this->validate($request, [
-            'id_penyuluhan' => 'required',
             'id_petani' => 'required',
-            'jawaban_har' => 'required',
-            'jawaban_per' => 'required'
+            'id_penyuluhan' => 'required',
+            'id_kuis' => 'required',
+            'jawabanhar1' => 'required',
+            'jawabanhar2' => 'required',
+            'jawabanhar3' => 'required',
+            'jawabanhar4' => 'required',
+            'jawabanhar5' => 'required',
+            'jawabanper1' => 'required',
+            'jawabanper2' => 'required',
+            'jawabanper3' => 'required',
+            'jawabanper4' => 'required',
+            'jawabanper5' => 'required',
         ], $messages);
 
         $post = new HasilKuisioner();
-        $post->id_penyuluhan = $request->id_penyuluhan;
         $post->id_petani = $request->id_petani;
-        $post->jawaban_har = $request->jawaban_har;
-        $post->jawaban_per = $request->jawaban_per;
+        $post->id_penyuluhan = $request->id_penyuluhan;
+        $post->id_kuis = $request->id_kuis;
+        $post->jawabanhar1 = $request->jawabanhar1;
+        $post->jawabanhar2 = $request->jawabanhar2;
+        $post->jawabanhar3 = $request->jawabanhar3;
+        $post->jawabanhar4 = $request->jawabanhar4;
+        $post->jawabanhar5 = $request->jawabanhar5;
+        $post->jawabanper1 = $request->jawabanper1;
+        $post->jawabanper2 = $request->jawabanper2;
+        $post->jawabanper3 = $request->jawabanper3;
+        $post->jawabanper4 = $request->jawabanper4;
+        $post->jawabanper5 = $request->jawabanper5;
         $post->save();
         return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
     }
