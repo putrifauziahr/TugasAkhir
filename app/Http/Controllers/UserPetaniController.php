@@ -43,7 +43,9 @@ class UserPetaniController extends Controller
         $request->session()->flush();
         return redirect('/petani/login');
     }
-    //=============================================================================================//
+
+
+    //=======================PROFIL======================================================================//
     public function showProfil($id_petani)
     {
         $petani = Petani::where('id_petani', $id_petani)->first();
@@ -77,11 +79,16 @@ class UserPetaniController extends Controller
         }
     }
 
-    public function dashboard()
+
+    //================================PENYULUHAN===================================================================//
+    public function showDetailPenyuluhan(Penyuluhan $penyuluhan)
     {
-        return view('petani/content/index');
+        return view('petani/content/detailPenyuluhan', compact('penyuluhan'));
     }
-    //====================================================================================================//
+
+
+
+    //===============================KUISIONER=====================================================================//
     public function showKuisioner()
     {
         $kuiss = Kuisioner::all();

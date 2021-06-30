@@ -46,7 +46,7 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Petani</h5>
+                        <h5>Data Admin</h5>
                     </div>
 
                     <center class="m-t-30">

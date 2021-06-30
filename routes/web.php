@@ -9,13 +9,16 @@ use App\model\Petani;
 
 
 Route::get('/', function () {
-    return view('petani/content/beranda/home');
+    $penyuluhan = Penyuluhan::all();
+    return view('petani/content/beranda/home', compact('penyuluhan'));
 });
+
 //Dashboard Admin dan Petani
 
 Route::get('petani/dashboard', function () {
     if (session('berhasil_login')) {
-        return view('petani.content.index');
+        $penyuluhan = Penyuluhan::all();
+        return view('petani.content.index', compact('penyuluhan'));
     } else {
         return redirect('/petani/login');
     }
@@ -48,6 +51,9 @@ Route::get('logoutPetani', 'UserPetaniController@logout')->name('logoutPetani');
 //Login Petani
 Route::get('petani/login', 'UserPetaniController@login')->name('petani/login');
 Route::post('petani/login', 'UserPetaniController@loginProses')->name('petani/login');
+
+
+//===========ADMIN===============
 
 Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //Kategori
@@ -95,7 +101,16 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
 
 
 //============PETANI==========
+//beranda
+Route::get('beranda/showDetailPenyuluhan/{penyuluhan}', 'UserBerandaController@showDetailPenyuluhan')->name('beranda/showDetailPenyuluhan');
+Route::get('beranda/showTentang', 'UserBerandaController@showTentang')->name('beranda/showTentang');
+Route::get('beranda/showPenyuluhan', 'UserBerandaController@showPenyuluhan')->name('beranda/showPenyuluhan');
+Route::get('beranda/showkontak', 'UserBerandaController@showKontak')->name('beranda/showKontak');
+
+//dashboard
+Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
+
 Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
+
 Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
 Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
-//==========UMUM==========

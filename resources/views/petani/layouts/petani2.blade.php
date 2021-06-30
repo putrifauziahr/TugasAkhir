@@ -75,16 +75,16 @@
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto text-center">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
+                <a class="nav-link" href="{{url('/')}}">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Penyuluhan</a>
+                <a class="nav-link" href="{{route('beranda/showPenyuluhan')}}">Penyuluhan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Tentang</a>
+                <a class="nav-link" href="{{route('beranda/showTentang')}}">Tentang</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Kontak</a>
+                <a class="nav-link" href="{{route('beranda/showKontak')}}">Kontak</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('petani/login')}}">Login</a>
@@ -103,10 +103,13 @@
       <div class="row">
         <div class="col-md-8">
           <ul class="list-inline custom-breadcrumb">
-            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">About Us</a></li>
+            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Beranda</a></li>
             <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
           </ul>
-          <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+          <p class="text-lighten">
+            Balai Penyuluhan Pertanian Kecamatan Gabuswetan, merupakan tempat untuk kegiatan untuk masyarakat kecamatan Gabuswetan
+            mendapatkan pengetahuan mengenai pertanian.
+          </p>
         </div>
       </div>
     </div>
@@ -119,22 +122,6 @@
 
   <!-- footer -->
   <footer>
-    <!-- newsletter -->
-    <div class="newsletter">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
-            <h3 class="text-white">Subscribe Now</h3>
-            <form action="#">
-              <div class="input-wrapper">
-                <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
-                <button type="submit" value="send" class="btn btn-primary">Join</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- footer content -->
     <div class="footer bg-footer section border-bottom">
       <div class="container">
