@@ -27,6 +27,9 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item">
+                                        Dashboard
+                                    </li>
+                                    <li class="breadcrumb-item">
                                         Kuisioner
                                     </li>
                                 </ul>

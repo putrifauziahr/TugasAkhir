@@ -1,34 +1,131 @@
 @extends('petani/layouts/petani')
 
-@section('title', 'Detail Penyuluhan')
+@section('title', 'Dashboard Petani')
 
 @section ('container')
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
-
-                <div class="page-body">
-                    <div class="row">
-                        <!-- card1 start -->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card widget-card-1">
-                                <div class="card-block-small">
-                                    <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
-                                    <span class="text-c-blue f-w-600">{{$penyuluhan->kegiatan}}</span>
-                                    <br>
-                                    <br>
-                                    <div>
-                                        <span class="f-left m-t-10">
-                                            <i class="text-c-blue f-16 icofont icofont-pin m-r-10"></i>
-                                            {{$penyuluhan->status}}
-                                        </span>
-                                        <span class="f-left m-t-10">
-                                            <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>Hari, Tanggal : {{$penyuluhan->hari}} , {{$penyuluhan->tanggal}}
-                                        </span>
-                                    </div>
+                <div class="page-header card">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="page-header-title">
+                                <div class="d-inline">
+                                    <h4>Penyuluhan</h4>
+                                    <span>Dashboard Petani</span>
                                 </div>
                             </div>
                         </div>
-                        <!-- card1 end -->
-                        @endsection
+                        <div class="col-lg-4">
+                            <div class="page-header-breadcrumb">
+                                <ul class="breadcrumb-title">
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html">
+                                            <i class="icofont icofont-home"></i>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Penyuluhan</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Data Penyuluhan</h5>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Nama Kegiatan</label>
+                        <div class="col-md-12">
+                            <input name="kegiatan" type="text" class="form-control @error('kegiatan') is-invalid @enderror" value="{{$penyuluhan->kegiatan}}">
+                            @error('kegiatan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Tempat</label>
+                        <div class="col-md-12">
+                            <input name="tempat" type="text" class="form-control @error('tempat') is-invalid @enderror" value="{{$penyuluhan->tempat}}">
+                            @error('tempat')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Hari</label>
+                        <div class="col-md-12">
+                            <input type="text" value="{{$penyuluhan->hari}}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Tanggal</label>
+                        <div class="col-md-12">
+                            <input name="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" value="{{$penyuluhan->tanggal}}">
+                            @error('tanggal')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Waktu / Jam</label>
+                        <div class="col-md-12">
+                            <input name="jam" type="text" class="form-control @error('jam') is-invalid @enderror" value="{{$penyuluhan->jam}}">
+                            @error('jam')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Pemateri</label>
+                        <div class="col-md-12">
+                            <input name="pemateri" type="text" class="form-control @error('pemateri') is-invalid @enderror" value="{{$penyuluhan->pemateri}}">
+                            @error('pemateri')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Peserta</label>
+                        <div class="col-md-12">
+                            <input name="peserta" type="text" class="form-control @error('peserta') is-invalid @enderror" value="{{$penyuluhan->peserta}}">
+                            @error('peserta')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Deskripsi</label>
+                        <div class="col-md-12">
+                            <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" value="{{$penyuluhan->deskripsi}}">
+                            @error('deskripsi')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Status</label>
+                        <div class="col-md-12">
+                            <input type="text" value="{{$penyuluhan->status}}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Image</label>
+                        <div class="col-md-5">
+                            <a href="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" data-fancybox="gal">
+                                <img src="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" alt="Image" class="img-fluid" style="height: 250px; width:250px">
+                                @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('petani/showPenyuluhan')}}">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

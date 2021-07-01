@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\model\Penyuluhan;
 use Illuminate\Http\Request;
 
 class UserBerandaController extends Controller
 {
     public function showPenyuluhan()
     {
-        return view('petani/content/beranda/penyuluhan');
+        $penyuluhan = Penyuluhan::all();
+        return view('petani/content/beranda/penyuluhan', compact('penyuluhan'));
     }
 
     public function showDetailPenyuluhan()

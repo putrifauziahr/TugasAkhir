@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 Route::get('petani/dashboard', function () {
     if (session('berhasil_login')) {
-        $penyuluhan = Penyuluhan::all();
-        return view('petani.content.index', compact('penyuluhan'));
+        $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
+        $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
+        $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
+        return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
     } else {
         return redirect('/petani/login');
     }
@@ -109,6 +111,7 @@ Route::get('beranda/showPenyuluhan', 'UserBerandaController@showPenyuluhan')->na
 Route::get('beranda/showkontak', 'UserBerandaController@showKontak')->name('beranda/showKontak');
 
 //dashboard
+Route::get('petani/showPenyuluhan', 'UserPetaniController@showPenyuluhan')->name('petani/showPenyuluhan')->middleware('CheckLoginPetani');
 Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
 
 Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');

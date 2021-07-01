@@ -83,7 +83,11 @@ class UserPetaniController extends Controller
         return view('petani/content/detailPenyuluhan', compact('penyuluhan'));
     }
 
-
+    public function showPenyuluhan()
+    {
+        $penyuluhan = Penyuluhan::all();
+        return view('petani/content/showPenyuluhan', compact('penyuluhan'));
+    }
 
     //===============================KUISIONER=====================================================================//
     public function showKuisioner()
