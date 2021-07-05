@@ -1,42 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\model\Kategori;
-use App\model\KelompokTani;
-use App\model\Kuisioner;
 use App\model\Penyuluhan;
-use App\model\Petani;
 
 
 Route::get('/', function () {
     $penyuluhan = Penyuluhan::all();
     return view('petani/content/beranda/home', compact('penyuluhan'));
-});
-
-//Dashboard Admin dan Petani
-
-Route::get('petani/dashboard', function () {
-    if (session('berhasil_login')) {
-        $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
-        $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
-        $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
-        return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
-    } else {
-        return redirect('/petani/login');
-    }
-});
-
-Route::get('admin/dashboard', function () {
-    if (session('berhasil_login')) {
-        $petani = Petani::count();
-        $kategori = Kategori::count();
-        $kuis = Kuisioner::count();
-        $poktan = KelompokTani::count();
-        $penyuluhan = Penyuluhan::count();
-        return view('admin.content.index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan'));
-    } else {
-        return redirect('/admin/login');
-    }
 });
 
 //Login Admin
@@ -58,6 +28,9 @@ Route::post('petani/login', 'UserPetaniController@loginProses')->name('petani/lo
 //===========ADMIN===============
 
 Route::group(['middleware' => ['CheckLoginAdmin']], function () {
+    //dashboard
+    Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
+
     //Kategori
     Route::get('admin/showKategori', 'KategoriController@index')->name('admin/showKategori')->middleware('CheckLoginAdmin');
     Route::post('admin/tambahKategori', 'KategoriController@tambahKategori')->name('admin/tambahKategori');
@@ -108,15 +81,24 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
 Route::get('beranda/showDetailPenyuluhan/{penyuluhan}', 'UserBerandaController@showDetailPenyuluhan')->name('beranda/showDetailPenyuluhan');
 Route::get('beranda/showTentang', 'UserBerandaController@showTentang')->name('beranda/showTentang');
 Route::get('beranda/showPenyuluhan', 'UserBerandaController@showPenyuluhan')->name('beranda/showPenyuluhan');
+Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserBerandaController@showDetailPenyuluhan')->name('beranda/showDetailPenyuluhan');
 Route::get('beranda/showkontak', 'UserBerandaController@showKontak')->name('beranda/showKontak');
 
-//dashboard
-Route::get('petani/showPenyuluhan', 'UserPetaniController@showPenyuluhan')->name('petani/showPenyuluhan')->middleware('CheckLoginPetani');
-Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
+Route::group(['middleware' => ['CheckLoginPetani']], function () {
 
-Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
-Route::post('petani/postTambahKuisioner', 'UserPetaniController@postTambahKuisioner')->name('petani/postTambahKuisioner');
+    //dashboard petani
+    Route::get('petani/dashboard', 'UserPetaniController@dashboard')->name('petani/dashboard');
 
-Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
-Route::match(['get', 'post'], 'petani/updateFotoProfil/{id_petani}', 'UserPetaniController@updateFotoProfil')->name('petani/updateFotoProfil');
-Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
+    //penyuluhan
+    Route::get('petani/showPenyuluhan', 'UserPetaniController@showPenyuluhan')->name('petani/showPenyuluhan')->middleware('CheckLoginPetani');
+    Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
+
+    //kuisioner
+    Route::get('petani/showKuisioner', 'UserPetaniController@showKuisioner')->name('petani/showKuisioner');
+    Route::post('petani/postTambahKuisioner', 'UserPetaniController@postTambahKuisioner')->name('petani/postTambahKuisioner');
+
+    //profil
+    Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
+    Route::match(['get', 'post'], 'petani/updateFotoProfil/{id_petani}', 'UserPetaniController@updateFotoProfil')->name('petani/updateFotoProfil');
+    Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
+});

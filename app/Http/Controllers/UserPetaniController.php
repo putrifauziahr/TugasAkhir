@@ -14,9 +14,30 @@ use Illuminate\Support\Facades\Session;
 class UserPetaniController extends Controller
 {
 
+    public function dashboard()
+    {
+        if (session('berhasil_login')) {
+            $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
+            $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
+            $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
+            return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
+        } else {
+            return redirect('/petani/login');
+        }
+    }
+
+
+    //============================LOGIN=========================================//
     public function login()
     {
-        return view('petani/content/login');
+        if (session('berhasil_login')) {
+            $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
+            $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
+            $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
+            return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
+        } else {
+            return view('petani/content/login');
+        }
     }
 
     public function loginProses(Request $request)
@@ -77,6 +98,7 @@ class UserPetaniController extends Controller
         return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Foto Profil Berhasil diperbarui');
     }
 
+
     //================================PENYULUHAN===================================================================//
     public function showDetailPenyuluhan(Penyuluhan $penyuluhan)
     {
@@ -88,6 +110,7 @@ class UserPetaniController extends Controller
         $penyuluhan = Penyuluhan::all();
         return view('petani/content/showPenyuluhan', compact('penyuluhan'));
     }
+
 
     //===============================KUISIONER=====================================================================//
     public function showKuisioner()
@@ -109,32 +132,16 @@ class UserPetaniController extends Controller
             'id_petani' => 'required',
             'id_penyuluhan' => 'required',
             'id_kuis' => 'required',
-            'jawabanhar1' => 'required',
-            'jawabanhar2' => 'required',
-            'jawabanhar3' => 'required',
-            'jawabanhar4' => 'required',
-            'jawabanhar5' => 'required',
-            'jawabanper1' => 'required',
-            'jawabanper2' => 'required',
-            'jawabanper3' => 'required',
-            'jawabanper4' => 'required',
-            'jawabanper5' => 'required',
+            'jawabanhar' => 'required',
+            'jawabanper' => 'required',
         ], $messages);
 
         $post = new HasilKuisioner();
         $post->id_petani = $request->id_petani;
         $post->id_penyuluhan = $request->id_penyuluhan;
         $post->id_kuis = $request->id_kuis;
-        $post->jawabanhar1 = $request->jawabanhar1;
-        $post->jawabanhar2 = $request->jawabanhar2;
-        $post->jawabanhar3 = $request->jawabanhar3;
-        $post->jawabanhar4 = $request->jawabanhar4;
-        $post->jawabanhar5 = $request->jawabanhar5;
-        $post->jawabanper1 = $request->jawabanper1;
-        $post->jawabanper2 = $request->jawabanper2;
-        $post->jawabanper3 = $request->jawabanper3;
-        $post->jawabanper4 = $request->jawabanper4;
-        $post->jawabanper5 = $request->jawabanper5;
+        $post->jawabanhar = $request->jawabanhar;
+        $post->jawabanper = $request->jawabanper;
         $post->save();
         return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
     }

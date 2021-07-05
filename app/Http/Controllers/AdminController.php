@@ -18,7 +18,16 @@ class AdminController extends Controller
 
     public function login()
     {
-        return view('admin/content/login');
+        if (session('berhasil_login')) {
+            $petani = Petani::count();
+            $kategori = Kategori::count();
+            $kuis = Kuisioner::count();
+            $poktan = KelompokTani::count();
+            $penyuluhan = Penyuluhan::count();
+            return view('admin.content.index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan'));
+        } else {
+            return view('admin/content/login');
+        }
     }
 
     public function loginProses(Request $request)

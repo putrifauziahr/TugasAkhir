@@ -10,7 +10,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="section-title">
                     <h2>Kegiatan Penyuluhan
-                        <small>Ikuti Kegiatan Penyuluhan</small>
+                        <small>Ayo, Ikuti Kegiatan Penyuluhan !</small>
                     </h2>
                 </div>
 
@@ -48,5 +48,82 @@
                 </div>
             </div>
         </div>
+</section>
+
+<section style="padding-top: 5px;" style="background-color: white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2 style="text-align: center;">Materi Penyuluhan
+                        <small>Balai Penyuluhan Pertanian Kecammatan Gabuswetan</small>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>01</span>
+                    <h3>Tanaman Pangan</h3>
+                    <p>
+                    <ul>
+                        <li>
+                            <p>Budidaya Padi Organik dengan Metode SRI</p>
+                        </li>
+                        <li>
+                            <p>Cara Membuat Benih Padi Sendiri</p>
+                        </li>
+                        <li>
+                            <p>Cara Memperbanyak Anakan Padi</p>
+                        </li>
+                        <li>
+                            <p>Cara Mengembalikan Kesuburan Tanah</p>
+                        </li>
+                        <li>
+                            <p>Cara Mengendalikan Hama Sundep</p>
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>02</span>
+                    <h3>Tanaman Holtikultura</h3>
+                    <p>
+                    <ul>
+                        <li>
+                            Budidaya Buah Naga
+                        </li>
+                        <li>
+                            Bibit Cabe Kuat dikala Kemarau
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>03</span>
+                    <h3>Peternakan</h3>
+                    <p>
+                    <ul>
+                        <li>
+                            Fermentasi Jerami Kering Untuk Pakan Ternak
+                        </li>
+                        <li>
+                            Mensiasati Kelangkaan HMT
+                        </li>
+                        <li>
+                            Obat Herbal Untuk Unggas
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 @endsection

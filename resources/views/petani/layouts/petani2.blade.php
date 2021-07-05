@@ -77,7 +77,7 @@
             <div class="caption">
               <div class="container">
                 <div class="col-md-6 col-sm-12">
-                  <h1>BPP Kecamatan Gabuswetan</h1>
+                  <h1>Balai Penyuluhan Pertanian Kecamatan Gabuswetan</h1>
                   <h3>Membantu Masyarakat dalam meningkatkan pengetahuan mengenai pertanian.</h3>
                 </div>
               </div>
