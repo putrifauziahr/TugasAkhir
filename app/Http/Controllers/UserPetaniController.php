@@ -88,6 +88,15 @@ class UserPetaniController extends Controller
 
     public function updateFotoProfil(Request $request, $id_petani)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
+        $request->validate([
+            'image' => 'required',
+        ], $messages);
 
         if ($imagee = $request->file('image')) {
             $destinationPath = 'profilPetani'; // upload path
@@ -141,28 +150,13 @@ class UserPetaniController extends Controller
                 'id_petani' => $request->id_petani,
                 'id_penyuluhan' => $request->id_penyuluhan,
                 'id_kuis' => $request->id_kuis[$i],
-                'jawabanhar' => $request->jawabanhar[$i],
                 'jawabanper' => $request->jawabanper[$i],
+                'jawabanhar' => $request->jawabanhar[$i],
                 'created_at' => $current_date_time,
                 'updated_at' => $current_date_time,
             ];
         }
         HasilKuisioner::insert($answers);
-
-        // $messages = [
-        //     'required' => ':attribute wajib diisi !!!',
-        //     'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
-        //     'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
-        // ];
-
-
-        // $post = new HasilKuisioner();
-        // $post->id_petani = $request->id_petani;
-        // $post->id_penyuluhan = $request->id_penyuluhan;
-        // $post->id_kuis = $request->id_kuis;
-        // $post->jawabanper = $request->jawabanper;
-        // $post->jawabanhar = $request->jawabanhar;
-        // $post->save();
         return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
     }
 }

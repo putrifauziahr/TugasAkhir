@@ -83,23 +83,23 @@
                             <div class="position-relative form-group ml-3">
                                 <div class="form-row ml-3">
                                     <div class="custom-radio custom-control col-md-2">
-                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanperA}}" class="form-check-input" required>
+                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanA}}" class="form-check-input" required>
                                         <label class="custom-control-label">Sangat Kurang</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
-                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanperB}}" class="form-check-input" required>
+                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanB}}" class="form-check-input" required>
                                         <label class="custom-control-label">Kurang</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
-                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanperC}}" class="form-check-input" required>
+                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanC}}" class="form-check-input" required>
                                         <label class="custom-control-label">Cukup Puas</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
-                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanperD}}" class="form-check-input" required>
+                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanD}}" class="form-check-input" required>
                                         <label class="custom-control-label">Puas</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
-                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanperE}}" class="form-check-input" required>
+                                        <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanE}}" class="form-check-input" required>
                                         <label class="custom-control-label">Sangat Puas</label>
                                     </div>
                                 </div>
@@ -130,8 +130,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <input name="created_at[<?= $i ?>]" type="time" hidden>
-                            <input name="updated_at[<?= $i ?>]" type="time" hidden>
+                            <input name="created_at[<?= $i ?>]" hidden>
+                            <input name="updated_at[<?= $i ?>]" hidden>
                         <?php $i++;
                         } ?>
                         <div class="form-group">

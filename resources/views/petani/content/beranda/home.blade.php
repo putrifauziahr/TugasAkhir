@@ -4,7 +4,7 @@
 
 @section ('container')
 <!-- Courses -->
-<section id="courses">
+<section id="courses" style="padding-top: 50px;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">

@@ -166,6 +166,7 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select name="status" class="form-control @error('status') is-invalid @enderror">
+                            @error('status') <div class="invalid-feedback">{{$message}}</div> @enderror
                             <option>Pilih</option>
                             <option value="Belum Dilaksanakan">Belum Dilaksanakan</option>
                             <option value="Sedang Dilaksanakan">Sedang Dilaksanakan</option>
@@ -175,7 +176,8 @@
 
                     <div class="form-group">
                         <label>Image</label>
-                        <input name="image" type="file" class="form-control">
+                        <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
+                        @error('image') <div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="modal-footer">

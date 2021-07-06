@@ -69,7 +69,8 @@
                                     {{csrf_field()}}
                                     <div class="form-group alert-up-pd">
                                         <div class="form-group">
-                                            <input name="image" type="file" class="form-control">
+                                            <input name="image" type="file" class="form-control @error('image') is-invalid @enderror">
+                                            @error('image')<div class="invalid-feedback">{{$message}}</div> @enderror
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12 d-flex">

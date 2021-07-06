@@ -49,7 +49,7 @@ class AdminController extends Controller
         }
     }
 
-    //====================================================================================//
+    //====================REGISTER================================================================//
 
     public function register()
     {
@@ -77,7 +77,7 @@ class AdminController extends Controller
         return redirect('/admin/login');
     }
 
-    //===================================================================================//
+    //==========================PROFIL=========================================================//
     public function showProfil($id_admin)
     {
         $admin = Admin::where('id_admin', $id_admin)->first();
@@ -99,6 +99,15 @@ class AdminController extends Controller
 
     public function updateFotoProfil(Request $request, $id_admin)
     {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+
+        $request->validate([
+            'image' => 'required',
+        ], $messages);
 
         if ($imagee = $request->file('image')) {
             $destinationPath = 'profilAdmin'; // upload path
@@ -109,7 +118,7 @@ class AdminController extends Controller
         Admin::where(['id_admin' => $id_admin])->update($update);
         return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Foto Profil Berhasil diperbarui');
     }
-    //===================================================================================//
+    //==========================DASHBOARD=========================================================//
     public function dashboard()
     {
         $petani = Petani::count();

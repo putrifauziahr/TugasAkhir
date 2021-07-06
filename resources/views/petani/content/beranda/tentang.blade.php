@@ -3,7 +3,7 @@
 @section('title', 'Tentang Kami')
 
 @section ('container')
-<section id="about">
+<section id="about" style="padding-top: 50px;">
     <div class="container">
         <div class="row">
 

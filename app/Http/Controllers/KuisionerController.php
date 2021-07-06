@@ -34,11 +34,6 @@ class KuisionerController extends Controller
             'pilihanC' => 'required',
             'pilihanD' => 'required',
             'pilihanE' => 'required',
-            'pilihanperA' => 'required',
-            'pilihanperB' => 'required',
-            'pilihanperC' => 'required',
-            'pilihanperD' => 'required',
-            'pilihanperE' => 'required',
         ], $messages);
 
         $post = new Kuisioner();
@@ -49,11 +44,6 @@ class KuisionerController extends Controller
         $post->pilihanC = $request->pilihanC;
         $post->pilihanD = $request->pilihanD;
         $post->pilihanE = $request->pilihanE;
-        $post->pilihanperA = $request->pilihanperA;
-        $post->pilihanperB = $request->pilihanperB;
-        $post->pilihanperC = $request->pilihanperC;
-        $post->pilihanperD = $request->pilihanperD;
-        $post->pilihanperE = $request->pilihanperE;
         $post->save();
         return redirect('admin/showKuisioner')->with('alert', 'Data Kuisioner Berhasil ditambah');
     }

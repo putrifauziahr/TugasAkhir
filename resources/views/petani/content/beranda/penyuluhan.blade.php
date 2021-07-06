@@ -4,7 +4,7 @@
 
 @section ('container')
 <!-- Courses -->
-<section id="courses">
+<section id="courses" style="padding-top: 50px;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -38,7 +38,7 @@
 
                                 <div class="courses-info">
                                     <div class="courses-price">
-                                        <a href="#"><span>Lihat Selengkapnya</span></a>
+                                        <a href="/beranda/showDetailPenyuluhan/{{$pen->id_penyuluhan}}"><span>Lihat Selengkapnya</span></a>
                                     </div>
                                 </div>
                             </div>

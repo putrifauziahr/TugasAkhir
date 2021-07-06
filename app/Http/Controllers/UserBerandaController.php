@@ -13,9 +13,9 @@ class UserBerandaController extends Controller
         return view('petani/content/beranda/penyuluhan', compact('penyuluhan'));
     }
 
-    public function showDetailPenyuluhan()
+    public function showDetailPenyuluhan(Penyuluhan $penyuluhan)
     {
-        return view('petani/content/beranda/penyuluhan');
+        return view('petani/content/beranda/penyuluhanDetail', compact('penyuluhan'));
     }
 
     public function showKontak()
