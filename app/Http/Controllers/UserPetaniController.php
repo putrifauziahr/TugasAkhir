@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Ramsey\Uuid\Codec\TimestampLastCombCodec;
 
 class UserPetaniController extends Controller
 {
@@ -116,21 +117,34 @@ class UserPetaniController extends Controller
     public function showKuisioner()
     {
         $kuiss = Kuisioner::all();
-        $opsi = DB::table('opsi')->get();
+        $kuisss = Kuisioner::all();
         $penyuluhan = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->get();
-        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan', 'opsi'));
+        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan', 'kuisss'));
     }
 
     public function postTambahKuisioner(Request $request)
     {
+        $this->validate($request, [
+            'id_petani' => 'required',
+            'id_penyuluhan' => 'required',
+            'id_kuis' => 'required',
+            'jawabanper' => 'required',
+            'jawabanhar' => 'required',
+        ]);
 
-        for ($i = 1; $i < count($request->jawabanper); $i++) {
+        $kuiss =  Kuisioner::all();
+        $jumlah_dipilih = count($kuiss);
+        $current_date_time = date('Y-m-d H:i:s');
+
+        for ($i = 1; $i <= $jumlah_dipilih; $i++) {
             $answers[] = [
                 'id_petani' => $request->id_petani,
                 'id_penyuluhan' => $request->id_penyuluhan,
-                'id_kuis' => $request->id_kuis,
+                'id_kuis' => $request->id_kuis[$i],
                 'jawabanhar' => $request->jawabanhar[$i],
                 'jawabanper' => $request->jawabanper[$i],
+                'created_at' => $current_date_time,
+                'updated_at' => $current_date_time,
             ];
         }
         HasilKuisioner::insert($answers);
@@ -140,13 +154,7 @@ class UserPetaniController extends Controller
         //     'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
         //     'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
         // ];
-        // $this->validate($request, [
-        //     'id_petani' => 'required',
-        //     'id_penyuluhan' => 'required',
-        //     'id_kuis' => 'required',
-        //     'jawabanper' => 'required',
-        //     'jawabanhar' => 'required',
-        // ], $messages);
+
 
         // $post = new HasilKuisioner();
         // $post->id_petani = $request->id_petani;
