@@ -123,26 +123,38 @@ class UserPetaniController extends Controller
 
     public function postTambahKuisioner(Request $request)
     {
-        $messages = [
-            'required' => ':attribute wajib diisi !!!',
-            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
-            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
-        ];
-        $this->validate($request, [
-            'id_petani' => 'required',
-            'id_penyuluhan' => 'required',
-            'id_kuis' => 'required',
-            'jawabanhar' => 'required',
-            'jawabanper' => 'required',
-        ], $messages);
 
-        $post = new HasilKuisioner();
-        $post->id_petani = $request->id_petani;
-        $post->id_penyuluhan = $request->id_penyuluhan;
-        $post->id_kuis = $request->id_kuis;
-        $post->jawabanhar = $request->jawabanhar;
-        $post->jawabanper = $request->jawabanper;
-        $post->save();
+        for ($i = 1; $i < count($request->jawabanper); $i++) {
+            $answers[] = [
+                'id_petani' => $request->id_petani,
+                'id_penyuluhan' => $request->id_penyuluhan,
+                'id_kuis' => $request->id_kuis,
+                'jawabanhar' => $request->jawabanhar[$i],
+                'jawabanper' => $request->jawabanper[$i],
+            ];
+        }
+        HasilKuisioner::insert($answers);
+
+        // $messages = [
+        //     'required' => ':attribute wajib diisi !!!',
+        //     'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+        //     'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        // ];
+        // $this->validate($request, [
+        //     'id_petani' => 'required',
+        //     'id_penyuluhan' => 'required',
+        //     'id_kuis' => 'required',
+        //     'jawabanper' => 'required',
+        //     'jawabanhar' => 'required',
+        // ], $messages);
+
+        // $post = new HasilKuisioner();
+        // $post->id_petani = $request->id_petani;
+        // $post->id_penyuluhan = $request->id_penyuluhan;
+        // $post->id_kuis = $request->id_kuis;
+        // $post->jawabanper = $request->jawabanper;
+        // $post->jawabanhar = $request->jawabanhar;
+        // $post->save();
         return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
     }
 }

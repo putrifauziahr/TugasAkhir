@@ -29,11 +29,31 @@ class KuisionerController extends Controller
         $this->validate($request, [
             'pertanyaan' => 'required',
             'id_kategori' => 'required',
+            'pilihanA' => 'required',
+            'pilihanB' => 'required',
+            'pilihanC' => 'required',
+            'pilihanD' => 'required',
+            'pilihanE' => 'required',
+            'pilihanperA' => 'required',
+            'pilihanperB' => 'required',
+            'pilihanperC' => 'required',
+            'pilihanperD' => 'required',
+            'pilihanperE' => 'required',
         ], $messages);
 
         $post = new Kuisioner();
         $post->pertanyaan = $request->pertanyaan;
         $post->id_kategori = $request->id_kategori;
+        $post->pilihanA = $request->pilihanA;
+        $post->pilihanB = $request->pilihanB;
+        $post->pilihanC = $request->pilihanC;
+        $post->pilihanD = $request->pilihanD;
+        $post->pilihanE = $request->pilihanE;
+        $post->pilihanperA = $request->pilihanperA;
+        $post->pilihanperB = $request->pilihanperB;
+        $post->pilihanperC = $request->pilihanperC;
+        $post->pilihanperD = $request->pilihanperD;
+        $post->pilihanperE = $request->pilihanperE;
         $post->save();
         return redirect('admin/showKuisioner')->with('alert', 'Data Kuisioner Berhasil ditambah');
     }

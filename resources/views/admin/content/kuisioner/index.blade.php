@@ -119,6 +119,17 @@
                         </select>
                     </div>
 
+                    <input hidden value="1" name="pilihanA">
+                    <input hidden value="2" name="pilihanB">
+                    <input hidden value="3" name="pilihanC">
+                    <input hidden value="4" name="pilihanD">
+                    <input hidden value="5" name="pilihanE">
+                    <input hidden value="1" name="pilihanperA">
+                    <input hidden value="2" name="pilihanperB">
+                    <input hidden value="3" name="pilihanperC">
+                    <input hidden value="4" name="pilihanperD">
+                    <input hidden value="5" name="pilihanperE">
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
