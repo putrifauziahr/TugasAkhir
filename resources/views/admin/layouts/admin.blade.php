@@ -78,8 +78,11 @@
                         <a class="mobile-search morphsearch-search" href="#">
                             <i class="ti-search"></i>
                         </a>
-                        <a href="index.html">
+                        <a href="{{route('admin/dashboard')}}">
                             <img class="img-fluid" src="{{asset('assets/images/logo.png')}}" alt="Theme-Logo" />
+                            <!-- <span style="padding-left: 40px;">Aplikasi Analisis </span>
+                            <br>
+                            <span style="padding-left: 40px;">Kepuasan Petani</span> -->
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>

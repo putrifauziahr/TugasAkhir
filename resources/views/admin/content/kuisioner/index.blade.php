@@ -90,6 +90,7 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -100,7 +101,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahKuisioner" method="POST">
+                <form onsubmit="return validasi_input(this)" action="/admin/tambahKuisioner" method="POST">
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -113,7 +114,7 @@
                         <label>Kategori Pertanyaan</label>
                         <select name="id_kategori" class="form-control @error('id_kategori') is-invalid @enderror">
                             @error('id_kategori') <div class="invalid-feedback">{{$message}}</div> @enderror
-                            <option>Pilih</option>
+                            <option value="pilih">Pilih</option>
                             @foreach($kategori as $k)
                             <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
                             @endforeach
@@ -134,4 +135,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.pertanyaan.value == "") {
+            alert("Anda belum mengisi Pertanyaan !");
+            return (false);
+        } else if (form.id_kategori.value == "pilih") {
+            alert("Anda belum memilih Kategori!");
+            return (false);
+        }
+        return (true);
+    }
+</script>
+
 @endsection

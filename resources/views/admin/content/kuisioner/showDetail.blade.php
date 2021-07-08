@@ -39,7 +39,7 @@
                     <div class="card-header">
                         <h5>Data Kuisioner</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
+                    <form onsubmit="return validasi_input(this)" class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
                         {{csrf_field()}}
 
                         <div class="form-group">
@@ -54,7 +54,7 @@
                             <label class="col-md-3">Kategori Pertanyaan</label>
                             <div class="col-md-12">
                                 <select name="id_kategori" class="form-control">
-                                    <option>Pilih</option>
+                                    <option value="pilih">Pilih</option>
                                     @foreach($kategori as $k)
                                     <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
                                     @endforeach
@@ -76,5 +76,16 @@
 </div>
 </div>
 </div>
-
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.pertanyaan.value == "") {
+            alert("Anda belum mengisi Pertanyaan !");
+            return (false);
+        } else if (form.id_kategori.value == "pilih") {
+            alert("Anda belum memilih Kategori!");
+            return (false);
+        }
+        return (true);
+    }
+</script>
 @endsection
