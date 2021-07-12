@@ -39,7 +39,7 @@
                     <div class="card-header">
                         <h5>Data Penyuluhan</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdatePenyuluhan/{{$penyuluhan->id_penyuluhan}}" method="POST" enctype="multipart/form-data">
+                    <form onsubmit="return validasi_input(this)" class="form-horizontal form-material" action="/admin/postUpdatePenyuluhan/{{$penyuluhan->id_penyuluhan}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
 
                         <div class="form-group">
@@ -151,5 +151,40 @@
 </div>
 </div>
 </div>
-
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.kegiatan.value == "") {
+            alert("Anda belum mengisi Kegiatan !");
+            return (false);
+        } else if (form.tempat.value == "") {
+            alert("Anda belum mengisi Tempat !");
+            return (false);
+        } else if (form.hari.value == "pilih") {
+            alert("Anda belum mengisi Hari !");
+            return (false);
+        } else if (form.tanggal.value == "") {
+            alert("Anda belum mengisi Tanggal !");
+            return (false);
+        } else if (form.jam.value == "") {
+            alert("Anda belum mengisi Jam !");
+            return (false);
+        } else if (form.pemateri.value == "") {
+            alert("Anda belum mengisi Pemateri !");
+            return (false);
+        } else if (form.peserta.value == "") {
+            alert("Anda belum mengisi Peserta!");
+            return (false);
+        } else if (form.deskripsi.value == "") {
+            alert("Anda belum mengisi Deskripsi!");
+            return (false);
+        } else if (form.status.value == "pilih") {
+            alert("Anda belum mengisi Status !");
+            return (false);
+        } else if (form.image.value == "") {
+            alert("Anda belum mengisi Gambar!");
+            return (false);
+        }
+        return (true);
+    }
+</script>
 @endsection

@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Detail Kelompok Tani')
+@section('title', 'Admin | Detail Desa')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kelompok Tani</h4>
+                                    <h4>Desa</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kelompok Tani</a>
+                                    <li class="breadcrumb-item"><a href="#!">Desa</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,22 +37,32 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kelompok Tani</h5>
+                        <h5>Data Desa</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdateKelompokTani/{{$poktan->id_poktan}}" method="POST" onsubmit="return validasi_input(this)">
+                    <form class="form-horizontal form-material" action="/admin/postUpdateDesa/{{$desa->kode_desa}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}
+
+
                         <div class="form-group">
-                            <label class="col-md-3">Kelompok Tani</label>
+                            <label class="col-md-3">Kode Desa</label>
                             <div class="col-md-3">
-                                <input type="text" name="kelompok_tani" class="form-control @error('kelompok_tani') is-invalid @enderror" value="{{ $poktan->kelompok_tani}}">
-                                @error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input type="text" name="kode_desa" class="form-control @error('kode_desa') is-invalid @enderror" value="{{ $desa->kode_desa}}">
+                                @error('kode_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-4">
+                            <label class="col-md-3">Nama Desa</label>
+                            <div class="col-md-3">
+                                <input type="text" name="nama_desa" class="form-control @error('nama_desa') is-invalid @enderror" value="{{ $desa->nama_desa}}">
+                                @error('nama_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
                                 <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKelompokTani')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKategori')}}">Back</a>
                             </div>
                         </div>
                     </form>
@@ -65,8 +75,11 @@
 </div>
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.kelompok_tani.value == "") {
-            alert("Anda belum mengisi Kelompok Tani !");
+        if (form.kode_desa.value == "") {
+            alert("Anda belum mengisi Kode Desa !");
+            return (false);
+        } else if (form.nama_desa.value == "pilih") {
+            alert("Anda belum memilih Nama Desa !");
             return (false);
         }
         return (true);

@@ -104,7 +104,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahPenyuluhan" method="POST" enctype="multipart/form-data">
+                <form action="/admin/tambahPenyuluhan" method="POST" enctype="multipart/form-data" onsubmit="return validasi_input(this)">
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -122,7 +122,7 @@
                     <div class="form-group">
                         <label>Hari</label>
                         <select name="hari" class="form-control @error('hari') is-invalid @enderror">
-                            <option>Pilih</option>
+                            <option value="pilih">Pilih</option>
                             <option value="Senin">Senin</option>
                             <option value="Selasa">Selasa</option>
                             <option value="Rabu">Rabu</option>
@@ -167,7 +167,7 @@
                         <label>Status</label>
                         <select name="status" class="form-control @error('status') is-invalid @enderror">
                             @error('status') <div class="invalid-feedback">{{$message}}</div> @enderror
-                            <option>Pilih</option>
+                            <option value="pilih">Pilih</option>
                             <option value="Belum Dilaksanakan">Belum Dilaksanakan</option>
                             <option value="Sedang Dilaksanakan">Sedang Dilaksanakan</option>
                             <option value="Sudah Dilaksanakan">Sudah Dilaksanakan</option>
@@ -189,4 +189,41 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.kegiatan.value == "") {
+            alert("Anda belum mengisi Kegiatan !");
+            return (false);
+        } else if (form.tempat.value == "") {
+            alert("Anda belum mengisi Tempat !");
+            return (false);
+        } else if (form.hari.value == "pilih") {
+            alert("Anda belum mengisi Hari !");
+            return (false);
+        } else if (form.tanggal.value == "") {
+            alert("Anda belum mengisi Tanggal !");
+            return (false);
+        } else if (form.jam.value == "") {
+            alert("Anda belum mengisi Jam !");
+            return (false);
+        } else if (form.pemateri.value == "") {
+            alert("Anda belum mengisi Pemateri !");
+            return (false);
+        } else if (form.peserta.value == "") {
+            alert("Anda belum mengisi Peserta!");
+            return (false);
+        } else if (form.deskripsi.value == "") {
+            alert("Anda belum mengisi Deskripsi!");
+            return (false);
+        } else if (form.status.value == "pilih") {
+            alert("Anda belum mengisi Status !");
+            return (false);
+        } else if (form.image.value == "") {
+            alert("Anda belum mengisi Gambar!");
+            return (false);
+        }
+        return (true);
+    }
+</script>
 @endsection

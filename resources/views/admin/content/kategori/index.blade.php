@@ -99,7 +99,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahKategori" method="POST">
+                <form action="/admin/tambahKategori" method="POST" onsubmit="return validasi_input(this)">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="InputNamaAktivitas">Kategori Pertanyaan</label>
@@ -116,4 +116,14 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.kategori.value == "") {
+            alert("Anda belum mengisi Kategori !");
+            return (false);
+        }
+        return (true);
+    }
+</script>
 @endsection

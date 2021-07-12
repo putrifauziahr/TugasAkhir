@@ -157,6 +157,6 @@ class UserPetaniController extends Controller
             ];
         }
         HasilKuisioner::insert($answers);
-        return redirect('petani/showKuisioner')->with('alert', 'Data Kategori Berhasil ditambah');
+        return redirect('petani/showKuisioner')->with('alert', 'Kuisioner Berhasil diisi');
     }
 }

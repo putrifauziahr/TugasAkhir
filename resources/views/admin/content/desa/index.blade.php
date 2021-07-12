@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Kelompok Tani')
+@section('title', 'Admin | Desa')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kelompok Tani</h4>
+                                    <h4>Desa</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kelompok Tani</a>
+                                    <li class="breadcrumb-item"><a href="#!">Desa</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,7 +52,7 @@
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kelompok Tani</h5>
+                        <h5>Data Kategori Pertanyaan</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
@@ -60,20 +60,22 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kelompok Tani</th>
+                                        <th>Kode Desa</th>
+                                        <th>Nama Desa</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($poktan as $a)
+                                    @foreach($desa as $d)
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <td>{{$a->kelompok_tani}}</td>
+                                        <td>{{$d->kode_desa}}</td>
+                                        <td>{{$d->nama_desa}}</td>
                                         <td>
-                                            <a href="/admin/showDetailKelompokTani/{{$a->id_poktan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
-                                            <a href="/admin/hapusKelompokTani/{{$a->id_poktan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                            <a href="/admin/showDetailDesa/{{$d->kode_desa}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusDesa/{{$d->kode_desa}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -89,22 +91,29 @@
 </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" onsubmit="return validasi_input(this)">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelompok Tani</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Desa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahKelompokTani" method="POST" onsubmit="return validasi_input(this)">
+                <form action="/admin/tambahDesa" method="POST" onsubmit="return validasi_input(this)">
                     {{csrf_field()}}
+
                     <div class="form-group">
-                        <label for="InputNamaAktivitas">Nama Kelompok Tani</label>
-                        <input name="kelompok_tani" type="text" class="form-control @error('kelompok_tani') is-invalid @enderror" placeholder="Masukan Kelompok Tani">
-                        @error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label for="InputNamaAktivitas">Kode Desa</label>
+                        <input name="kode_desa" type="text" class="form-control @error('kode_desa') is-invalid @enderror" placeholder="Masukan Kode Desa">
+                        @error('kode_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputNamaAktivitas">Nama Desa</label>
+                        <input name="nama_desa" type="text" class="form-control @error('nama_desa') is-invalid @enderror" placeholder="Masukan Nama Desa">
+                        @error('nama_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="modal-footer">
@@ -119,8 +128,11 @@
 
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.kelompok_tani.value == "") {
-            alert("Anda belum mengisi Kelompok Tani !");
+        if (form.kode_desa.value == "") {
+            alert("Anda belum mengisi Kode Desa !");
+            return (false);
+        } else if (form.nama_desa.value == "pilih") {
+            alert("Anda belum memilih Nama Desa !");
             return (false);
         }
         return (true);

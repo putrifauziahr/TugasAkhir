@@ -15,7 +15,7 @@ class PetaniController extends Controller
     {
         $poktan = KelompokTani::all();
         $petani = DB::table('petanis')
-            ->join('kelompok_tanis', 'petanis.id_poktan', '=', 'petanis.id_poktan')
+            ->join('kelompok_tanis', 'kelompok_tanis.id_poktan', '=', 'petanis.id_poktan')
             ->orderBy('petanis.id_poktan', 'asc')
             ->get();
         return view('admin/content/petani/index', compact('poktan', 'petani'));

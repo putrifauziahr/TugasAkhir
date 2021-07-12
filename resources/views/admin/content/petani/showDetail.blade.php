@@ -39,7 +39,7 @@
                     <div class="card-header">
                         <h5>Data Petani</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdatePetani/{{$petani->id_petani}}" method="POST">
+                    <form class="form-horizontal form-material" action="/admin/postUpdatePetani/{{$petani->id_petani}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}
 
                         <div class="form-group">
@@ -70,7 +70,7 @@
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
                                 <select name="id_poktan" class="form-control">
-                                    <option>{{$petani->id_poktan}}</option>
+                                    <option value="pilih">Pilih</option>
                                     @foreach($poktan as $p)
                                     <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
                                     @endforeach
@@ -93,4 +93,23 @@
 </div>
 </div>
 
+
+<script type="text/javascript">
+    function validasi_input(form) {
+        if (form.nama.value == "") {
+            alert("Anda belum mengisi Nama !");
+            return (false);
+        } else if (form.username.value == "") {
+            alert("Anda belum mengisi Username !");
+            return (false);
+        } else if (form.password.value == "") {
+            alert("Anda belum mengisi Password !");
+            return (false);
+        } else if (form.id_poktan.value == "pilih") {
+            alert("Anda belum mengisi Kelompok Tani !");
+            return (false);
+        }
+        return (true);
+    }
+</script>
 @endsection

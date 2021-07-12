@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\model\KelompokTani;
+use App\model\Petani;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class KelompokTaniController extends Controller
 {
     public function index()
     {
         $poktan = KelompokTani::all();
-        return view('admin/content/kelompokTani/index', compact('poktan'));
+        $total = DB::table('petanis')
+            ->join('kelompok_tanis', 'petanis.id_poktan', '=', 'kelompok_tanis.id_poktan')
+            ->where('kelompok_tanis.id_poktan', '=', 'petanis.id_poktan')->count();
+        return view('admin/content/kelompokTani/index', compact('poktan', 'total'));
     }
 
     public function tambahKelompokTani(Request $request)

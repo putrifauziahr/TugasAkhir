@@ -31,6 +31,13 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //dashboard
     Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
 
+    //Desa
+    Route::get('admin/showDesa', 'DesaController@index')->name('admin/showDesa')->middleware('CheckLoginAdmin');
+    Route::post('admin/tambahDesa', 'DesaController@tambahDesa')->name('admin/tambahDesa');
+    Route::get('admin/hapusDesa/{desa}', 'DesaController@hapusDesa')->name('admin/hapusDesa');
+    Route::get('admin/showDetailDesa/{desa}', 'DesaController@showDetailDesa')->name('guru/showDetailDesa');
+    Route::match(['get', 'post'], 'admin/postUpdateDesa/{kode_desa}', 'DesaController@postUpdateDesa')->name('admin/postUpdateDesa');
+
     //Kategori
     Route::get('admin/showKategori', 'KategoriController@index')->name('admin/showKategori')->middleware('CheckLoginAdmin');
     Route::post('admin/tambahKategori', 'KategoriController@tambahKategori')->name('admin/tambahKategori');
