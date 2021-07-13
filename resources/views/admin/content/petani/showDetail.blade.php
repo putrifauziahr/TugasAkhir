@@ -67,12 +67,37 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Komoditas</label>
+                            <div class="col-md-12">
+                                <select name="komoditas" class="form-control">
+                                    <option>{{$petani->komoditas}}</option>
+                                    <option value="Holtikultura">Holtikultura</option>
+                                    <option value="Tanaman Pangan">Tanamanan Pangan</option>
+                                    <option value="Peternakan">Peternakan</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
                                 <select name="id_poktan" class="form-control">
-                                    <option value="pilih">Pilih</option>
+                                    <option value="{{$petani->id_poktan}}">Pilih</option>
                                     @foreach($poktan as $p)
                                     <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Desa</label>
+                            <div class="col-md-12">
+                                <select name="kode_desa" class="form-control">
+                                    <option value=" {{$petani->kode_desa}}">Pilih</option>
+                                    @foreach($desa as $p)
+                                    <option value="{{ $p -> kode_desa}}">{{$p->desa}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -105,8 +130,14 @@
         } else if (form.password.value == "") {
             alert("Anda belum mengisi Password !");
             return (false);
+        } else if (form.komoditas.value == "pilih") {
+            alert("Anda belum mengisi Komoditas !");
+            return (false);
         } else if (form.id_poktan.value == "pilih") {
             alert("Anda belum mengisi Kelompok Tani !");
+            return (false);
+        } else if (form.kode_desa.value == "pilih") {
+            alert("Anda belum mengisi Desa !");
             return (false);
         }
         return (true);

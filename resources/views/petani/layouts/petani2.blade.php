@@ -11,7 +11,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('/images/logo.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('petani/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('petani/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ asset('petani/css/owl.carousel.css')}}">

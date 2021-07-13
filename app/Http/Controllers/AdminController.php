@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\model\Admin;
+use App\model\Desa;
 use App\model\Kategori;
 use App\model\KelompokTani;
 use App\model\Kuisioner;
@@ -24,7 +25,8 @@ class AdminController extends Controller
             $kuis = Kuisioner::count();
             $poktan = KelompokTani::count();
             $penyuluhan = Penyuluhan::count();
-            return view('admin.content.index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan'));
+            $desa = Desa::count();
+            return view('admin.content.index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
         } else {
             return view('admin/content/login');
         }
@@ -126,6 +128,7 @@ class AdminController extends Controller
         $kuis = Kuisioner::count();
         $poktan = KelompokTani::count();
         $penyuluhan = Penyuluhan::count();
-        return view('admin/content/index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan'));
+        $desa = Desa::count();
+        return view('admin/content/index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
     }
 }

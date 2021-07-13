@@ -72,7 +72,7 @@
                                     <tr>
                                         <th scope="row">{{$no}}</th>
                                         <td>{{$d->kode_desa}}</td>
-                                        <td>{{$d->nama_desa}}</td>
+                                        <td>{{$d->desa}}</td>
                                         <td>
                                             <a href="/admin/showDetailDesa/{{$d->kode_desa}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
                                             <a href="/admin/hapusDesa/{{$d->kode_desa}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
@@ -106,14 +106,14 @@
 
                     <div class="form-group">
                         <label for="InputNamaAktivitas">Kode Desa</label>
-                        <input name="kode_desa" type="text" class="form-control @error('kode_desa') is-invalid @enderror" placeholder="Masukan Kode Desa">
+                        <input name="kode_desa" type="numeric" class="form-control @error('kode_desa') is-invalid @enderror" placeholder="Masukan Kode Desa">
                         @error('kode_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="InputNamaAktivitas">Nama Desa</label>
-                        <input name="nama_desa" type="text" class="form-control @error('nama_desa') is-invalid @enderror" placeholder="Masukan Nama Desa">
-                        @error('nama_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <input name="desa" type="text" class="form-control @error('desa') is-invalid @enderror" placeholder="Masukan Nama Desa">
+                        @error('desa')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="modal-footer">
@@ -131,8 +131,8 @@
         if (form.kode_desa.value == "") {
             alert("Anda belum mengisi Kode Desa !");
             return (false);
-        } else if (form.nama_desa.value == "pilih") {
-            alert("Anda belum memilih Nama Desa !");
+        } else if (form.desa.value == "") {
+            alert("Anda belum mengisi Nama Desa !");
             return (false);
         }
         return (true);

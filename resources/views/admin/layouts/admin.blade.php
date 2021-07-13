@@ -10,7 +10,7 @@
     <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="CodedThemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('/images/logo.png')}}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -79,10 +79,9 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="{{route('admin/dashboard')}}">
-                            <img class="img-fluid" src="{{asset('assets/images/logo.png')}}" alt="Theme-Logo" />
-                            <!-- <span style="padding-left: 40px;">Aplikasi Analisis </span>
+                            <span style="padding-left: 40px; font-weight:bold;">Aplikasi Analisis </span>
                             <br>
-                            <span style="padding-left: 40px;">Kepuasan Petani</span> -->
+                            <span style="padding-left: 40px; font-weight:bold;">Kepuasan Petani</span>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -99,6 +98,22 @@
                                 <a href="#!" onclick="javascript:toggleFullScreen()">
                                     <i class="ti-fullscreen"></i>
                                 </a>
+                            </li>
+                            <li>
+                                <span id="tanggalwaktu"></span>
+                                <script>
+                                    var tw = new Date();
+                                    if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
+                                    else(a = tw.getTime());
+                                    tw.setTime(a);
+                                    var tahun = tw.getFullYear();
+                                    var hari = tw.getDay();
+                                    var bulan = tw.getMonth();
+                                    var tanggal = tw.getDate();
+                                    var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
+                                    var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
+                                    document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] + " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ? "0" : "") + tw.getMinutes() + (" W.I.B ");
+                                </script>
                             </li>
                         </ul>
                         <ul class="nav-right">
@@ -173,6 +188,13 @@
                                             <a href="{{route('admin/showKelompokTani')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kelompok Tani</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('admin/showDesa')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Desa</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>

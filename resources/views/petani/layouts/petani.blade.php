@@ -10,7 +10,7 @@
     <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="CodedThemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('/images/logo.png')}}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -78,8 +78,10 @@
                         <a class="mobile-search morphsearch-search" href="#">
                             <i class="ti-search"></i>
                         </a>
-                        <a href="index.html">
-                            <img class="img-fluid" src="{{asset('assets/images/logo.png')}}" alt="Theme-Logo" />
+                        <a href="{{route('petani/dashboard')}}">
+                            <span style="padding-left: 40px; font-weight:bold;">Aplikasi Analisis </span>
+                            <br>
+                            <span style="padding-left: 40px; font-weight:bold;">Kepuasan Petani</span>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>

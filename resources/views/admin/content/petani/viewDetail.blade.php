@@ -51,6 +51,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Username</label>
+                            <div class="col-md-12">
+                                <input class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
+                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
                                 @foreach ($poktan as $p)
@@ -60,18 +68,28 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Username</label>
+                            <label class="col-md-3">Komoditas</label>
                             <div class="col-md-12">
-                                <input class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
-                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input class="form-control @error('komoditas') is-invalid @enderror" value="{{$petani->komoditas}}">
+                                @error('komoditas')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <label class="col-md-3">Kontak</label>
                             <div class="col-md-12">
                                 <input name="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$petani->kontak}}">
                                 @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Desa</label>
+                            <div class="col-md-12">
+                                @foreach ($desa as $p)
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$p->desa}}">
+                                @endforeach
                             </div>
                         </div>
 

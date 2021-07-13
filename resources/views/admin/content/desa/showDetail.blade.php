@@ -54,15 +54,15 @@
                         <div class="form-group">
                             <label class="col-md-3">Nama Desa</label>
                             <div class="col-md-3">
-                                <input type="text" name="nama_desa" class="form-control @error('nama_desa') is-invalid @enderror" value="{{ $desa->nama_desa}}">
-                                @error('nama_desa')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input type="text" name="desa" class="form-control @error('desa') is-invalid @enderror" value="{{ $desa->desa}}">
+                                @error('desa')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKategori')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showDesa')}}">Back</a>
                             </div>
                         </div>
                     </form>
@@ -78,8 +78,8 @@
         if (form.kode_desa.value == "") {
             alert("Anda belum mengisi Kode Desa !");
             return (false);
-        } else if (form.nama_desa.value == "pilih") {
-            alert("Anda belum memilih Nama Desa !");
+        } else if (form.desa.value == "") {
+            alert("Anda belum mengisi Nama Desa !");
             return (false);
         }
         return (true);
