@@ -29,6 +29,7 @@ class PenyuluhanController extends Controller
             'jam' => 'required',
             'pemateri' => 'required',
             'peserta' => 'required',
+            'komoditas' => 'required',
             'deskripsi' => 'required',
             'status' => 'required',
             'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
@@ -47,6 +48,7 @@ class PenyuluhanController extends Controller
             'jam' => $request->jam,
             'pemateri' => $request->pemateri,
             'peserta' => $request->peserta,
+            'komoditas' => $request->komoditas,
             'deskripsi' => $request->deskripsi,
             'status' => $request->status,
             'image' => $nama_image,
@@ -86,6 +88,7 @@ class PenyuluhanController extends Controller
             'jam' => 'required',
             'pemateri' => 'required',
             'peserta' => 'required',
+            'komoditas' => 'required',
             'deskripsi' => 'required',
             'status' => 'required'
         ], $messages);
@@ -98,6 +101,7 @@ class PenyuluhanController extends Controller
             'jam' => $request->jam,
             'pemateri' => $request->pemateri,
             'peserta' => $request->peserta,
+            'komoditas' => $request->komoditas,
             'deskripsi' => $request->deskripsi,
             'status' => $request->status,
         ];
@@ -117,6 +121,7 @@ class PenyuluhanController extends Controller
         $update['jam'] = $request->get('jam');
         $update['pemateri'] = $request->get('pemateri');
         $update['peserta'] = $request->get('peserta');
+        $update['komoditas'] = $request->get('komoditas');
         $update['deskripsi'] = $request->get('deskripsi');
         $update['status'] = $request->get('status');
         Penyuluhan::where('id_penyuluhan', $id_penyuluhan)->update($update);

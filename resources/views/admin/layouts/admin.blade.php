@@ -99,27 +99,15 @@
                                     <i class="ti-fullscreen"></i>
                                 </a>
                             </li>
-                            <li>
-                                <span id="tanggalwaktu"></span>
-                                <script>
-                                    var tw = new Date();
-                                    if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
-                                    else(a = tw.getTime());
-                                    tw.setTime(a);
-                                    var tahun = tw.getFullYear();
-                                    var hari = tw.getDay();
-                                    var bulan = tw.getMonth();
-                                    var tanggal = tw.getDate();
-                                    var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
-                                    var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
-                                    document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] + " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ? "0" : "") + tw.getMinutes() + (" W.I.B ");
-                                </script>
-                            </li>
                         </ul>
                         <ul class="nav-right">
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="{{ url('images/userr.png') }}" class="img-radius" alt="User-Profile-Image">
+                                    @if(Session::get('image') != null)
+                                    <img src="{{ url('/profilAdmin/'. Session::get('image'))}}" class="img-circle" height="40px" width="50px">
+                                    @else
+                                    <img src="{{url('images/userr.png')}}">
+                                    @endif
                                     <span>Hi, {{Session::get('nama')}} </span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -147,7 +135,11 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="{{ url('images/userr.png') }}" alt="User-Profile-Image">
+                                    @if(Session::get('image') != null)
+                                    <img src="{{ url('/profilAdmin/'. Session::get('image'))}}" class="img-circle" height="40px" width="40px">
+                                    @else
+                                    <img src="{{url('images/userr.png')}}">
+                                    @endif
                                     <div class="user-details">
                                         <span>{{Session::get('username')}}</span>
                                         <span>Admin</span>

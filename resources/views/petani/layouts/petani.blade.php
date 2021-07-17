@@ -120,7 +120,11 @@
                         <ul class="nav-right">
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="{{asset('images/userr.png')}}" class="img-radius" alt="User-Profile-Image">
+                                    @if(Session::get('image') != null)
+                                    <img src="{{ url('/profilPetani/'. Session::get('image'))}}" class="img-circle" height="40px" width="40px">
+                                    @else
+                                    <img src="{{url('images/userr.png')}}">
+                                    @endif
                                     <span>Hi, {{Session::get('nama')}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -148,7 +152,11 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="{{asset('images/userr.png')}}" alt="User-Profile-Image">
+                                    @if(Session::get('image') != null)
+                                    <img src="{{ url('/profilPetani/'. Session::get('image'))}}" class="img-circle" height="40px" width="40px">
+                                    @else
+                                    <img src="{{url('images/userr.png')}}">
+                                    @endif
                                     <div class="user-details">
                                         <span>{{Session::get('username')}}</span>
                                         <span>Petani</span>

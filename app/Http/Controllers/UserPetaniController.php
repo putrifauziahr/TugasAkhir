@@ -2,7 +2,9 @@
 //controller petani untuk halaman dashboard petani
 namespace App\Http\Controllers;
 
+use App\model\Desa;
 use App\model\HasilKuisioner;
+use App\model\KelompokTani;
 use App\model\Kuisioner;
 use App\model\Penyuluhan;
 use App\model\Petani;
@@ -52,6 +54,7 @@ class UserPetaniController extends Controller
                 Session::put('username', $data->username);
                 Session::put('id_petani', $data->id_petani);
                 Session::put('nama', $data->nama);
+                Session::put('image', $data->image);
 
                 session(['berhasil_login' => true]);
                 return redirect('/petani/dashboard');
@@ -71,7 +74,11 @@ class UserPetaniController extends Controller
     public function showProfil($id_petani)
     {
         $petani = Petani::where('id_petani', $id_petani)->first();
-        return view('petani.content.profil', compact('petani'));
+        $poktann = $petani->id_poktan;
+        $desaa = $petani->kode_desa;
+        $desa = Desa::where('kode_desa', '=', $desaa)->get();
+        $poktan = KelompokTani::where('id_poktan', '=', $poktann)->get();
+        return view('petani.content.profil', compact('petani', 'poktan', 'desa'));
     }
 
     public function postUpdateProfil(Request $request, $id_petani)
@@ -79,6 +86,7 @@ class UserPetaniController extends Controller
         DB::table('petanis')->where('id_petani', Session::get('id_petani'))->update(
             [
                 'nama' => $request->nama,
+                'username' => $request->username,
                 'alamat' => $request->alamat,
                 'kontak' => $request->kontak,
             ]
@@ -108,7 +116,18 @@ class UserPetaniController extends Controller
         return redirect()->route('petani/showProfil', $id_petani)->with('alert-success', 'Foto Profil Berhasil diperbarui');
     }
 
-
+    public function updatePassword(Request $request, $id_petani)
+    {
+        $newpassword = $request->newpassword;
+        if ($newpassword === $request->password_confirmation) {
+            DB::table('petanis')->where('id_petani', $id_petani)->update([
+                'password' => Hash::make($request->newpassword),
+            ]);
+            return redirect()->back()->with("alert-success", "Berhasil Ganti Password");
+        } else {
+            return redirect()->back()->with("alert", "Gagal Ganti Password");
+        }
+    }
     //================================PENYULUHAN===================================================================//
     public function showDetailPenyuluhan(Penyuluhan $penyuluhan)
     {

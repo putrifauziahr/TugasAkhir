@@ -43,6 +43,7 @@ class AdminController extends Controller
                 Session::put('username', $data->username);
                 Session::put('id_admin', $data->id_admin);
                 Session::put('nama', $data->nama);
+                Session::put('image', $data->image);
 
                 session(['berhasil_login' => true]);
                 return redirect('/admin/dashboard');
@@ -120,6 +121,20 @@ class AdminController extends Controller
         Admin::where(['id_admin' => $id_admin])->update($update);
         return redirect()->route('admin/showProfil', $id_admin)->with('alert-success', 'Foto Profil Berhasil diperbarui');
     }
+
+
+    public function updatePassword(Request $request, $id_admin)
+    {
+        $newpassword = $request->newpassword;
+        if ($newpassword === $request->password_confirmation) {
+            DB::table('admins')->where('id_admin', $id_admin)->update([
+                'password' => Hash::make($request->newpassword),
+            ]);
+            return redirect()->back()->with("alert-success", "Berhasil Ganti Password");
+        } else {
+            return redirect()->back()->with("alert", "Gagal Ganti Password");
+        }
+    }
     //==========================DASHBOARD=========================================================//
     public function dashboard()
     {
@@ -130,5 +145,10 @@ class AdminController extends Controller
         $penyuluhan = Penyuluhan::count();
         $desa = Desa::count();
         return view('admin/content/index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
+    }
+
+    public function kebutuhanFuzzy()
+    {
+        return view('admin/content/dataFuzzy');
     }
 }

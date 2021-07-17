@@ -30,6 +30,7 @@ Route::post('petani/login', 'UserPetaniController@loginProses')->name('petani/lo
 Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //dashboard
     Route::get('admin/dashboard', 'AdminController@dashboard')->name('admin/dashboard');
+    Route::get('admin/kebutuhanFuzzy', 'AdminController@kebutuhanFuzzy')->name('admin/kebutuhanFuzzy');
 
     //Desa
     Route::get('admin/showDesa', 'DesaController@index')->name('admin/showDesa')->middleware('CheckLoginAdmin');
@@ -80,6 +81,7 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
     Route::match(['get', 'post'], 'admin/postUpdateProfil/{id_admin}', 'AdminController@postUpdateProfil')->name('admin/postProfil');
     Route::match(['get', 'post'], 'admin/updateFotoProfil/{id_admin}', 'AdminController@updateFotoProfil')->name('admin/updateFotoProfil');
+    Route::match(['get', 'post'], 'admin/updatePassword/{id_admin}', 'AdminController@updatePassword')->name('admin/updatePassword');
 });
 
 
@@ -108,4 +110,5 @@ Route::group(['middleware' => ['CheckLoginPetani']], function () {
     Route::get('petani/showProfil/{id_petani}', 'UserPetaniController@showProfil')->name('petani/showProfil');
     Route::match(['get', 'post'], 'petani/updateFotoProfil/{id_petani}', 'UserPetaniController@updateFotoProfil')->name('petani/updateFotoProfil');
     Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
+    Route::match(['get', 'post'], 'petani/updatePassword/{id_petani}', 'UserPetaniController@updatePassword')->name('petani/updatePassword');
 });

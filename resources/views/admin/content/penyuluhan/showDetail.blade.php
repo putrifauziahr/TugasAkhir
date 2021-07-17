@@ -37,7 +37,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Penyuluhan</h5>
+                        <h5>Edit Data Penyuluhan</h5>
                     </div>
                     <form onsubmit="return validasi_input(this)" class="form-horizontal form-material" action="/admin/postUpdatePenyuluhan/{{$penyuluhan->id_penyuluhan}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -103,6 +103,18 @@
                             <div class="col-md-12">
                                 <input name="peserta" type="text" class="form-control @error('peserta') is-invalid @enderror" value="{{$penyuluhan->peserta}}">
                                 @error('peserta')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Komoditas</label>
+                            <div class="col-md-12">
+                                <select name="komoditas" class="form-control">
+                                    <option>{{$penyuluhan->komoditas}}</option>
+                                    <option value="Tanaman Pangan">Tanaman Pangan</option>
+                                    <option value="Holtikultura">Holtikultura</option>
+                                    <option value="Peternakan">Peternakan</option>
+                                </select>
                             </div>
                         </div>
 
@@ -174,14 +186,14 @@
         } else if (form.peserta.value == "") {
             alert("Anda belum mengisi Peserta!");
             return (false);
+        } else if (form.komoditas.value == "pilih") {
+            alert("Anda belum mengisi Komoditas !");
+            return (false);
         } else if (form.deskripsi.value == "") {
             alert("Anda belum mengisi Deskripsi!");
             return (false);
         } else if (form.status.value == "pilih") {
             alert("Anda belum mengisi Status !");
-            return (false);
-        } else if (form.image.value == "") {
-            alert("Anda belum mengisi Gambar!");
             return (false);
         }
         return (true);

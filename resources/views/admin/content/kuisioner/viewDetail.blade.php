@@ -58,6 +58,46 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-md-3">Sangat Kurang</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pilihanA}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Kurang Puas</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pilihanB}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Cukup Puas</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pilihanC}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Puas</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pilihanD}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3">Sangat Puas</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pilihanE}}">
+                            @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <div class="col-md-3">
                             <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKuisioner')}}">Back</a>
                         </div>

@@ -157,6 +157,17 @@
                         @error('peserta')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
+
+                    <div class="form-group">
+                        <label>Komoditas</label>
+                        <select name="komoditas" class="form-control @error('komoditas') is-invalid @enderror">
+                            <option value="pilih">Pilih</option>
+                            <option value="Tanaman Pangan">Tanaman Pangan</option>
+                            <option value="Holtikultura">Holtikultura</option>
+                            <option value="Peternakan">Peternakan</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukan Deskripsi">
@@ -212,6 +223,9 @@
             return (false);
         } else if (form.peserta.value == "") {
             alert("Anda belum mengisi Peserta!");
+            return (false);
+        } else if (form.komoditas.value == "pilih") {
+            alert("Anda belum mengisi Komoditas !");
             return (false);
         } else if (form.deskripsi.value == "") {
             alert("Anda belum mengisi Deskripsi!");

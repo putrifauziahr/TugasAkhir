@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Petani extends Model
 {
-    protected $fillable = ['nama', 'email', 'password', 'id_poktan'];
+    protected $fillable = ['nama', 'username', 'password', 'id_poktan'];
     protected $table = "petanis";
     protected $primaryKey = "id_petani";
 

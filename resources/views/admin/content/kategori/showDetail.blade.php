@@ -37,12 +37,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kategori Pertanyaan</h5>
+                        <h5>Edit Data Kategori Pertanyaan</h5>
                     </div>
                     <form class="form-horizontal form-material" action="/admin/postUpdateKategori/{{$kategori->id_kategori}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label class="col-md-3">Judul</label>
+                            <label class="col-md-3">Kategori</label>
                             <div class="col-md-3">
                                 <input type="text" name="kategori" class="form-control @error('kategori') is-invalid @enderror" value="{{ $kategori->kategori}}">
                                 @error('kategori')<div class="invalid-feedback">{{$message}}</div> @enderror

@@ -37,7 +37,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kelompok Tani</h5>
+                        <h5>Edit Data Kelompok Tani</h5>
                     </div>
                     <form class="form-horizontal form-material" action="/admin/postUpdateKelompokTani/{{$poktan->id_poktan}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}

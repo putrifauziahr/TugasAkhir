@@ -107,6 +107,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Komoditas</label>
+                            <div class="col-md-12">
+                                <input name="peserta" type="text" class="form-control @error('peserta') is-invalid @enderror" value="{{$penyuluhan->komoditas}}">
+                                @error('peserta')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3">Deskripsi</label>
                             <div class="col-md-12">
                                 <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" value="{{$penyuluhan->deskripsi}}">

@@ -37,7 +37,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kuisioner</h5>
+                        <h5>Edit Data Kuisioner</h5>
                     </div>
                     <form onsubmit="return validasi_input(this)" class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
                         {{csrf_field()}}

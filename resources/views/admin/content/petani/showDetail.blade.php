@@ -37,7 +37,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Petani</h5>
+                        <h5>Edit Data Petani</h5>
                     </div>
                     <form class="form-horizontal form-material" action="/admin/postUpdatePetani/{{$petani->id_petani}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}
