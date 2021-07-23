@@ -77,6 +77,12 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     Route::get('admin/showDetailPenyuluhan/{penyuluhan}', 'PenyuluhanController@showDetailPenyuluhan')->name('admin/showDetailPenyuluhan');
     Route::match(['get', 'post'], 'admin/postUpdatePenyuluhan/{id_penyuluhan}', 'PenyuluhanController@postUpdatePenyuluhan')->name('admin/postUpdatePenyuluhan');
 
+    //hasil kuisioner
+    Route::get('admin/showHasilKuis', 'HasilKuisionerController@index')->name('admin/showHasilKuis');
+
+    //fuzzyfikasi
+    Route::post('admin/tambahFuzzyfikasi', 'FuzzyfikasiController@tambah')->name('admin/tambahFuzzyfikasi');
+
     //Profil Admin
     Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
     Route::match(['get', 'post'], 'admin/postUpdateProfil/{id_admin}', 'AdminController@postUpdateProfil')->name('admin/postProfil');

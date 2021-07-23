@@ -40,10 +40,10 @@
                         <h5>Kebutuhan Fuzzy Servqual</h5>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-title" style="font-weight: bold;">Nilai </h6>
+                        <h6 class="card-title" style="font-weight: bold;">Nilai Fuzzy Set </h6>
                         <table>
                             <tr>
-                                <td>Sangat Kurang </td>
+                                <td>Tidak Puas </td>
                                 <td></td>
                                 <td> = </td>
                                 <td>1</td>
@@ -79,8 +79,29 @@
 
                         </table>
                     </div>
-                </div>
 
+                    <div class="card-body">
+                        <h6 class="card-title" style="font-weight: bold;">Jumlah Sampel Berdasarkan Rumus Slovin</h6>
+                        <table>
+                            <tr>
+                                <td>
+                                    Total Sampel
+                                </td>
+                                <td> = </td>
+                                <td>99</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="card-body">
+                        <h6 class="card-title" style="font-weight: bold;">Rumus Fuzzyfikasi </h6>
+                        <table>
+
+                        </table>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>

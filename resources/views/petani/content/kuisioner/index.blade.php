@@ -84,7 +84,7 @@
                                 <div class="form-row ml-3">
                                     <div class="custom-radio custom-control col-md-2">
                                         <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanA}}" class="form-check-input" required>
-                                        <label class="custom-control-label">Sangat Kurang</label>
+                                        <label class="custom-control-label">Tidak Puas</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
                                         <input type="radio" name="jawabanper[<?= $i ?>]" value="{{$k->pilihanB}}" class="form-check-input" required>
@@ -110,7 +110,7 @@
                                 <div class="form-row ml-3">
                                     <div class="custom-radio custom-control col-md-2">
                                         <input type="radio" name="jawabanhar[<?= $i ?>]" value="{{$k->pilihanA}}" class="form-check-input" required>
-                                        <label class="custom-control-label">Sangat Kurang</label>
+                                        <label class="custom-control-label">Tidak Puas</label>
                                     </div>
                                     <div class="custom-radio custom-control col-md-2">
                                         <input type="radio" name="jawabanhar[<?= $i ?>]" value="{{$k->pilihanB}}" class="form-check-input" required>
