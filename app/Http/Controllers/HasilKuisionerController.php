@@ -13,7 +13,7 @@ class HasilKuisionerController extends Controller
         // $hasil = DB::table('hasil_kuisioners')
         //     ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
         //     ->get();
-        $hasil = HasilKuisioner::all();
+        $hasil = HasilKuisioner::paginate(10);
         return view('admin/content/hasilkuis/index', compact('hasil'));
     }
 }

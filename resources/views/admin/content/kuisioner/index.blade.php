@@ -82,6 +82,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            Halaman : {{$kuis->currentPage() }} <br />
+                            Jumlah Data : {{ $kuis->total() }} <br />
+                            Data Per Halaman : {{ $kuis->perPage() }} <br />
+                            {{ $kuis->links() }}
                         </div>
                     </div>
                 </div>

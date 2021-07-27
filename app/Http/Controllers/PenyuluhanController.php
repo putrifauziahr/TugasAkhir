@@ -9,7 +9,7 @@ class PenyuluhanController extends Controller
 {
     public function index()
     {
-        $penyuluhan = Penyuluhan::all();
+        $penyuluhan = Penyuluhan::paginate(10);
         return view('admin/content/penyuluhan/index', compact('penyuluhan'));
     }
 

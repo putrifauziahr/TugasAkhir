@@ -59,18 +59,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Password</label>
-                            <div class="col-md-12">
-                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
-                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label class="col-md-3">Komoditas</label>
                             <div class="col-md-12">
                                 <select name="komoditas" class="form-control">
-                                    <option>{{$petani->komoditas}}</option>
+                                    <option value="{{$petani->komoditas}}">{{$petani->komoditas}}</option>
                                     <option value="Holtikultura">Holtikultura</option>
                                     <option value="Tanaman Pangan">Tanamanan Pangan</option>
                                     <option value="Peternakan">Peternakan</option>
@@ -126,9 +118,6 @@
             return (false);
         } else if (form.username.value == "") {
             alert("Anda belum mengisi Username !");
-            return (false);
-        } else if (form.password.value == "") {
-            alert("Anda belum mengisi Password !");
             return (false);
         } else if (form.komoditas.value == "pilih") {
             alert("Anda belum mengisi Komoditas !");

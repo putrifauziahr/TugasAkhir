@@ -62,6 +62,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Kelompok Tani</th>
+                                        <th>Komoditas</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -73,6 +74,7 @@
                                         <td>{{$no}}</td>
                                         <td>{{$ptn->nama}}</td>
                                         <td>{{$ptn->kelompok_tani}}</td>
+                                        <td>{{$ptn->komoditas}}</td>
                                         <td>
                                             <a href="/admin/viewDetailPetani/{{$ptn->id_petani}}" class="btn btn-success"><i class="ti-pencil-alt"></i>Detail</a>
                                             <a href="/admin/showDetailPetani/{{$ptn->id_petani}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
@@ -82,14 +84,18 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div>
+                                Halaman : {{ $petani->currentPage() }} <br />
+                                Jumlah Data : {{ $petani->total() }} <br />
+                                Data Per Halaman : {{ $petani->perPage() }} <br />
+                                {{ $petani->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,10 +132,10 @@
                     <div class="form-group">
                         <label>Komoditas</label>
                         <select name="komoditas" class="form-control">
-                            <option value="pilih">Pilih</option>
-                            <option value="Holtikultura">Holtikultura</option>
+                            <!-- <option value="pilih">Pilih</option> -->
+                            <!-- <option value="Holtikultura">Holtikultura</option> -->
                             <option value="Tanaman Pangan">Tanamanan Pangan</option>
-                            <option value="Peternakan">Peternakan</option>
+                            <!-- <option value="Peternakan">Peternakan</option> -->
                         </select>
                     </div>
 

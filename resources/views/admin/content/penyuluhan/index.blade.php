@@ -84,6 +84,12 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div>
+                                Halaman : {{ $penyuluhan->currentPage() }} <br />
+                                Jumlah Data : {{ $penyuluhan->total() }} <br />
+                                Data Per Halaman : {{ $penyuluhan->perPage() }} <br />
+                                {{ $penyuluhan->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

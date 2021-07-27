@@ -53,7 +53,14 @@
                 </div>
                 @endif
 
-
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Petunjuk Pengisian !</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>1. </p>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h4 class="sub-title" style="font-weight: bold; font-size:20px; text-align:center">Kuisioner</h4>

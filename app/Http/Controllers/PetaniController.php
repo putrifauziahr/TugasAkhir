@@ -18,8 +18,8 @@ class PetaniController extends Controller
         $desa = Desa::all();
         $petani = DB::table('petanis')
             ->join('kelompok_tanis', 'kelompok_tanis.id_poktan', '=', 'petanis.id_poktan')
-            ->orderBy('petanis.id_poktan', 'asc')
-            ->get();
+            ->orderBy('petanis.nama', 'asc')
+            ->paginate(10);
         return view('admin/content/petani/index', compact('poktan', 'petani', 'desa'));
     }
 
@@ -84,14 +84,14 @@ class PetaniController extends Controller
         $request->validate([
             'nama' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            'komoditas' => 'required',
             'id_poktan' => 'required',
+            'kode_desa' => 'required'
         ], $messages);
 
         $update = [
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => $request->password,
             'komoditas' => $request->komoditas,
             'id_poktan' => $request->id_poktan,
             'kode_desa' => $request->kode_desa,
@@ -99,7 +99,6 @@ class PetaniController extends Controller
 
         $update['nama'] = $request->get('nama');
         $update['username'] = $request->get('username');
-        $update['password'] = Hash::make($request->password);
         $update['komoditas'] = $request->get('komoditas');
         $update['id_poktan'] = $request->get('id_poktan');
         $update['kode_desa'] = $request->get('kode_desa');

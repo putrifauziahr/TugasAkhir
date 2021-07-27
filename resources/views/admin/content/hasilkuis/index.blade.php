@@ -52,14 +52,14 @@
                 <form action="/admin/tambahFuzzyfikasi" method="POST">
                     {{csrf_field()}}
                     @foreach($hasil as $a)
-                    <input type="text" name="id_hasil" value="{{$a->id_hasil}}" hidden>
+                    <input type="text" name="id_hasil[]" value="{{$a->id_hasil}}" hidden>
                     @endforeach
-                    <input type="text" name="batasBawahHarapan" hidden>
-                    <input type="text" name="batasTengahHarapan" hidden>
-                    <input type="text" name="batasAtasHarapan" hidden>
-                    <input type="text" name="batasBawahPersepsi" hidden>
-                    <input type="text" name="batasTengahPersepsi" hidden>
-                    <input type="text" name="batasAtasPersepsi" hidden>
+                    <input type="text" name="batasBawahHarapan[]" hidden>
+                    <input type="text" name="batasTengahHarapan[]" hidden>
+                    <input type="text" name="batasAtasHarapan[]" hidden>
+                    <input type="text" name="batasBawahPersepsi[]" hidden>
+                    <input type="text" name="batasTengahPersepsi[]" hidden>
+                    <input type="text" name="batasAtasPersepsi[]" hidden>
                     <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i>Proses Fuzzyfikasi</button>
 
                 </form>
@@ -95,6 +95,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            Halaman : {{$hasil->currentPage() }} <br />
+                            Jumlah Data : {{$hasil->total() }} <br />
+                            Data Per Halaman : {{ $hasil->perPage() }} <br />
+                            {{ $hasil->links() }}
                         </div>
                     </div>
                 </div>

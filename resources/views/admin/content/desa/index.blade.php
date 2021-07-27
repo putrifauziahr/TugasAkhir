@@ -81,6 +81,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            Halaman : {{$desa->currentPage() }} <br />
+                            Jumlah Data : {{$desa->total() }} <br />
+                            Data Per Halaman : {{ $desa->perPage() }} <br />
+                            {{ $desa->links() }}
                         </div>
                     </div>
                 </div>
