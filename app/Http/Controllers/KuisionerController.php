@@ -15,7 +15,7 @@ class KuisionerController extends Controller
         $kuis = DB::table('kuisioners')
             ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
             ->orderBy('kuisioners.id_kategori', 'asc')
-            ->paginate(5);
+            ->get();
         return view('admin/content/kuisioner/index', compact('kategori', 'kuis'));
     }
 

@@ -56,7 +56,7 @@
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="kuisioner-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -82,10 +82,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            Halaman : {{$kuis->currentPage() }} <br />
-                            Jumlah Data : {{ $kuis->total() }} <br />
-                            Data Per Halaman : {{ $kuis->perPage() }} <br />
-                            {{ $kuis->links() }}
                         </div>
                     </div>
                 </div>
@@ -154,3 +150,11 @@
 </script>
 
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#kuisioner-table').DataTable();
+    });
+</script>
+@endpush

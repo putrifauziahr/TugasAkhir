@@ -12,7 +12,7 @@ class KelompokTaniController extends Controller
 {
     public function index()
     {
-        $poktan = KelompokTani::paginate(5);
+        $poktan = KelompokTani::orderby('kelompok_tani', 'asc')->get();
         $total = DB::table('petanis')
             ->join('kelompok_tanis', 'petanis.id_poktan', '=', 'kelompok_tanis.id_poktan')
             ->where('kelompok_tanis.id_poktan', '=', 'petanis.id_poktan')->count();

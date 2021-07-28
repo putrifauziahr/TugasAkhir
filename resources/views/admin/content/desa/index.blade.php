@@ -56,7 +56,7 @@
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="desa-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -81,10 +81,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            Halaman : {{$desa->currentPage() }} <br />
-                            Jumlah Data : {{$desa->total() }} <br />
-                            Data Per Halaman : {{ $desa->perPage() }} <br />
-                            {{ $desa->links() }}
                         </div>
                     </div>
                 </div>
@@ -143,3 +139,11 @@
     }
 </script>
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#desa-table').DataTable();
+    });
+</script>
+@endpush

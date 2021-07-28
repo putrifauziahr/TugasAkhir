@@ -12,17 +12,26 @@ class FuzzyfikasiController extends Controller
 {
     public function tambah(Request $request, HasilKuisioner $hasilKuisioner)
     {
-        //harapan
-        //soal 1
+        //harapan : tidak puas
         $tp = [];
+        //harapan : kurang puas
         $kp = [];
+        //harapan : cukup puas
         $cp = [];
+        //harapan : puas
         $p = [];
+        //harapan : sangat puas
         $sp = [];
+
+        //persepsi : tidak puas
         $tpp = [];
+        //persepsi : kurang puas
         $kpp = [];
+        //persepsi : cukup puas
         $cpp = [];
+        //persepsi : puas
         $pp = [];
+        //persepsi : sangat puas
         $spp = [];
         for ($i = 1; $i <= 16; $i++) {
             //persepsi
@@ -58,32 +67,20 @@ class FuzzyfikasiController extends Controller
             array_push($sp, $sp_count);
         }
 
-        dd($cpp);
-
-        //Fuzzyfikasi        
-        $tp = [];
-        $kp = [];
-        $cp = [];
-        $p = [];
-        $sp = [];
-        $tpp = [];
-        $kpp = [];
-        $cpp = [];
-        $pp = [];
-        $spp = [];
-        for ($i = 1; $i <= 16; $i++) {
+        for ($j = 0; $j < 16; $j++) {
             $fuzzy = new Fuzzyfikasi();
-            $fuzzy->id_hasil[] = $request->id_hasil;
-            $fuzzy->batasBawahHarapan[] = ((0 * $tp[$i]) + (1 * $kp[$i]) + (2 * $cp . $i) + (3 + $p . $i) + (4 * $sp . $i)) / ($tp . $i + $kp . $i + $cp . $i + $p . $i + $sp . $i);
-            $fuzzy->batasTengahHarapan[] = ((1 * $tp[$i]) + (2 * $kp . $i) + (3 * $cp . $i) + (4 + $p . $i) + (5 * $sp . $i)) / ($tp . $i + $kp . $i + $cp . $i + $p . $i + $sp . $i);
-            $fuzzy->batasAtasHarapan[] = ((2 * $tp[$i]) + (3 * $kp . $i) + (4 * $cp . $i) + (5 + $p . $i) + (5 * $sp . $i)) / ($tp . $i + $kp . $i + $cp . $i + $p . $i + $sp . $i);
+            $fuzzy->id_hasil = $request->id_hasil[$j];
+            //harapan
+            $fuzzy->batasBawahHarapan = (((0 * $tp[$j]) + (1 * $kp[$j]) + (2 * $cp[$j]) + (3 * $p[$j]) + (4 * $sp[$j])) / ($tp[$j] + $kp[$j] + $cp[$j] + $p[$j] + $sp[$j]));
+            $fuzzy->batasTengahHarapan = (((1 * $tp[$j]) + (2 * $kp[$j]) + (3 * $cp[$j]) + (4 * $p[$j]) + (5 * $sp[$j])) / ($tp[$j] + $kp[$j] + $cp[$j] + $p[$j] + $sp[$j]));
+            $fuzzy->batasAtasHarapan = (((2 * $tp[$j]) + (3 * $kp[$j]) + (4 * $cp[$j]) + (5 * $p[$j]) + (5 * $sp[$j])) / ($tp[$j] + $kp[$j] + $cp[$j] + $p[$j] + $sp[$j]));
 
-            $fuzzy->batasBawahPersepsi[] = ((0 * $tpp . $i) + (1 * $kpp . $i) + (2 * $cpp . $i) + (3 + $pp . $i) + (4 * $spp . $i)) / ($tpp . $i + $kpp . $i + $cpp . $i + $pp . $i + $spp . $i);
-            $fuzzy->batasTengahPersepsi[] = ((1 * $tpp . $i) + (2 * $kpp . $i) + (3 * $cpp . $i) + (4 + $pp . $i) + (5 * $spp . $i)) / ($tpp . $i + $kpp . $i + $cpp . $i + $pp . $i + $spp . $i);
-            $fuzzy->batasAtasPersepsi[] = ((2 * $tpp . $i) + (3 * $kpp . $i) + (4 * $cpp . $i) + (5 + $pp . $i) + (5 * $spp . $i)) / ($tpp . $i + $kpp . $i + $cpp . $i + $pp . $i + $spp . $i);
+            //persepsi
+            $fuzzy->batasBawahPersepsi = (((0 * $tpp[$j]) + (1 * $kpp[$j]) + (2 * $cpp[$j]) + (3 * $pp[$j]) + (4 * $spp[$j])) / ($tpp[$j] + $kpp[$j] + $cpp[$j] + $pp[$j] + $spp[$j]));
+            $fuzzy->batasTengahPersepsi = (((1 * $tpp[$j]) + (2 * $kpp[$j]) + (3 * $cpp[$j]) + (4 * $pp[$j]) + (5 * $spp[$j])) / ($tpp[$j] + $kpp[$j] + $cpp[$j] + $pp[$j] + $spp[$j]));
+            $fuzzy->batasAtasPersepsi = (((2 * $tpp[$j]) + (3 * $kpp[$j]) + (4 * $cpp[$j]) + (5 * $pp[$j]) + (5 * $spp[$j])) / ($tpp[$j] + $kpp[$j] + $cpp[$j] + $pp[$j] + $spp[$j]));
             $fuzzy->save();
-
-            return redirect('admin/showHasilKuis')->with('alert', 'Proses Fuzzyfikasi Berhasil');
         }
+        return redirect('admin/showHasilKuis')->with('alert', 'Proses Fuzzyfikasi Berhasil');
     }
 }

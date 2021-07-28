@@ -56,7 +56,7 @@
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="poktan-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -79,10 +79,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            Halaman : {{$poktan->currentPage() }} <br />
-                            Jumlah Data : {{$poktan->total() }} <br />
-                            Data Per Halaman : {{ $poktan->perPage() }} <br />
-                            {{ $poktan->links() }}
                         </div>
                     </div>
                 </div>
@@ -131,3 +127,11 @@
     }
 </script>
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#poktan-table').DataTable();
+    });
+</script>
+@endpush

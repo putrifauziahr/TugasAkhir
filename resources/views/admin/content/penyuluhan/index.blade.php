@@ -56,7 +56,7 @@
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="penyuluhan-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -84,12 +84,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div>
-                                Halaman : {{ $penyuluhan->currentPage() }} <br />
-                                Jumlah Data : {{ $penyuluhan->total() }} <br />
-                                Data Per Halaman : {{ $penyuluhan->perPage() }} <br />
-                                {{ $penyuluhan->links() }}
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -247,3 +241,11 @@
     }
 </script>
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#penyuluhan-table').DataTable();
+    });
+</script>
+@endpush

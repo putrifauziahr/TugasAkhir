@@ -10,7 +10,7 @@ class DesaController extends Controller
 
     public function index()
     {
-        $desa = Desa::paginate(5);
+        $desa = Desa::all();
         return view('admin/content/desa/index', compact('desa'));
     }
 

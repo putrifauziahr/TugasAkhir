@@ -22,6 +22,8 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css')}}">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -259,6 +261,7 @@
 <script src="{{ asset('assets/js/pcoded.min.js')}}"></script>
 <script src="{{ asset('assets/js/demo-12.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script>
     var $window = $(window);
     var nav = $('.fixed-button');
@@ -270,6 +273,7 @@
         }
     });
 </script>
+@stack('js')
 </body>
 
 </html>

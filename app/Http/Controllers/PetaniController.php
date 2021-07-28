@@ -19,7 +19,7 @@ class PetaniController extends Controller
         $petani = DB::table('petanis')
             ->join('kelompok_tanis', 'kelompok_tanis.id_poktan', '=', 'petanis.id_poktan')
             ->orderBy('petanis.nama', 'asc')
-            ->paginate(10);
+            ->get();
         return view('admin/content/petani/index', compact('poktan', 'petani', 'desa'));
     }
 
