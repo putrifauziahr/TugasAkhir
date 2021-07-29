@@ -54,7 +54,7 @@
                             <label class="col-md-3">Kategori Pertanyaan</label>
                             <div class="col-md-12">
                                 <select name="id_kategori" class="form-control">
-                                    <option value="pilih">Pilih</option>
+                                    <option value="{{ $kuis->id_kategori}}">{{ $kuis->Kategoris->kategori}}</option>
                                     @foreach($kategori as $k)
                                     <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
                                     @endforeach

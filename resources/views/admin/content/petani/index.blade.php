@@ -126,10 +126,10 @@
                     <div class="form-group">
                         <label>Komoditas</label>
                         <select name="komoditas" class="form-control">
-                            <!-- <option value="pilih">Pilih</option> -->
-                            <!-- <option value="Holtikultura">Holtikultura</option> -->
+                            <option value="pilih">Pilih</option>
+                            <option value="Holtikultura">Holtikultura</option>
                             <option value="Tanaman Pangan">Tanamanan Pangan</option>
-                            <!-- <option value="Peternakan">Peternakan</option> -->
+                            <option value="Peternakan">Peternakan</option>
                         </select>
                     </div>
 

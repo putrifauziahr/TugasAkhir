@@ -59,6 +59,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Password</label>
+                            <div class="col-md-12">
+                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
+                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3">Komoditas</label>
                             <div class="col-md-12">
                                 <select name="komoditas" class="form-control">
@@ -75,7 +83,7 @@
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
                                 <select name="id_poktan" class="form-control">
-                                    <option value="{{$petani->id_poktan}}">Pilih</option>
+                                    <option value="{{ $petani->id_poktan}}">{{ $petani->KelompokTanis->kelompok_tani}}</option>
                                     @foreach($poktan as $p)
                                     <option value="{{ $p -> id_poktan}}">{{$p->kelompok_tani}}</option>
                                     @endforeach
@@ -87,7 +95,7 @@
                             <label class="col-md-3">Desa</label>
                             <div class="col-md-12">
                                 <select name="kode_desa" class="form-control">
-                                    <option value=" {{$petani->kode_desa}}">Pilih</option>
+                                    <option value="{{ $petani->kode_desa}}">{{ $petani->Desa->desa}}</option>
                                     @foreach($desa as $p)
                                     <option value="{{ $p -> kode_desa}}">{{$p->desa}}</option>
                                     @endforeach

@@ -17,6 +17,11 @@ class Petani extends Model
         return $this->belongsTo('App\Model\KelompokTani', 'id_poktan');
     }
 
+    public function Desa()
+    {
+        return $this->belongsTo('App\Model\Desa', 'kode_desa');
+    }
+
     //Ada tabel lain yang berelasi dengan id petani
     public function HasilKuisioners()
     {

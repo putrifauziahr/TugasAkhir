@@ -89,14 +89,6 @@
                                     {{csrf_field()}}
 
                                     <div class="form-group">
-                                        <label class="col-md-3">Username</label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
-                                            @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
                                         <label class="col-md-3">Nama</label>
                                         <div class="col-md-12">
                                             <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
@@ -104,13 +96,40 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="form-group">
+                                        <label class="col-md-3">Username</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
+                                            @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">Komoditas</label>
+                                        <div class="col-md-12">
+                                            <input disabled name="komoditas" type="text" style="color: black;" class="form-control @error('komoditas') is-invalid @enderror" value="{{$petani->komoditas}}">
+                                            @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3">Gapoktan</label>
+                                        <div class="col-md-12">
+                                            <input disabled class="form-control" value="{{$petani->KelompokTanis->gapoktanRef->gapoktan}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3">Kelompok Tani</label>
+                                        <div class="col-md-12">
+                                            <input disabled class="form-control" value="{{$petani->KelompokTanis->kelompok_tani}}">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label class="col-md-3">Desa</label>
                                         <div class="col-md-12">
-                                            @foreach ($desa as $d)
-                                            <input disabled name="kelompok_tani" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$d->desa}}">
-                                            @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                            @endforeach
+                                            <input disabled name="kelompok_tani" type="text" class="form-control" value="{{$petani->Desa->desa}}">
                                         </div>
                                     </div>
 
@@ -127,24 +146,6 @@
                                         <div class="col-md-12">
                                             <input name="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$petani->kontak}}">
                                             @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-3">Komoditas</label>
-                                        <div class="col-md-12">
-                                            <input disabled name="komoditas" type="text" style="color: black;" class="form-control @error('komoditas') is-invalid @enderror" value="{{$petani->komoditas}}">
-                                            @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-3">Kelompok Tani</label>
-                                        <div class="col-md-12">
-                                            @foreach ($poktan as $p)
-                                            <input disabled name="kelompok_tani" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$p->kelompok_tani}}">
-                                            @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
-                                            @endforeach
                                         </div>
                                     </div>
 
@@ -183,9 +184,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <div class="col-sm-12 d-flex">
-                                                <button class="btn btn-info mx-auto mx-md-0 text-white">Update
-                                                    Password</button>
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-info mx-auto mx-md-0 text-white">Update Password</button>
                                             </div>
                                         </div>
                                     </div>

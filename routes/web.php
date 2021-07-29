@@ -53,6 +53,13 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     Route::get('admin/showDetailKelompokTani/{poktan}', 'KelompokTaniController@showDetailKelompokTani')->name('admin/showDetailKelompokTani');
     Route::match(['get', 'post'], 'admin/postUpdateKelompokTani/{id_poktan}', 'KelompokTaniController@postUpdateKelompokTani')->name('admin/postUpdateKelompokTani');
 
+    //Gapoktan
+    Route::get('admin/showGapoktan', 'GapoktanController@index')->name('admin/showGapoktan')->middleware('CheckLoginAdmin');
+    Route::post('admin/tambahGapoktan', 'GapoktanController@tambahGapoktan')->name('admin/tambahGapoktan');
+    Route::get('admin/hapusGapoktan/{gapoktan}', 'GapoktanController@hapusGapoktan')->name('admin/hapusGapoktan');
+    Route::get('admin/showDetailGapoktan/{gapoktan}', 'GapoktanController@showDetailGapoktan')->name('admin/showDetailGapoktan');
+    Route::match(['get', 'post'], 'admin/postUpdateGapoktan/{id_gapoktan}', 'GapoktanController@postUpdateGapoktan')->name('admin/postUpdateGapoktan');
+
     //Kuisioner
     Route::get('admin/showKuisioner', 'KuisionerController@index')->name('admin/showKuisioner')->middleware('CheckLoginAdmin');
     Route::post('admin/tambahKuisioner', 'KuisionerController@tambahKuisioner')->name('admin/tambahKuisioner');
@@ -82,6 +89,11 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
 
     //fuzzyfikasi
     Route::post('admin/tambahFuzzyfikasi', 'FuzzyfikasiController@tambah')->name('admin/tambahFuzzyfikasi');
+    Route::get('admin/showFuzzy', 'FuzzyfikasiController@showFuzzy')->name('admin/showFuzzy');
+
+    //Defuzzyfikasi
+    Route::post('admin/tambahDefuzzyfikasi', 'DefuzzyfikasiController@tambah')->name('admin/tambahDefuzzyfikasi');
+    Route::get('admin/showDefuzzy', 'DefuzzyfikasiController@showDefuzzy')->name('admin/showDefuzzy');
 
     //Profil Admin
     Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');

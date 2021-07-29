@@ -26,4 +26,9 @@ class HasilKuisioner extends Model
     {
         return $this->belongsTo('App\Model\Kuisioner', 'id_kuis');
     }
+
+    public function fuzzyRef()
+    {
+        return $this->hasMany('App\Model\Fuzzyfikasi', 'id_hasil');
+    }
 }

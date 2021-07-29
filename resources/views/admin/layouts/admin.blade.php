@@ -179,6 +179,13 @@
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="{{route('admin/showGapoktan')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Gapoktan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{{route('admin/showKelompokTani')}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Kelompok Tani</span>
@@ -214,15 +221,31 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="chart.html">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Proses Data</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{route('admin/showFuzzy')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Fuzzyfikasi</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('admin/showDefuzzy')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Defuzzyfikasi</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="map-google.html">
+                                    <a href="">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
                                         <span class="pcoded-mcaret"></span>

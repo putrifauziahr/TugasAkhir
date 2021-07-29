@@ -59,11 +59,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Gapoktan</label>
+                            <div class="col-md-12">
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$petani->KelompokTanis->gapoktanRef->gapoktan}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3"> Kelompok Tani</label>
                             <div class="col-md-12">
-                                @foreach ($poktan as $p)
-                                <input class="form-control @error('password') is-invalid @enderror" value="{{$p->kelompok_tani}}">
-                                @endforeach
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$petani->KelompokTanis->kelompok_tani}}">
                             </div>
                         </div>
 
@@ -87,9 +92,7 @@
                         <div class="form-group">
                             <label class="col-md-3">Desa</label>
                             <div class="col-md-12">
-                                @foreach ($desa as $p)
-                                <input class="form-control @error('password') is-invalid @enderror" value="{{$p->desa}}">
-                                @endforeach
+                                <input class="form-control @error('password') is-invalid @enderror" value="{{$petani->Desa->desa}}">
                             </div>
                         </div>
 

@@ -12,6 +12,7 @@ class HasilKuisionerController extends Controller
     {
         // $hasil = DB::table('hasil_kuisioners')
         //     ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+        //     ->where('penyuluhan.status', '=', 'Sedang Dilaksanakan')
         //     ->get();
         $hasil = HasilKuisioner::all();
         return view('admin/content/hasilkuis/index', compact('hasil'));

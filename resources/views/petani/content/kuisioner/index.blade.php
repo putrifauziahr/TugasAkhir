@@ -81,11 +81,8 @@
                         <?php $i = 1;
                         foreach ($kuiss as $k) { ?>
                             <div class="col-md-12">
-                                <select name="id_kuis[<?= $i ?>]" class="form-control">
-                                    <option style="font-weight: bold; font-size:15px" value="{{$k->id_kuis}}" hidden>
-                                        {{$i}} . {{$k->pertanyaan}}
-                                    </option>
-                                </select>
+                                <input name="id_kuis[<?= $i ?>]" class="form-control" style="font-weight: bold; font-size:15px" value="{{$k->id_kuis}}" hidden>
+                                {{$i}} . {{$k->pertanyaan}}
                             </div>
                             <div class="position-relative form-group ml-3">
                                 <div class="form-row ml-3">
@@ -112,7 +109,7 @@
                                 </div>
                             </div>
 
-                            <label class="col-md-3" style="font-weight: bold; font-size:15px">Harapan</label>
+                            <label class="col-md-3" style=" font-size:15px">Harapan</label>
                             <div class="position-relative form-group ml-3">
                                 <div class="form-row ml-3">
                                     <div class="custom-radio custom-control col-md-2">

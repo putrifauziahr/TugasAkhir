@@ -15,4 +15,9 @@ class Kuisioner extends Model
     {
         return $this->belongsTo('App\Model\Kategori', 'id_kategori');
     }
+
+    public function HasilKuisioners()
+    {
+        return $this->hasMany('App\Model\HasilKuisioner', 'id_kuis');
+    }
 }

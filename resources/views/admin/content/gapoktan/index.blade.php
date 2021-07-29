@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Kelompok Tani')
+@section('title', 'Admin | Gapoktan')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kelompok Tani</h4>
+                                    <h4>Gapoktan</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kelompok Tani</a>
+                                    <li class="breadcrumb-item"><a href="#!">Gapoktan</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,30 +52,28 @@
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kelompok Tani</h5>
+                        <h5>Data Gapoktan</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="poktan-table">
+                            <table class="table table-hover" id="gapoktan-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Gapoktan</th>
-                                        <th>Kelompok Tani</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($poktan as $a)
+                                    @foreach($gapoktan as $a)
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <td>{{$a->gapoktanRef->gapoktan}}</td>
-                                        <td>{{$a->kelompok_tani}}</td>
+                                        <td>{{$a->gapoktan}}</td>
                                         <td>
-                                            <a href="/admin/showDetailKelompokTani/{{$a->id_poktan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
-                                            <a href="/admin/hapusKelompokTani/{{$a->id_poktan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                            <a href="/admin/showDetailGapoktan/{{$a->id_gapoktan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
+                                            <a href="/admin/hapusGapoktan/{{$a->id_gapoktan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -95,30 +93,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kelompok Tani</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Gapoktan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/tambahKelompokTani" method="POST" onsubmit="return validasi_input(this)">
+                <form action="/admin/tambahGapoktan" method="POST" onsubmit="return validasi_input(this)">
                     {{csrf_field()}}
-
                     <div class="form-group">
-                        <label>Gapoktan</label>
-                        <select name="id_gapoktan" class="form-control @error('id_gapoktan') is-invalid @enderror">
-                            @error('id_gapoktan') <div class="invalid-feedback">{{$message}}</div> @enderror
-                            <option value="pilih">Pilih</option>
-                            @foreach($gapoktan as $k)
-                            <option value="{{ $k -> id_gapoktan}}">{{$k->gapoktan}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="InputNamaAktivitas">Nama Kelompok Tani</label>
-                        <input name="kelompok_tani" type="text" class="form-control @error('kelompok_tani') is-invalid @enderror" placeholder="Masukan Kelompok Tani">
-                        @error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label for="InputNamaAktivitas">Nama Gapoktan</label>
+                        <input name="gapoktan" type="text" class="form-control @error('gapoktan') is-invalid @enderror" placeholder="Masukan Gapoktan">
+                        @error('gapoktan')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="modal-footer">
@@ -133,11 +119,8 @@
 
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.id_gapoktan.value == "pilih") {
+        if (form.gapoktan.value == "") {
             alert("Anda belum mengisi Gapoktan !");
-            return (false);
-        } else if (form.kelompok_tani.value == "") {
-            alert("Anda belum mengisi Kelompok Tani !");
             return (false);
         }
         return (true);
@@ -148,7 +131,7 @@
 @push('js')
 <script>
     $(document).ready(function() {
-        $('#poktan-table').DataTable();
+        $('#gapoktan-table').DataTable();
     });
 </script>
 @endpush

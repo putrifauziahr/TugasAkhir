@@ -12,4 +12,14 @@ class Fuzzyfikasi extends Model
     ];
     protected $table = "fuzzyfikasi";
     protected $primaryKey = "id_fuzzy";
+
+    public function hasilRef()
+    {
+        return $this->belongsTo('App\Model\HasilKuisioner', 'id_hasil');
+    }
+
+    public function defuzzyRef()
+    {
+        return $this->hasMany('App\Model\Defuzzyfikasi', 'id_fuzzy');
+    }
 }

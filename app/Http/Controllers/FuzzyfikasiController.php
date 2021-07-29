@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class FuzzyfikasiController extends Controller
 {
+    public function showFuzzy()
+    {
+        $fuzzy = Fuzzyfikasi::all();
+        return view('admin/content/prosesdata/fuzzy', compact('fuzzy'));
+    }
     public function tambah(Request $request, HasilKuisioner $hasilKuisioner)
     {
         //harapan : tidak puas
@@ -81,6 +86,6 @@ class FuzzyfikasiController extends Controller
             $fuzzy->batasAtasPersepsi = (((2 * $tpp[$j]) + (3 * $kpp[$j]) + (4 * $cpp[$j]) + (5 * $pp[$j]) + (5 * $spp[$j])) / ($tpp[$j] + $kpp[$j] + $cpp[$j] + $pp[$j] + $spp[$j]));
             $fuzzy->save();
         }
-        return redirect('admin/showHasilKuis')->with('alert', 'Proses Fuzzyfikasi Berhasil');
+        return redirect('admin/showFuzzy')->with('alert', 'Proses Fuzzyfikasi Berhasil');
     }
 }

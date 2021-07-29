@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Detail Kelompok Tani')
+@section('title', 'Admin | Detail Gapoktan')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kelompok Tani</h4>
+                                    <h4>Gapoktan</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kelompok Tani</a>
+                                    <li class="breadcrumb-item"><a href="#!">Gapoktan</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,36 +37,22 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Edit Data Kelompok Tani</h5>
+                        <h5>Edit Data Gapoktan</h5>
                     </div>
-                    <form class="form-horizontal form-material" action="/admin/postUpdateKelompokTani/{{$poktan->id_poktan}}" method="POST" onsubmit="return validasi_input(this)">
+                    <form class="form-horizontal form-material" action="/admin/postUpdateGapoktan/{{$gapoktan->id_gapoktan}}" method="POST" onsubmit="return validasi_input(this)">
                         {{csrf_field()}}
-
                         <div class="form-group">
                             <label class="col-md-3">Gapoktan</label>
                             <div class="col-md-3">
-                                <select name="id_gapoktan" class="form-control @error('id_gapoktan') is-invalid @enderror">
-                                    @error('id_gapoktan') <div class="invalid-feedback">{{$message}}</div> @enderror
-                                    <option value="{{ $poktan->id_gapoktan}}">{{ $poktan->gapoktanRef->gapoktan}}</option>
-                                    @foreach($gapoktan as $k)
-                                    <option value="{{ $k -> id_gapoktan}}">{{$k->gapoktan}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-3">Kelompok Tani</label>
-                            <div class="col-md-3">
-                                <input type="text" name="kelompok_tani" class="form-control @error('kelompok_tani') is-invalid @enderror" value="{{ $poktan->kelompok_tani}}">
-                                @error('kelompok_tani')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input type="text" name="gapoktan" class="form-control @error('gapoktan') is-invalid @enderror" value="{{ $gapoktan->gapoktan}}">
+                                @error('gapoktan')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKelompokTani')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showGapoktan')}}">Back</a>
                             </div>
                         </div>
                     </form>
@@ -79,11 +65,8 @@
 </div>
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.id_gapoktan.value == "pilih") {
+        if (form.gapoktan.value == "") {
             alert("Anda belum mengisi Gapoktan !");
-            return (false);
-        } else if (form.kelompok_tani.value == "") {
-            alert("Anda belum mengisi Kelompok Tani !");
             return (false);
         }
         return (true);
