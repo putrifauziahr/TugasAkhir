@@ -165,15 +165,20 @@ class UserPetaniController extends Controller
         $current_date_time = date('Y-m-d H:i:s');
 
         for ($i = 1; $i <= $jumlah_dipilih; $i++) {
-            $answers[] = [
-                'id_petani' => $request->id_petani,
-                'id_penyuluhan' => $request->id_penyuluhan,
-                'id_kuis' => $request->id_kuis[$i],
-                'jawabanper' => $request->jawabanper[$i],
-                'jawabanhar' => $request->jawabanhar[$i],
-                'created_at' => $current_date_time,
-                'updated_at' => $current_date_time,
-            ];
+            $check = HasilKuisioner::where('id_petani', $request->id_petani)->where('id_penyuluhan', $request->id_penyuluhan)->first();
+            if (!$check) {
+                $answers[] = [
+                    'id_petani' => $request->id_petani,
+                    'id_penyuluhan' => $request->id_penyuluhan,
+                    'id_kuis' => $request->id_kuis[$i],
+                    'jawabanper' => $request->jawabanper[$i],
+                    'jawabanhar' => $request->jawabanhar[$i],
+                    'created_at' => $current_date_time,
+                    'updated_at' => $current_date_time,
+                ];
+            } else {
+                return redirect('petani/showKuisioner')->with('alertF', 'Tidak Dapat Mengisi Kuisioner Berulang !');
+            }
         }
         HasilKuisioner::insert($answers);
         return redirect('petani/showKuisioner')->with('alert', 'Kuisioner Berhasil diisi');

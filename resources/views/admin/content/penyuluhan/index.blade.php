@@ -63,6 +63,7 @@
                                         <th>Nama Kegiatan</th>
                                         <th>Hari</th>
                                         <th>Tanggal</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -75,8 +76,9 @@
                                         <td>{{$p->kegiatan}}</td>
                                         <td>{{$p->hari}}</td>
                                         <td>{{$p->tanggal}}</td>
+                                        <td>{{$p->status}}</td>
                                         <td>
-                                            <a href="/admin/viewDetailPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-success"><i class="ti-pencil-alt"></i>Detail</a>
+                                            <a href="/admin/viewDetailPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-success"><i class="ti-zoom-in"></i>Detail</a>
                                             <a href="/admin/showDetailPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
                                             <a href="/admin/hapusPenyuluhan/{{$p->id_penyuluhan}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>

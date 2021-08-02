@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Detail Kuisioner')
+@section('title', 'Admin | Detail Admin')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kuisioner</h4>
+                                    <h4>Admin</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kuisioner</a>
+                                    <li class="breadcrumb-item"><a href="#!">Admin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,35 +37,47 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Edit Data Kuisioner</h5>
+                        <h5>Data Admin</h5>
                     </div>
-                    <form onsubmit="return validasi_input(this)" class="form-horizontal form-material" action="/admin/postUpdateKuisioner/{{$kuis->id_kuis}}" method="POST">
+                    <form class="form-horizontal form-material" action="/admin/postUpdateAdmin/{{$admin->id_admin}}" method="POST">
                         {{csrf_field()}}
 
                         <div class="form-group">
-                            <label class="col-md-3">Pertanyaan</label>
+                            <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
-                                <input name="pertanyaan" type="text" class="form-control @error('pertanyaan') is-invalid @enderror" value="{{ $kuis->pertanyaan}}">
-                                @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$admin->nama}}">
+                                @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3">Kategori Pertanyaan</label>
+                            <label class="col-md-3">Username</label>
                             <div class="col-md-12">
-                                <select name="id_kategori" class="form-control">
-                                    <option value="{{ $kuis->id_kategori}}">{{ $kuis->Kategoris->kategori}}</option>
-                                    @foreach($kategori as $k)
-                                    <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
-                                    @endforeach
-                                </select>
+                                <input class="form-control @error('username') is-invalid @enderror" value="{{$admin->username}}">
+                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-3">Kontak</label>
                             <div class="col-md-12">
-                                <button class="btn btn-info mx-auto mx-md-0 text-white"><i class="ti-pencil-alt"></i>Ubah</button>
-                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showKuisioner')}}">Kembali</a>
+                                <input name="kontak" type="text" class="form-control @error('kontak') is-invalid @enderror" value="{{$admin->kontak}}">
+                                @error('kontak')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3">Alamat</label>
+                            <div class="col-md-12">
+                                <input name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" value="{{$admin->alamat}}">
+                                @error('alamat')<div class="invalid-feedback">{{$message}}</div> @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showAdmin')}}">Kembali</a>
                             </div>
                         </div>
                     </form>
@@ -76,16 +88,5 @@
 </div>
 </div>
 </div>
-<script type="text/javascript">
-    function validasi_input(form) {
-        if (form.pertanyaan.value == "") {
-            alert("Anda belum mengisi Pertanyaan !");
-            return (false);
-        } else if (form.id_kategori.value == "pilih") {
-            alert("Anda belum memilih Kategori!");
-            return (false);
-        }
-        return (true);
-    }
-</script>
+
 @endsection

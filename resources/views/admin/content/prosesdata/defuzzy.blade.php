@@ -59,6 +59,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Pertanyaan</th>
                                         <th>Kategori</th>
                                         <th>Kegiatan Penyuluhan</th>
                                         <th>Persepsi</th>
@@ -72,11 +73,36 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <th>{{$f->fuzzyfikasiRef->hasilRef->Kuisioners->Kategoris->kategori}}</th>
-                                        <th>{{$f->fuzzyfikasiRef->hasilRef->Penyuluhans->kegiatan}}</th>
-                                        <th>{{$f->persepsi}}</th>
-                                        <th>{{$f->harapan}}</th>
-                                        <th>{{$f->persepsi - $f->harapan}}</th>
+                                        <td>{{$f->pertanyaan}}</td>
+                                        <td>{{$f->kategori}}</td>
+                                        <td>{{$f->kegiatan}}</td>
+                                        <td>{{$f->persepsi}}</td>
+                                        <td>{{$f->harapan}}</td>
+                                        <td>{{$f->persepsi - $f->harapan}}</td>
+
+                                        <td>{{$tang}}</td>
+                                        <td>{{$tangp}}</td>
+                                        <td>{{ $tangp - $tang}}</td>
+                                        <td>=================</td>
+
+                                        <td>{{$reli}}</td>
+                                        <td>{{$relip}}</td>
+                                        <td>{{ $relip - $reli}}</td>
+                                        <td>=================</td>
+
+                                        <td>{{$respon}}</td>
+                                        <td>{{$responp}}</td>
+                                        <td>{{ $responp - $respon}}</td>
+                                        <td>=================</td>
+
+                                        <td>{{$assu}}</td>
+                                        <td>{{$assup}}</td>
+                                        <td>{{$assup - $assu}}</td>
+                                        <td>=================</td>
+
+                                        <td>{{$em}}</td>
+                                        <td>{{$emp}}</td>
+                                        <td>{{$emp - $em}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

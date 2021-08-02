@@ -1,11 +1,11 @@
 "use strict";
-$(document).ready(function() {
+$(document).ready(function () {
 
     lineChart();
     areaChart();
     donutChart();
 
-    $(window).on('resize',function() {
+    $(window).on('resize', function () {
         window.lineChart.redraw();
         window.areaChart.redraw();
         window.donutChart.redraw();
@@ -61,15 +61,30 @@ function donutChart() {
     window.areaChart = Morris.Donut({
         element: 'donut-example',
         redraw: true,
-        data: [
-            { label: "Download Sales", value: 2 },
-            { label: "In-Store Sales", value: 50 },
-            { label: "Mail-Order Sales", value: 20 }
+        data: [{
+            label: "Tangibles",
+            value: 10
+        },
+        {
+            label: "Reliability",
+            value: 10
+        },
+        {
+            label: "Responsiveness",
+            value: 10
+        },
+        {
+            label: "Assurance",
+            value: 10
+        },
+        {
+            label: "Emphaty",
+            value: 10
+        }
         ],
-        colors: ['#5FBEAA', '#34495E', '#FF9F55']
+        colors: ['#5FBEAA', '#34495E', '#FF9F55', '#5FBEAA', '#34495E']
     });
 }
-
 // Morris bar chart
 Morris.Bar({
     element: 'morris-bar-chart',
@@ -121,41 +136,41 @@ Morris.Bar({
 Morris.Area({
     element: 'morris-extra-area',
     data: [{
-            period: '2010',
-            iphone: 0,
-            ipad: 0,
-            itouch: 0
-        }, {
-            period: '2011',
-            iphone: 50,
-            ipad: 15,
-            itouch: 5
-        }, {
-            period: '2012',
-            iphone: 20,
-            ipad: 50,
-            itouch: 65
-        }, {
-            period: '2013',
-            iphone: 60,
-            ipad: 12,
-            itouch: 7
-        }, {
-            period: '2014',
-            iphone: 30,
-            ipad: 20,
-            itouch: 120
-        }, {
-            period: '2015',
-            iphone: 25,
-            ipad: 80,
-            itouch: 40
-        }, {
-            period: '2016',
-            iphone: 10,
-            ipad: 10,
-            itouch: 10
-        }
+        period: '2010',
+        iphone: 0,
+        ipad: 0,
+        itouch: 0
+    }, {
+        period: '2011',
+        iphone: 50,
+        ipad: 15,
+        itouch: 5
+    }, {
+        period: '2012',
+        iphone: 20,
+        ipad: 50,
+        itouch: 65
+    }, {
+        period: '2013',
+        iphone: 60,
+        ipad: 12,
+        itouch: 7
+    }, {
+        period: '2014',
+        iphone: 30,
+        ipad: 20,
+        itouch: 120
+    }, {
+        period: '2015',
+        iphone: 25,
+        ipad: 80,
+        itouch: 40
+    }, {
+        period: '2016',
+        iphone: 10,
+        ipad: 10,
+        itouch: 10
+    }
 
 
     ],

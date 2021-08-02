@@ -86,6 +86,7 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
 
     //hasil kuisioner
     Route::get('admin/showHasilKuis', 'HasilKuisionerController@index')->name('admin/showHasilKuis');
+    Route::get('admin/showHasilKuisLagi', 'HasilKuisionerController@index2')->name('admin/showHasilKuisLagi');
 
     //fuzzyfikasi
     Route::post('admin/tambahFuzzyfikasi', 'FuzzyfikasiController@tambah')->name('admin/tambahFuzzyfikasi');
@@ -94,6 +95,15 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //Defuzzyfikasi
     Route::post('admin/tambahDefuzzyfikasi', 'DefuzzyfikasiController@tambah')->name('admin/tambahDefuzzyfikasi');
     Route::get('admin/showDefuzzy', 'DefuzzyfikasiController@showDefuzzy')->name('admin/showDefuzzy');
+
+    //hasil akhir
+    Route::get('admin/showHasil', 'DefuzzyfikasiController@final')->name('admin/showHasil');
+
+    //Admin
+    Route::get('admin/showAdmin', 'AdminController@index')->name('admin/showAdmin')->middleware('CheckLoginAdmin');
+    Route::post('admin/tambahAdmin', 'AdminController@tambahAdmin')->name('admin/tambahAdmin');
+    Route::get('admin/hapusAdmin/{admin}', 'AdminController@hapusAdmin')->name('admin/hapusAdmin');
+    Route::get('admin/viewDetailAdmin/{admin}', 'AdminController@viewDetailAdmin')->name('admin/viewDetailAdmin');
 
     //Profil Admin
     Route::get('admin/showProfil/{id_admin}', 'AdminController@showProfil')->name('admin/showProfil');
@@ -129,4 +139,9 @@ Route::group(['middleware' => ['CheckLoginPetani']], function () {
     Route::match(['get', 'post'], 'petani/updateFotoProfil/{id_petani}', 'UserPetaniController@updateFotoProfil')->name('petani/updateFotoProfil');
     Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
     Route::match(['get', 'post'], 'petani/updatePassword/{id_petani}', 'UserPetaniController@updatePassword')->name('petani/updatePassword');
+
+    //forgot Password
+    Route::get('petani/forgotPassword', 'ForgotPasswordController@index')->name('petani/forgotPassword');
+    Route::post('petani/postForgotPassword', 'ForgotPasswordController@postForgot')->name('petani/postForgot');
+    Route::match(['get', 'post'], 'petani/updateForgot', 'ForgotPasswordController@updateForgot')->name('petani/updateForgot');
 });

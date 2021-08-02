@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Fuzzyfikasi')
+@section('title', 'Admin | Hasil Kuisioner')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Fuzzyfikasi</h4>
+                                    <h4>Hasil Kuisioner</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -25,9 +25,9 @@
                                             <i class="icofont icofont-home"></i>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Proses Data</a>
+                                    <li class="breadcrumb-item"><a href="#!">Dashboard</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Fuzzyfikasi</a>
+                                    <li class="breadcrumb-item"><a href="#!">Hasil Kuisioner</a>
                                     </li>
                                 </ul>
                             </div>
@@ -49,49 +49,78 @@
                     @endphp
                 </div>
                 @endif
-                <form action="/admin/tambahDefuzzyfikasi" method="POST">
+                <form action="/admin/tambahFuzzyfikasi" method="POST">
                     {{csrf_field()}}
-                    @foreach($fuzzy as $a)
-                    <input type="text" name="id_fuzzy[]" value="{{$a->id_fuzzy}}" hidden>
-                    <input type="text" name="harapan[]" value="{{($a->batasBawahHarapan +  $a->batasTengahHarapan + $a->batasAtasHarapan) / 3}}" hidden>
-                    <input type="text" name="persepsi[]" value="{{($a->batasBawahPersepsi +  $a->batasTengahPersepsi + $a->batasAtasPersepsi) / 3}}" hidden>
+                    @foreach($hasil as $a)
+                    <input type="text" name="id_hasil[]" value="{{$a->id_hasil}}" hidden>
                     @endforeach
-                    <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i>Proses Defuzzyfikasi</button>
+                    <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i>Proses Fuzzyfikasi</button>
+
                 </form>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Fuzzyfikasi</h5>
+                        <h5>Data Hasil Kuisioner</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="fuzzy-table">
+                            <table class="table table-hover" id="kuis-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Kegiatan Penyuluhan</th>
-                                        <th>Pertanyaan</th>
-                                        <th>Batas Bawah Persepsi</th>
-                                        <th>Batas Tengah Persepsi</th>
-                                        <th>Batas Atas Persepsi</th>
-                                        <th>Batas Bawah Harapan</th>
-                                        <th>Batas Tengah Harapan</th>
-                                        <th>Batas Atas Harapan</th>
+                                        <th>ID Petani</th>
+                                        <th>Kuisioner</th>
+                                        <th>Kategori</th>
+                                        <th>H</th>
+                                        <th>H</th>
+                                        <th>H</th>
+                                        <th>P</th>
+                                        <th>P</th>
+                                        <th>P</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($fuzzy as $f)
+                                    @foreach($hasil as $a)
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <td>{{$f->kegiatan}}</td>
-                                        <td>{{$f->id_kuis}}</td>
-                                        <td>{{$f->batasBawahPersepsi}}</td>
-                                        <td>{{$f->batasTengahPersepsi}}</td>
-                                        <td>{{$f->batasAtasPersepsi}}</td>
-                                        <td>{{$f->batasBawahHarapan}}</td>
-                                        <td>{{$f->batasTengahHarapan}}</td>
-                                        <td>{{$f->batasAtasHarapan}}</td>
+                                        <td>{{$a->kegiatan}}</td>
+                                        <td>{{$a->id_petani}}</td>
+                                        <td>{{$a->pertanyaan}}</td>
+                                        <td>{{$a->kategori}}</td>
+
+                                        @foreach($bbh as $x)
+                                        <td>{{$x}}</td>
+                                        @endforeach
+
+                                        @foreach($bth as $b)
+                                        <td>{{$b}}</td>
+                                        @endforeach
+
+                                        @foreach($bah as $c)
+                                        <td>{{$c}}</td>
+                                        @endforeach
+
+                                        @foreach($bbp as $d)
+                                        <td>{{$d}}</td>
+                                        @endforeach
+
+                                        @foreach($btp as $e)
+                                        <td>{{$e}}</td>
+                                        @endforeach
+
+                                        @foreach($bap as $f)
+                                        <td>{{$f}}</td>
+                                        @endforeach
+
+                                        @foreach($defuzzyh as $g)
+                                        <td>{{$g}}</td>
+                                        @endforeach
+
+                                        @foreach($defuzzyp as $h)
+                                        <td>{{$h}}</td>
+                                        @endforeach
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -108,7 +137,7 @@
 @push('js')
 <script>
     $(document).ready(function() {
-        $('#fuzzy-table').DataTable();
+        $('#kuis-table').DataTable();
     });
 </script>
 @endpush

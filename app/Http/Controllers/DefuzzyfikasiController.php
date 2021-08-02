@@ -11,8 +11,135 @@ class DefuzzyfikasiController extends Controller
 {
     public function showDefuzzy()
     {
-        $defuzzy = Defuzzyfikasi::all();
-        return view('admin/content/prosesdata/defuzzy', compact('defuzzy'));
+        // $defuzzy = Defuzzyfikasi::all();
+        $defuzzy = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->get();
+
+        //tangibles
+        $tang = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Tangibles")
+            ->average('defuzzyfikasi.harapan');
+
+        $tangp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Tangibles")
+            ->average('defuzzyfikasi.persepsi');
+
+        //reliability
+        $reli = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Reliability")
+            ->average('defuzzyfikasi.harapan');
+
+        $relip = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Reliability")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Responsivenes
+        $respon = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Responsiveness")
+            ->average('defuzzyfikasi.harapan');
+
+        $responp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Responsiveness")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Assurance
+        $assu = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Assurance")
+            ->average('defuzzyfikasi.harapan');
+
+        $assup = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Assurance")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Empathy
+        $em = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Empathy")
+            ->average('defuzzyfikasi.harapan');
+
+        $emp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Empathy")
+            ->average('defuzzyfikasi.persepsi');
+
+
+        return view('admin/content/prosesdata/defuzzy', compact(
+            'defuzzy',
+            'tang',
+            'tangp',
+            'reli',
+            'relip',
+            'respon',
+            'responp',
+            'assu',
+            'assup',
+            'em',
+            'emp'
+        ));
     }
     public function tambah(Request $request)
     {
@@ -55,22 +182,138 @@ class DefuzzyfikasiController extends Controller
         // }
 
         for ($i = 0; $i < 16; $i++) {
-            // $check = DB::table('defuzzyfikasi')->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=',  'fuzzyfikasi.id_fuzzy')->first();
-            // if (!$check) {
-            $defuzzy = new Defuzzyfikasi;
-            $defuzzy->id_fuzzy = $request->id_fuzzy[$i];
-            $defuzzy->harapan = $request->harapan[$i];
-            $defuzzy->persepsi = $request->persepsi[$i];
-            $defuzzy->save();
-            // } 
-            // else {
-            //     return view('admin/content/prosesdata/fuzzy')->with('alert', 'Tidak Dapat Melakukan Defuzzyfikasi Berulang');
-            // }
+            $check = Defuzzyfikasi::where('id_fuzzy', $request->id_fuzzy)->first();
+            if (!$check) {
+                $answers[] = [
+                    'id_fuzzy' => $request->id_fuzzy[$i],
+                    'harapan' => $request->harapan[$i],
+                    'persepsi' => $request->persepsi[$i],
+                ];
+            } else {
+                return redirect('admin/showDefuzzy')->with('alertF', 'Tidak Dapat Melakukan Defuzzyfikasi Berulang');
+            }
         }
+        Defuzzyfikasi::insert($answers);
         return redirect('admin/showDefuzzy')->with('alert', 'Proses Defuzzyfikasi Berhasil');
     }
 
     public function final()
     {
+        $tang = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Tangibles")
+            ->average('defuzzyfikasi.harapan');
+
+        $tangp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Tangibles")
+            ->average('defuzzyfikasi.persepsi');
+
+        //reliability
+        $reli = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Reliability")
+            ->average('defuzzyfikasi.harapan');
+
+        $relip = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Reliability")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Responsivenes
+        $respon = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Responsiveness")
+            ->average('defuzzyfikasi.harapan');
+
+        $responp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Responsiveness")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Assurance
+        $assu = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Assurance")
+            ->average('defuzzyfikasi.harapan');
+
+        $assup = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Assurance")
+            ->average('defuzzyfikasi.persepsi');
+
+        //Empathy
+        $em = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Empathy")
+            ->average('defuzzyfikasi.harapan');
+
+        $emp = DB::table('defuzzyfikasi')
+            ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
+            ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
+            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
+            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
+            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
+            ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
+            ->where('kategoris.kategori', '=', "Empathy")
+            ->average('defuzzyfikasi.persepsi');
+
+        return view('admin/content/hasil/hasil', compact(
+            'tang',
+            'tangp',
+            'reli',
+            'relip',
+            'respon',
+            'responp',
+            'assu',
+            'assup',
+            'em',
+            'emp'
+        ));
     }
 }

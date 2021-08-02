@@ -107,7 +107,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showPetani')}}">Back</a>
+                                <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showPetani')}}">Kembali</a>
                             </div>
                         </div>
                     </form>

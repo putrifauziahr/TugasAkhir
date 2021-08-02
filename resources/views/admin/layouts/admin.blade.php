@@ -213,6 +213,13 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="{{route('admin/showAdmin')}}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Admin</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 <li>
                                     <a href="{{route('admin/showHasilKuis')}}">
@@ -245,8 +252,9 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <a href="{{route('admin/showHasil')}}">
+                                        <span class="pcoded-micon">
+                                            <i class="icofont icofont-chart-bar-graph"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -272,11 +280,12 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 <!-- modernizr js -->
 <script type="text/javascript" src="{{ asset('assets/js/modernizr/modernizr.js')}}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/modernizr/css-scrollbars.js')}}"></script>
 <!-- am chart -->
-<script src="{{ asset('assets/pages/widget/amchart/amcharts.min.js')}}"></script>
-<script src="{{ asset('assets/pages/widget/amchart/serial.min.js')}}"></script>
-<!-- Todo js -->
-<script type="text/javascript " src="{{ asset('assets/pages/todo/todo.js')}}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/classie/classie.js')}}"></script>
+<script src="{{ asset('assets/js/raphael/raphael.min.js')}}"></script>
+<script src="{{ asset('assets/js/morris.js/morris.js')}}"></script>
+<script src="{{ asset('assets/pages/chart/morris/morris-custom-chart.js')}}"></script>
 <!-- Custom js -->
 <script type="text/javascript" src="{{ asset('assets/pages/dashboard/custom-dashboard.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/script.js')}}"></script>

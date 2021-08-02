@@ -1,6 +1,6 @@
 @extends('admin/layouts/admin')
 
-@section('title', 'Admin | Kuisioner')
+@section('title', 'Admin | Data Admin')
 
 @section ('container')
 <div class="pcoded-content">
@@ -12,7 +12,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Kuisioner</h4>
+                                    <h4>Data Admin</h4>
                                     <span>Dashboard Admin</span>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Data Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Kuisioner</a>
+                                    <li class="breadcrumb-item"><a href="#!">Data Admin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,31 +52,30 @@
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i> Tambah Data</button>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Kuisioner</h5>
+                        <h5>Data Petani</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="kuisioner-table">
+                            <table class="table table-hover" id="admin-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kuisioner</th>
-                                        <th>Kategori</th>
+                                        <th>Nama</th>
+                                        <th>Username</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach($kuis as $k)
+                                    @foreach($admin as $adm)
                                     <?php $no++; ?>
                                     <tr>
                                         <td>{{$no}}</td>
-                                        <td>{{$k->pertanyaan}}</td>
-                                        <td>{{$k->kategori}}</td>
+                                        <td>{{$adm->nama}}</td>
+                                        <td>{{$adm->username}}</td>
                                         <td>
-                                            <a href="/admin/viewDetailKuisioner/{{$k->id_kuis}}" class="btn btn-success"><i class="ti-zoom-in"></i></i>Detail</a>
-                                            <a href="/admin/showDetailKuisioner/{{$k->id_kuis}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
-                                            <a href="/admin/hapusKuisioner/{{$k->id_kuis}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
+                                            <a href="/admin/viewDetailAdmin/{{$adm->id_admin}}" class="btn btn-success"><i class="ti-zoom-in"></i>Detail</a>
+                                            <a href="/admin/hapusAdmin/{{$adm->id_admin}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -90,42 +89,37 @@
     </div>
 </div>
 
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kuisioner</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Admin</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form onsubmit="return validasi_input(this)" action="/admin/tambahKuisioner" method="POST">
+                <form action="/admin/tambahAdmin" method="POST" onsubmit="return validasi_input(this)">
                     {{csrf_field()}}
 
                     <div class="form-group">
-                        <label for="InputPertanyaan">Pertanyaan</label>
-                        <input name="pertanyaan" type="text" class="form-control @error('pertanyaan') is-invalid @enderror" placeholder="Masukan Pertanyaan">
-                        @error('pertanyaan')<div class="invalid-feedback">{{$message}}</div> @enderror
+                        <label>Nama</label>
+                        <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukan Nama">
+                        @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Kategori Pertanyaan</label>
-                        <select name="id_kategori" class="form-control @error('id_kategori') is-invalid @enderror">
-                            @error('id_kategori') <div class="invalid-feedback">{{$message}}</div> @enderror
-                            <option value="pilih">Pilih</option>
-                            @foreach($kategori as $k)
-                            <option value="{{ $k -> id_kategori}}">{{$k->kategori}}</option>
-                            @endforeach
-                        </select>
+                        <label>Username</label>
+                        <input name="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan Username">
+                        @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
                     </div>
 
-                    <input hidden value="1" name="pilihanA">
-                    <input hidden value="2" name="pilihanB">
-                    <input hidden value="3" name="pilihanC">
-                    <input hidden value="4" name="pilihanD">
-                    <input hidden value="5" name="pilihanE">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Password">
+                        @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
+                    </div>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -138,23 +132,25 @@
 
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.pertanyaan.value == "") {
-            alert("Anda belum mengisi Pertanyaan !");
+        if (form.nama.value == "") {
+            alert("Anda belum mengisi Nama !");
             return (false);
-        } else if (form.id_kategori.value == "pilih") {
-            alert("Anda belum memilih Kategori!");
+        } else if (form.username.value == "") {
+            alert("Anda belum mengisi Username !");
+            return (false);
+        } else if (form.password.value == "") {
+            alert("Anda belum mengisi Password !");
             return (false);
         }
         return (true);
     }
 </script>
-
 @endsection
 
 @push('js')
 <script>
     $(document).ready(function() {
-        $('#kuisioner-table').DataTable();
+        $('#admin-table').DataTable();
     });
 </script>
 @endpush

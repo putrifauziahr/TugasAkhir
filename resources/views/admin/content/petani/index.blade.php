@@ -76,7 +76,7 @@
                                         <td>{{$ptn->kelompok_tani}}</td>
                                         <td>{{$ptn->komoditas}}</td>
                                         <td>
-                                            <a href="/admin/viewDetailPetani/{{$ptn->id_petani}}" class="btn btn-success"><i class="ti-pencil-alt"></i>Detail</a>
+                                            <a href="/admin/viewDetailPetani/{{$ptn->id_petani}}" class="btn btn-success"><i class="ti-zoom-in"></i>Detail</a>
                                             <a href="/admin/showDetailPetani/{{$ptn->id_petani}}" class="btn btn-info"><i class="ti-pencil-alt"></i>Edit</a>
                                             <a href="/admin/hapusPetani/{{$ptn->id_petani}}" class="btn btn-danger"><i class="ti-trash"></i>Hapus</a>
                                         </td>

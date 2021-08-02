@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\Admin;
 use App\model\Desa;
+use App\model\Gapoktan;
 use App\model\Kategori;
 use App\model\KelompokTani;
 use App\model\Kuisioner;
@@ -26,7 +27,8 @@ class AdminController extends Controller
             $poktan = KelompokTani::count();
             $penyuluhan = Penyuluhan::count();
             $desa = Desa::count();
-            return view('admin.content.index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
+            $gapoktan = Gapoktan::count();
+            return view('admin.content.index', compact('gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
         } else {
             return view('admin/content/login');
         }
@@ -144,11 +146,52 @@ class AdminController extends Controller
         $poktan = KelompokTani::count();
         $penyuluhan = Penyuluhan::count();
         $desa = Desa::count();
-        return view('admin/content/index', compact('kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
+        $gapoktan = Gapoktan::count();
+        return view('admin/content/index', compact('gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
     }
 
     public function kebutuhanFuzzy()
     {
         return view('admin/content/dataFuzzy');
+    }
+
+    //==============================Admin=================
+    public function index()
+    {
+        $admin = Admin::all();
+        return view('admin/content/admin/index', compact('admin'));
+    }
+
+    public function tambahAdmin(Request $request)
+    {
+        $messages = [
+            'required' => ':attribute wajib diisi !!!',
+            'min' => ':attribute harus diisi minimal :min  karakter ya !!!',
+            'max' => ':attribute harus diisi maksimal :max karakter ya !!!',
+        ];
+        $this->validate($request, [
+            'nama' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ], $messages);
+
+        $post = new Admin();
+        $post->nama = $request->nama;
+        $post->username = $request->username;
+        $post->password = Hash::make($request->password);
+        $post->save();
+        return redirect('admin/showAdmin')->with('alert', 'Data Admin Berhasil ditambah');
+    }
+
+
+    public function hapusAdmin(Admin $admin)
+    {
+        Admin::destroy($admin->id_admin);
+        return redirect('admin/showAdmin')->with('alertF', 'Data Admin Berhasil dihapus');
+    }
+
+    public function viewDetailAdmin(Admin $admin)
+    {
+        return view('admin/content/admin/showDetail', compact('admin'));
     }
 }

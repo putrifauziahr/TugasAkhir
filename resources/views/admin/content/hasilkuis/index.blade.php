@@ -70,8 +70,8 @@
                                         <th>Kegiatan Penyuluhan</th>
                                         <th>ID Petani</th>
                                         <th>ID Kuisioner</th>
-                                        <th>Jawaban Harapan</th>
-                                        <th>Jawaban Persepsi</th>
+                                        <th>Harapan</th>
+                                        <th>Persepsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,9 +80,9 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <th>{{$a->id_penyuluhan}}</th>
+                                        <td>{{$a->kegiatan}}</td>
                                         <td>{{$a->id_petani}}</td>
-                                        <th>{{$a->id_kuis}}</th>
+                                        <td>{{$a->id_kuis}}</td>
                                         <td>{{$a->jawabanhar}}</td>
                                         <td>{{$a->jawabanper}}</td>
                                     </tr>

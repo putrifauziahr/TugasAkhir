@@ -111,4 +111,21 @@
                                 </div>
                             </div>
                         </div>
-                        @endsection
+
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card widget-card-1">
+                                <div class="card-block-small">
+                                    <i class="icofont icofont-pie-chart bg-c-yellow card1-icon"></i>
+                                    <span class="text-c-yellow f-w-600">Gapoktan</span>
+                                    <h4>{{$gapoktan}}</h4>
+                                    <div>
+                                        <span class="f-left m-t-10 text-muted">
+                                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
+                                            <a href="{{route('admin/showGapoktan')}}">Lihat Selengkapnya</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endsection
