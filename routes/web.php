@@ -24,6 +24,10 @@ Route::get('logoutPetani', 'UserPetaniController@logout')->name('logoutPetani');
 Route::get('petani/login', 'UserPetaniController@login')->name('petani/login');
 Route::post('petani/login', 'UserPetaniController@loginProses')->name('petani/login');
 
+//forgot Password Admin
+Route::get('admin/forgotPassword', 'ForgotPasswordController@indexAdmin')->name('admin/forgotPassword');
+Route::post('admin/postForgotPassword', 'ForgotPasswordController@postForgotAdmin')->name('admin/postForgot');
+Route::match(['get', 'post'], 'admin/updateForgot', 'ForgotPasswordController@updateForgotAdmin')->name('admin/updateForgot');
 
 //===========ADMIN===============
 
@@ -98,6 +102,8 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
 
     //hasil akhir
     Route::get('admin/showHasil', 'DefuzzyfikasiController@final')->name('admin/showHasil');
+    Route::get('admin/showRiwayat', 'DefuzzyfikasiController@riwayatHasil')->name('admin/showRiwayat');
+    Route::get('admin/showDetailRiwayat/{id_penyuluhan}', 'DefuzzyfikasiController@detailRiwayat')->name('admin/showDetailRiwayat');
 
     //Admin
     Route::get('admin/showAdmin', 'AdminController@index')->name('admin/showAdmin')->middleware('CheckLoginAdmin');
@@ -121,6 +127,11 @@ Route::get('beranda/showPenyuluhan', 'UserBerandaController@showPenyuluhan')->na
 Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserBerandaController@showDetailPenyuluhan')->name('beranda/showDetailPenyuluhan');
 Route::get('beranda/showkontak', 'UserBerandaController@showKontak')->name('beranda/showKontak');
 
+//forgot Password
+Route::get('petani/forgotPassword', 'ForgotPasswordController@index')->name('petani/forgotPassword');
+Route::post('petani/postForgotPassword', 'ForgotPasswordController@postForgot')->name('petani/postForgot');
+Route::match(['get', 'post'], 'petani/updateForgot', 'ForgotPasswordController@updateForgot')->name('petani/updateForgot');
+
 Route::group(['middleware' => ['CheckLoginPetani']], function () {
 
     //dashboard petani
@@ -140,8 +151,6 @@ Route::group(['middleware' => ['CheckLoginPetani']], function () {
     Route::match(['get', 'post'], 'petani/postUpdateProfil/{id_petani}', 'UserPetaniController@postUpdateProfil')->name('petani/postProfil');
     Route::match(['get', 'post'], 'petani/updatePassword/{id_petani}', 'UserPetaniController@updatePassword')->name('petani/updatePassword');
 
-    //forgot Password
-    Route::get('petani/forgotPassword', 'ForgotPasswordController@index')->name('petani/forgotPassword');
-    Route::post('petani/postForgotPassword', 'ForgotPasswordController@postForgot')->name('petani/postForgot');
-    Route::match(['get', 'post'], 'petani/updateForgot', 'ForgotPasswordController@updateForgot')->name('petani/updateForgot');
+    //riwayat
+    Route::get('petani/showRiwayat/{id_petani}', 'UserRiwayatController@index')->name('petani/showRiwayat');
 });

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Lupa Password Petani</title>
+    <title>Lupa Password Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,12 +71,12 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <div class="signup-card card-block auth-body mr-auto ml-auto">
-                        <form action="/petani/postForgotPassword" class="md-float-material" method="POST">
+                        <form action="/admin/updateForgot" class="md-float-material" method="POST">
                             {{csrf_field()}}
                             <div class="auth-box">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center txt-primary">Lupa Password</h3>
+                                        <h3 class="text-center txt-primary">Ubah Password</h3>
                                     </div>
                                 </div>
 
@@ -91,9 +91,19 @@
                                 </div>
                                 @endif
                                 <hr />
+                                <input type="text" name="username" value="{{$username}}" hidden>
                                 <div class="input-group">
-                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Masukan Username">
-                                    @error('username')
+                                    <input id="newPassword" type="password" class="form-control @error('newPassword') is-invalid @enderror" name="newPassword" value="{{ old('newPassword') }}" placeholder="Masukan Password Baru">
+                                    @error('newPassword')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $alert }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="input-group">
+                                    <input id="confirmPassword" type="password" class="form-control @error('confirmPassword') is-invalid @enderror" name="confirmPassword" value="{{ old('confirmPassword') }}" placeholder="Masukan Konfirmasi Password">
+                                    @error('confirmPassword')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $alert }}</strong>
                                     </span>

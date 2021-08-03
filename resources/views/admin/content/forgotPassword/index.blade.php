@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Lupa Password Petani</title>
+    <title>Lupa Password Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,7 +71,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <div class="signup-card card-block auth-body mr-auto ml-auto">
-                        <form action="/petani/postForgotPassword" class="md-float-material" method="POST">
+                        <form action="/admin/postForgotPassword" class="md-float-material" method="POST">
                             {{csrf_field()}}
                             <div class="auth-box">
                                 <div class="row m-b-20">

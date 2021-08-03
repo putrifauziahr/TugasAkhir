@@ -45,26 +45,11 @@
                         <div class="form-group">
                             <label class="col-md-3">Nama</label>
                             <div class="col-md-12">
-                                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
+                                <input name="nama" disabled type="text" class="form-control @error('nama') is-invalid @enderror" value="{{$petani->nama}}">
                                 @error('nama')<div class="invalid-feedback">{{$message}}</div> @enderror
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3">Username</label>
-                            <div class="col-md-12">
-                                <input name="username" type="text" class="form-control @error('username') is-invalid @enderror" value="{{$petani->username}}">
-                                @error('username')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-3">Password</label>
-                            <div class="col-md-12">
-                                <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{$petani->password}}">
-                                @error('password')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <label class="col-md-3">Komoditas</label>
@@ -121,13 +106,7 @@
 
 <script type="text/javascript">
     function validasi_input(form) {
-        if (form.nama.value == "") {
-            alert("Anda belum mengisi Nama !");
-            return (false);
-        } else if (form.username.value == "") {
-            alert("Anda belum mengisi Username !");
-            return (false);
-        } else if (form.komoditas.value == "pilih") {
+        if (form.komoditas.value == "pilih") {
             alert("Anda belum mengisi Komoditas !");
             return (false);
         } else if (form.id_poktan.value == "pilih") {

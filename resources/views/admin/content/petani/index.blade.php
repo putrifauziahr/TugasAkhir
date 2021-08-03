@@ -61,6 +61,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Gapoktan</th>
                                         <th>Kelompok Tani</th>
                                         <th>Komoditas</th>
                                         <th>Aksi</th>
@@ -73,6 +74,7 @@
                                     <tr>
                                         <td>{{$no}}</td>
                                         <td>{{$ptn->nama}}</td>
+                                        <td>{{$ptn->gapoktan}}</td>
                                         <td>{{$ptn->kelompok_tani}}</td>
                                         <td>{{$ptn->komoditas}}</td>
                                         <td>

@@ -181,8 +181,15 @@
                                 </li>
                                 <li>
                                     <a href="map-google.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-chart-bar-graph"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url('petani/showRiwayat/'.Session::get('id_petani'))}}">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Riwayat Kuisioner</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>

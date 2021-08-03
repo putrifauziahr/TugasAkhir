@@ -293,6 +293,7 @@
 <script src="{{ asset('assets/js/pcoded.min.js')}}"></script>
 <script src="{{ asset('assets/js/demo-12.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{ asset('assets/js/Chart.js')}}"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script>
     var $window = $(window);

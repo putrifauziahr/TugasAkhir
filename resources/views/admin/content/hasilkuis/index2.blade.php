@@ -71,12 +71,15 @@
                                         <th>ID Petani</th>
                                         <th>Kuisioner</th>
                                         <th>Kategori</th>
-                                        <th>H</th>
-                                        <th>H</th>
-                                        <th>H</th>
-                                        <th>P</th>
-                                        <th>P</th>
-                                        <th>P</th>
+                                        <th>Batas Bawah Persepsi</th>
+                                        <th>Batas Tengah Persepsi</th>
+                                        <th>Batas Atas Persepsi</th>
+                                        <th>Batas Bawah Harapan</th>
+                                        <th>Batas Tengah Harapan</th>
+                                        <th>Batas Atas Harapan</th>
+                                        <th>Persepsi</th>
+                                        <th>Harapan</th>
+                                        <th>GAP</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,37 +93,18 @@
                                         <td>{{$a->pertanyaan}}</td>
                                         <td>{{$a->kategori}}</td>
 
-                                        @foreach($bbh as $x)
-                                        <td>{{$x}}</td>
-                                        @endforeach
+                                        <td>{{$a->after_result->bbp}}</td>
+                                        <td>{{$a->after_result->btp}}</td>
+                                        <td>{{$a->after_result->bap}}</td>
+                                        <td>{{$a->after_result->bbh}}</td>
+                                        <td>{{$a->after_result->bth}}</td>
+                                        <td>{{$a->after_result->bah}}</td>
 
-                                        @foreach($bth as $b)
-                                        <td>{{$b}}</td>
-                                        @endforeach
+                                        <td>{{$a->after_result2->defuzzyp}}</td>
+                                        <td>{{$a->after_result2->defuzzyh}}</td>
+                                        <td>{{$a->after_result2->defuzzyp - $a->after_result2->defuzzyh}}</td>
 
-                                        @foreach($bah as $c)
-                                        <td>{{$c}}</td>
-                                        @endforeach
 
-                                        @foreach($bbp as $d)
-                                        <td>{{$d}}</td>
-                                        @endforeach
-
-                                        @foreach($btp as $e)
-                                        <td>{{$e}}</td>
-                                        @endforeach
-
-                                        @foreach($bap as $f)
-                                        <td>{{$f}}</td>
-                                        @endforeach
-
-                                        @foreach($defuzzyh as $g)
-                                        <td>{{$g}}</td>
-                                        @endforeach
-
-                                        @foreach($defuzzyp as $h)
-                                        <td>{{$h}}</td>
-                                        @endforeach
                                     </tr>
                                     @endforeach
                                 </tbody>

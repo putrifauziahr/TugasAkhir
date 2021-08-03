@@ -117,12 +117,12 @@
                                 </div>
                                 <hr />
                                 <div class="row">
-                                    <div class="col-md-10">
+                                    <div class="col-md-6">
                                         <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
                                         <p class="text-inverse text-left"><b>Terimakasih</b></p>
                                     </div>
-                                    <div class="col-md-2">
-                                        <img src="{{ asset('assets/images/auth/Logo-small-bottom.png')}}" alt="small-logo.png">
+                                    <div class="col-md-6">
+                                        <a href="{{route('admin/forgotPassword')}}">Lupa Password? Klik di sini </a>
                                     </div>
                                 </div>
                             </div>
