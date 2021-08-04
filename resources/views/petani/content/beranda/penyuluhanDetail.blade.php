@@ -16,19 +16,58 @@
             </div>
         </div>
 
-        <div class="card mb-3">
-            <a href="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" data-fancybox="gal">
-                <img style="width:470px; height:300px;" class="card-img-top" alt="Card image cap" src="{{url('/berkasPenyuluhan/'. $penyuluhan->image)}}">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title" style="text-align:center">{{$penyuluhan->kegiatan}}</h5>
-                <p class="card-text">
-                    {{$penyuluhan->deskripsi}}
-                </p>
-                <p class="card-text">
-                    <small class="text-muted">
-                    </small>
-                </p>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body profile-card">
+                        <center>
+                            <a href="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" data-fancybox="gal">
+                                @if($penyuluhan->image != null)
+                                <img src="{{ url('/berkasPenyuluhan/'. $penyuluhan->image) }}" alt="Image" style="height: 300px; width:400px">
+                                @else
+                                <img src="{{ url('images/user-dummy.png') }}" alt="Image" class="img-circle" style="height: 180px; width:180px">
+                                @endif
+                                <br>
+                                <br>
+                            </a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="about-info">
+
+                            <figure>
+                                <h3><i class="fa fa-users"></i> {{$penyuluhan->kegiatan}} <i class="fa fa-users"></i></h3>
+                                <figcaption>
+                                    <h4>Tempat</h4>
+                                    <p>{{$penyuluhan->tempat}}</p>
+
+                                    <h4>Waktu</h4>
+                                    <p>{{$penyuluhan->jam}} - {{$penyuluhan->hari}}, {{$penyuluhan->tanggal}} </p>
+
+                                    <h4>Pemateri</h4>
+                                    <p>{{$penyuluhan->pemateri}}</p>
+
+                                    <h4>Peserta</h4>
+                                    <p>{{$penyuluhan->peserta}}</p>
+
+                                    <h4>Komoditas</h4>
+                                    <p>{{$penyuluhan->komoditas}}</p>
+
+                                    <h4>Deskripsi </h4>
+                                    <p>{{$penyuluhan->deskripsi}}</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('beranda/showPenyuluhan')}}">Kembali</a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

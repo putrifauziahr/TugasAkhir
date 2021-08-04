@@ -20,7 +20,7 @@
                 <div class="team-thumb">
                     <div class="team-info" style="background-color: #76CF7E;">
                         <h3 style="color:white">Ponsel</h3>
-                        <span style="color:white"> 0813-2423-6801</span>
+                        <span style="color:white">+6281324236801 (admin)</span>
                     </div>
                 </div>
             </div>

@@ -38,7 +38,7 @@
 
                                 <div class="courses-info">
                                     <div class="courses-price">
-                                        <a href="#"><span>Lihat Selengkapnya</span></a>
+                                        <a href="/beranda/showDetailPenyuluhan/{{$pen->id_penyuluhan}}"><span>Lihat Selengkapnya</span></a>
                                     </div>
                                 </div>
                             </div>

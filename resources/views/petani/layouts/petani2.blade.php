@@ -123,7 +123,8 @@
                 <h2>Alamat</h2>
               </div>
               <address>
-                <p>Desa Babakan Jaya, Kecamatan Gabuswetan</p>
+                <p>BPP Gabuswetan
+                  Babakanjaya, Gabuswetan, Babakanjaya, Indramayu, Kabupaten Indramayu, Jawa Barat 45265</p>
               </address>
 
               <ul class="social-icon">
@@ -140,7 +141,7 @@
                 <h2>Kontak Info</h2>
               </div>
               <address>
-                <p>085321041904</p>
+                <p>+6281324236801 (admin)</p>
                 <p><a href="mailto:youremail.com">bpp.gabuswetan@gmail.com</a></p>
               </address>
             </div>
@@ -153,9 +154,9 @@
               </div>
               <div>
                 <div class="copyright-text">
-                  <p>Copyright &copy; 2018 Company</p>
-                  <p>Design: <a rel="nofollow" href="http://templatemo.com" title="html5 templates" target="_parent">Template Mo</a></p>
-                  <p>Distribution: <a href="https://themewagon.com/">ThemeWagon</a></p>
+                  <p>Copyright &copy; 2018 Politeknik Negeri Indramayu</p>
+                  <p>Design: <a rel="nofollow" href="http://templatemo.com" title="html5 templates" target="_parent">Politeknik Negeri Indramayu</a></p>
+                  <p>Distribution: <a href="https://themewagon.com/">Politeknik Negeri Indramayu</a></p>
                 </div>
               </div>
             </div>
