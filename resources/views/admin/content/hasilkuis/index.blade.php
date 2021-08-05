@@ -59,7 +59,7 @@
                 </form>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Hasil Kuisioner</h5>
+                        <h5>Data Hasil Kuisioner Kegiatan "{{$penyuluhan->kegiatan}}, {{$penyuluhan->tanggal}}"</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">

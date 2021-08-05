@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\model\Fuzzyfikasi;
 use App\model\HasilKuisioner;
 use App\model\Kuisioner;
+use App\model\Penyuluhan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,8 @@ class FuzzyfikasiController extends Controller
             ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
             ->where('penyuluhans.status', '=', "Sedang Dilaksanakan")
             ->get();
-        return view('admin/content/prosesdata/fuzzy', compact('fuzzy'));
+        $penyuluhan = Penyuluhan::where('status', "Sedang Dilaksanakan")->first();
+        return view('admin/content/prosesdata/fuzzy', compact('fuzzy', 'penyuluhan'));
     }
     public function tambah(Request $request, HasilKuisioner $hasilKuisioner)
     {
@@ -42,7 +44,8 @@ class FuzzyfikasiController extends Controller
         $pp = [];
         //persepsi : sangat puas
         $spp = [];
-        for ($i = 1; $i <= 16; $i++) {
+        $jumlah = Kuisioner::count();
+        for ($i = 1; $i <= $jumlah; $i++) {
             //persepsi
             $tpp_count = DB::table('hasil_kuisioners')
                 ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
@@ -116,7 +119,8 @@ class FuzzyfikasiController extends Controller
             array_push($sp, $sp_count);
         }
 
-        for ($j = 0; $j < 16; $j++) {
+        $jumlah = Kuisioner::count();
+        for ($j = 0; $j < $jumlah; $j++) {
             $check = Fuzzyfikasi::where('id_hasil', $request->id_hasil)->first();
             if (!$check) {
                 $answers[] = [

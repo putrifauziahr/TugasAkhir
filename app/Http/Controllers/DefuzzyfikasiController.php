@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\Defuzzyfikasi;
 use App\model\Fuzzyfikasi;
+use App\model\Kuisioner;
 use App\model\Penyuluhan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +14,7 @@ class DefuzzyfikasiController extends Controller
     public function showDefuzzy()
     {
         // $defuzzy = Defuzzyfikasi::all();
+        $penyuluhan = Penyuluhan::where('status', "Sedang Dilaksanakan")->first();
         $defuzzy = DB::table('defuzzyfikasi')
             ->join('fuzzyfikasi', 'defuzzyfikasi.id_fuzzy', '=', 'fuzzyfikasi.id_fuzzy')
             ->join('hasil_kuisioners', 'fuzzyfikasi.id_hasil', '=', 'hasil_kuisioners.id_hasil')
@@ -139,7 +141,8 @@ class DefuzzyfikasiController extends Controller
             'assu',
             'assup',
             'em',
-            'emp'
+            'emp',
+            'penyuluhan'
         ));
     }
     public function tambah(Request $request)
@@ -183,7 +186,8 @@ class DefuzzyfikasiController extends Controller
         // }
 
         //input defuzzyfikasi
-        for ($i = 0; $i < 16; $i++) {
+        $jumlah = Kuisioner::count();
+        for ($i = 0; $i < $jumlah; $i++) {
             $check = Defuzzyfikasi::where('id_fuzzy', $request->id_fuzzy)->first();
             if (!$check) {
                 $answers[] = [

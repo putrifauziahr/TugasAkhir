@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\model\HasilKuisioner;
+use App\model\Kuisioner;
+use App\model\Penyuluhan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,8 +16,9 @@ class HasilKuisionerController extends Controller
             ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
             ->where('penyuluhans.status', '=', 'Sedang Dilaksanakan')
             ->get();
-        // $hasil = HasilKuisioner::all();
-        return view('admin/content/hasilkuis/index', compact('hasil'));
+
+        $penyuluhan = Penyuluhan::where('status', "Sedang Dilaksanakan")->first();
+        return view('admin/content/hasilkuis/index', compact('hasil', 'penyuluhan'));
     }
 
     public function index2()
@@ -51,8 +54,8 @@ class HasilKuisionerController extends Controller
         $bap = [];
         $defuzzyh = [];
         $defuzzyp = [];
-
-        for ($i = 1; $i <= 16; $i++) {
+        $jumlah = Kuisioner::count();
+        for ($i = 1; $i <= $jumlah; $i++) {
             $tpp_count = DB::table('hasil_kuisioners')
                 ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
                 ->where('penyuluhans.status', '=', 'Sedang Dilaksanakan')
@@ -126,7 +129,7 @@ class HasilKuisionerController extends Controller
         }
 
         //fuzzyfikasi
-        for ($i = 0; $i < 16; $i++) {
+        for ($i = 0; $i < $jumlah; $i++) {
             //batas bawah harapan
             $fuzzy11 = (((0 * $tp[$i]) + (1 * $kp[$i]) + (2 * $cp[$i]) + (3 * $p[$i]) + (4 * $sp[$i])) / ($tp[$i] + $kp[$i] + $cp[$i] + $p[$i] + $sp[$i]));
             array_push($bbh, $fuzzy11);
@@ -153,7 +156,7 @@ class HasilKuisionerController extends Controller
         }
 
         //defuzzyfikasi
-        for ($i = 0; $i < 16; $i++) {
+        for ($i = 0; $i < $jumlah; $i++) {
             //harapan
             $defuzzyhh = (($bbh[$i] + $bth[$i] + $bah[$i]) / 3);
             array_push($defuzzyh,  $defuzzyhh);
@@ -163,12 +166,8 @@ class HasilKuisionerController extends Controller
             array_push($defuzzyp,  $defuzzypp);
         }
 
-        $hasil = DB::table('hasil_kuisioners')
-            ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
-            ->join('kuisioners', 'hasil_kuisioners.id_kuis', '=', 'kuisioners.id_kuis')
-            ->join('kategoris', 'kuisioners.id_kategori', '=', 'kategoris.id_kategori')
-            ->where('penyuluhans.status', '=', 'Sedang Dilaksanakan')
-            ->get();
+        $hasil = Kuisioner::all();
+
         foreach ($hasil as $key => $item) {
             $before_result = (object)[
                 'tp' => $tp[$key],
@@ -199,6 +198,7 @@ class HasilKuisionerController extends Controller
             $item->after_result2 = $after_result2;
         }
 
+        $penyuluhan = Penyuluhan::where('status', "Sedang Dilaksanakan")->first();
         return view('admin/content/hasilkuis/index2', compact(
             'hasil',
             'tp',
@@ -218,7 +218,8 @@ class HasilKuisionerController extends Controller
             'btp',
             'bap',
             'defuzzyh',
-            'defuzzyp'
+            'defuzzyp',
+            'penyuluhan'
         ));
         // dd($fuzzy6);
 

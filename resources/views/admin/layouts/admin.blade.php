@@ -259,6 +259,14 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{route('admin/showRiwayat')}}">
+                                        <span class="pcoded-micon">
+                                            <i class="icofont icofont-chart-bar-graph"></i><b></b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Riwayat Hasil</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>

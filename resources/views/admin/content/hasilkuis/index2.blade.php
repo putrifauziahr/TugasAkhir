@@ -59,7 +59,7 @@
                 </form>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Hasil Kuisioner</h5>
+                        <h5>Data Hasil Kuisioner Kegiatan " {{$penyuluhan->kegiatan}} - {{$penyuluhan->tanggal}} "</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
@@ -67,9 +67,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kegiatan Penyuluhan</th>
-                                        <th>ID Petani</th>
-                                        <th>Kuisioner</th>
+                                        <th>Pertanyaan</th>
                                         <th>Kategori</th>
                                         <th>Batas Bawah Persepsi</th>
                                         <th>Batas Tengah Persepsi</th>
@@ -88,10 +86,8 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <td>{{$a->kegiatan}}</td>
-                                        <td>{{$a->id_petani}}</td>
                                         <td>{{$a->pertanyaan}}</td>
-                                        <td>{{$a->kategori}}</td>
+                                        <td>{{$a->Kategoris->kategori}}</td>
 
                                         <td>{{$a->after_result->bbp}}</td>
                                         <td>{{$a->after_result->btp}}</td>

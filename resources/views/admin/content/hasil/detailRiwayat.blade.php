@@ -108,9 +108,87 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="page-body">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Hasil Akhir Kegiatan " {{$penyuluhan->kegiatan}} - {{$penyuluhan->tanggal}} "</h5>
+                        </div>
+
+                        <div class="card-block table-border-style">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="hasil-table">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kategori</th>
+                                            <th>Nilai GAP</th>
+                                            <th>Kesimpulan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Tangibles</td>
+                                            <td>{{$tangp - $tang}}</td>
+                                            @if($tangp - $tang == "0")
+                                            <td>Sudah Sesuai Harapan Petani</td>
+                                            @else($tangp - $tang <= "-1" ) <td>Harus Diperbaiki</td>
+                                                @endif
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Reliability</td>
+                                            <td>{{$relip - $reli}}</td>
+                                            @if($relip - $reli == "0")
+                                            <td>Sudah Sesuai Harapan Petani</td>
+                                            @else($relip - $reli <= "-1" ) <td>Harus Diperbaiki</td>
+                                                @endif
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Responsiveness</td>
+                                            <td>{{$responp - $respon}}</td>
+                                            @if($responp - $respon == "0")
+                                            <td>Sudah Sesuai Harapan Petani</td>
+                                            @else($responp - $respon <= "-1" ) <td>Harus Diperbaiki</td>
+                                                @endif
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Assurance</td>
+                                            <td>{{$assup - $assu}}</td>
+                                            @if($assup - $assu == "0")
+                                            <td>Sudah Sesuai Harapan Petani</td>
+                                            @else($assup - $assu <= "-1" ) <td>Harus Diperbaiki</td>
+                                                @endif
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td>Emphaty</td>
+                                            <td>{{$emp - $em}}</td>
+                                            @if($emp - $em == "0")
+                                            <td>Sudah Sesuai Harapan Petani</td>
+                                            @else($$emp - $em <= "-1" ) <td>Harus Diperbaiki</td>
+                                                @endif
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#hasil-table').DataTable();
+    });
+</script>
+@endpush

@@ -14,6 +14,8 @@ class UserRiwayatController extends Controller
             ->join('petanis', 'hasil_kuisioners.id_petani', '=', 'petanis.id_petani')
             ->join('penyuluhans', 'hasil_kuisioners.id_penyuluhan', '=', 'penyuluhans.id_penyuluhan')
             ->where('petanis.id_petani', $id_petani)
+            ->select('kegiatan', 'tanggal', 'status', 'hari')
+            ->distinct()
             ->get();
         return view('petani/content/kuisioner/riwayat', compact('riwayat'));
     }

@@ -60,7 +60,7 @@
                 </form>
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Fuzzyfikasi</h5>
+                        <h5>Data Fuzzyfikasi "{{$penyuluhan->kegiatan}}, {{$penyuluhan->tanggal}}"</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">

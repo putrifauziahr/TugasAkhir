@@ -51,7 +51,7 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Fuzzyfikasi</h5>
+                        <h5>Data Defuzzyfikasi "{{$penyuluhan->kegiatan}}, {{$penyuluhan->tanggal}}"</h5>
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
@@ -79,27 +79,18 @@
                                         <td>{{$f->persepsi}}</td>
                                         <td>{{$f->harapan}}</td>
                                         <td>{{$f->persepsi - $f->harapan}}</td>
-
                                         <td>{{$tang}}</td>
                                         <td>{{$tangp}}</td>
                                         <td>{{ $tangp - $tang}}</td>
-                                        <td>=================</td>
-
                                         <td>{{$reli}}</td>
                                         <td>{{$relip}}</td>
                                         <td>{{ $relip - $reli}}</td>
-                                        <td>=================</td>
-
                                         <td>{{$respon}}</td>
                                         <td>{{$responp}}</td>
                                         <td>{{ $responp - $respon}}</td>
-                                        <td>=================</td>
-
                                         <td>{{$assu}}</td>
                                         <td>{{$assup}}</td>
                                         <td>{{$assup - $assu}}</td>
-                                        <td>=================</td>
-
                                         <td>{{$em}}</td>
                                         <td>{{$emp}}</td>
                                         <td>{{$emp - $em}}</td>

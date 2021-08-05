@@ -61,7 +61,7 @@
                     </div>
                     <div class="card-block table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="riwayat-table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -89,5 +89,17 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
 
-                @endsection
+@endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#riwayat-table').DataTable();
+    });
+</script>
+@endpush
