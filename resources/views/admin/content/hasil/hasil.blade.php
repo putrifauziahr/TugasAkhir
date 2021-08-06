@@ -131,45 +131,116 @@
                                             <th scope="row">1</th>
                                             <td>Tangibles</td>
                                             <td>{{$tangp - $tang}}</td>
-                                            @if($tangp - $tang == "0")
-                                            <td>Sudah Sesuai Harapan Petani</td>
-                                            @else($tangp - $tang <= "-1" ) <td>Harus Diperbaiki</td>
+                                            @if($tangp - $tang >= "0")
+                                            <td>
+                                                <p>
+                                                    Pelayanan yang diberikan sudah sesuai harapan petani,
+                                                    <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
+                                                </p>
+                                            </td>
+                                            @else($tangp - $tang < "0" ) <td>
+                                                <p>
+                                                    1. Terkait Kebersihan, kenyaman dan keamanan ruang kegiatan penyuluhan berlangsung, harus ditingkat dan diperbaiki
+                                                </p>
+                                                <p>
+                                                    2. Perlengkapan yang digunakan dalam kegiatan penyuluhan harus lengkap dan memadai agar tidak
+                                                    kesulitan saat melakukan kegiatan penyuluhan
+                                                </p>
+                                                <p>
+                                                    3. Kelengkapan dan kesiapan alat peraga penyuluh harus dipersiapan secara matang, agar dapat berfungsi dengan baik
+                                                    saat digunakan pada kegiatan penyuluhan
+                                                </p>
+                                                </td>
                                                 @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>Reliability</td>
                                             <td>{{$relip - $reli}}</td>
-                                            @if($relip - $reli == "0")
-                                            <td>Sudah Sesuai Harapan Petani</td>
-                                            @else($relip - $reli <= "-1" ) <td>Harus Diperbaiki</td>
+                                            @if($relip - $reli >= "0")
+                                            <td>
+                                                <p>
+                                                    Pelayanan yang diberikan sudah sesuai harapan petani,
+                                                    <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
+                                                </p>
+                                            </td>
+                                            @else($relip - $reli < "0" ) <td>
+                                                <p>
+                                                    1. Kesesuaikan kegiatan dengan waktu yang dijadwalkan sesuai, penyelenggaraan penyuluhan harus
+                                                    disiplin,
+                                                    <br>
+                                                    agar segala sesuatu berlangsung sesuai dengan jadwal yang sudah dilakukan dan tidak membuang-buang waktu
+                                                </p>
+                                                <p>
+                                                    2. Dalam memberikan penyuluhan, petani mengharapkan penyuluh merupakan orang yang kompeten dibidangnya dan sudah berpengalaman
+                                                </p>
+                                                <p>
+                                                    3. Penyuluh menyampaikan materi penyuluhan pertanian dengan baik
+                                                </p>
+                                                <p>
+                                                    4. Materi penyuluhan yang ditawarkan sesuai dengan yang dibutuhkan petani dan sesuai
+                                                </p>
+                                                </td>
                                                 @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>Responsiveness</td>
                                             <td>{{$responp - $respon}}</td>
-                                            @if($responp - $respon == "0")
-                                            <td>Sudah Sesuai Harapan Petani</td>
-                                            @else($responp - $respon <= "-1" ) <td>Harus Diperbaiki</td>
+                                            @if($responp - $respon >= "0")
+                                            <td>
+                                                <p>
+                                                    Pelayanan yang diberikan sudah sesuai harapan petani,
+                                                    <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
+                                                </p>
+                                            </td>
+                                            @else($responp - $respon < "0" ) <td>
+                                                <p>
+                                                    1. Petugas penyuluhan cepat tanggap dalam memberikan pelayanan
+                                                </p>
+                                                <p>
+                                                    2. Penyuluh menerima pertanyaan dan secara langsung menjawab dan mampu menjawab pertanyaan dengan benar
+                                                </p>
+                                                </td>
                                                 @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">4</th>
                                             <td>Assurance</td>
                                             <td>{{$assup - $assu}}</td>
-                                            @if($assup - $assu == "0")
-                                            <td>Sudah Sesuai Harapan Petani</td>
-                                            @else($assup - $assu <= "-1" ) <td>Harus Diperbaiki</td>
+                                            @if($assup - $assu >= "0")
+                                            <td>
+                                                <p>
+                                                    Pelayanan yang diberikan sudah sesuai harapan petani,
+                                                    <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
+                                                </p>
+                                            </td>
+                                            @else($assup - $assu < "0" ) <td>
+                                                <p>
+                                                    1. Penyuluh sudah berpengalaman dalam memberikan penyuluhan pertanian
+                                                </p>
+                                                <p>2. Lingkungan penyuluhan terasa nyaman, tentram dan aman</p>
+                                                <p>3. Penyuluh memiliki kemampuan dan pengetahuan dalam memberikan penyuluhan pertanian</p>
+                                                </td>
                                                 @endif
                                         </tr>
                                         <tr>
                                             <th scope="row">5</th>
                                             <td>Emphaty</td>
                                             <td>{{$emp - $em}}</td>
-                                            @if($emp - $em == "0")
-                                            <td>Sudah Sesuai Harapan Petani</td>
-                                            @else($$emp - $em <= "-1" ) <td>Harus Diperbaiki</td>
+                                            @if($emp - $em >= "0")
+                                            <td>
+                                                <p>
+                                                    Pelayanan yang diberikan sudah sesuai harapan petani,
+                                                    <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
+                                                </p>
+                                            </td>
+                                            @else($$emp - $em < "0" ) <td>
+                                                <p>1. Petugas penyuluhan memberikan perhatian saat kegiatan penyuluhan</p>
+                                                <p>2. Keramahan, kesopanan dan sikap petugas penyuluhan dalam memberikan pelayanan</p>
+                                                <p>3. Petugas penyuluhan berkomunikasi dengan Bahasa yang mudah dimengerti</p>
+                                                <p>4. Petugas penyuluhan meminta maaf atas pelayanan yang kurang baik</p>
+                                                </td>
                                                 @endif
                                         </tr>
                                     </tbody>

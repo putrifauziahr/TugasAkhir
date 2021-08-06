@@ -68,7 +68,6 @@
                                         <th>Nama Kegiatan</th>
                                         <th>Hari</th>
                                         <th>Tanggal</th>
-                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,7 +79,6 @@
                                         <td>{{$p->kegiatan}}</td>
                                         <td>{{$p->hari}}</td>
                                         <td>{{$p->tanggal}}</td>
-                                        <td>{{$p->status}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

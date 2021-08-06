@@ -1,6 +1,6 @@
-@extends('admin/layouts/admin')
+@extends('petani/layouts/petani')
 
-@section('title', 'Admin | Hasil Kuisioner')
+@section('title', 'Petani | Hasil Kuisioner')
 
 @section ('container')
 <script src="{{ asset('assets/js/Chart.js')}}"></script>
@@ -14,7 +14,7 @@
                             <div class="page-header-title">
                                 <div class="d-inline">
                                     <h4>Hasil Kuisioner</h4>
-                                    <span>Dashboard Admin</span>
+                                    <span>Dashboard Petani</span>
                                 </div>
                             </div>
                         </div>
@@ -50,84 +50,6 @@
                     @endphp
                 </div>
                 @endif
-                <form action="/admin/tambahFuzzyfikasi" method="POST">
-                    {{csrf_field()}}
-                    @foreach($hasil as $a)
-                    <input type="text" name="id_hasil[]" value="{{$a->id_hasil}}" hidden>
-                    @endforeach
-                    <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#exampleModal"><i class="ti-plus"></i>Proses Fuzzyfikasi</button>
-
-                </form>
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Data Hasil Kuisioner Kegiatan " {{$penyuluhans->kegiatan}} - {{$penyuluhans->tanggal}} "</h5>
-                    </div>
-                    <div class="card-block table-border-style">
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="nilai-table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Pertanyaan</th>
-                                        <th>Kategori</th>
-                                        <th>Batas Bawah Persepsi</th>
-                                        <th>Batas Tengah Persepsi</th>
-                                        <th>Batas Atas Persepsi</th>
-                                        <th>Batas Bawah Harapan</th>
-                                        <th>Batas Tengah Harapan</th>
-                                        <th>Batas Atas Harapan</th>
-                                        <th>Persepsi</th>
-                                        <th>Harapan</th>
-                                        <th>GAP</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 0; ?>
-                                    @foreach($hasil as $a)
-                                    <?php $no++; ?>
-                                    <tr>
-                                        <th scope="row">{{$no}}</th>
-                                        <td>{{$a->pertanyaan}}</td>
-                                        <td>{{$a->Kategoris->kategori}}</td>
-
-                                        <td>{{$a->after_result->bbp}}</td>
-                                        <td>{{$a->after_result->btp}}</td>
-                                        <td>{{$a->after_result->bap}}</td>
-                                        <td>{{$a->after_result->bbh}}</td>
-                                        <td>{{$a->after_result->bth}}</td>
-                                        <td>{{$a->after_result->bah}}</td>
-
-                                        <td>{{$a->after_result2->defuzzyp}}</td>
-                                        <td>{{$a->after_result2->defuzzyh}}</td>
-                                        <td>{{$a->after_result2->defuzzyp - $a->after_result2->defuzzyh}}</td>
-
-
-                                        <td>{{$tangp}}</td>
-                                        <td>{{$tang}}</td>
-                                        <td>{{$tangp - $tang}}</td>
-
-                                        <td>{{$relip}}</td>
-                                        <td>{{$reli}}</td>
-                                        <td>{{ $relip - $reli}}</td>
-
-                                        <td>{{$responp}}</td>
-                                        <td>{{$respon}}</td>
-                                        <td>{{ $responp - $respon}}</td>
-
-                                        <td>{{$assup}}</td>
-                                        <td>{{$assu}}</td>
-                                        <td>{{$assup - $assu}}</td>
-
-                                        <td>{{$emp}}</td>
-                                        <td>{{$em}}</td>
-                                        <td>{{$emp - $em}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
                 <div class="page-body">
                     <div class="card">
                         <div class="card-header">
@@ -338,45 +260,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Data Penyuluhan</h5>
-                    </div>
-                    <div class="card-block table-border-style">
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="penyuluhan-table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Kegiatan</th>
-                                        <th>Hari</th>
-                                        <th>Tanggal</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 0; ?>
-                                    @foreach($penyuluhan as $p)
-                                    <?php $no++; ?>
-                                    <tr>
-                                        <td>{{$no}}</td>
-                                        <td>{{$p->kegiatan}}</td>
-                                        <td>{{$p->hari}}</td>
-                                        <td>{{$p->tanggal}}</td>
-                                        <td>{{$p->status}}</td>
-                                        <td>
-                                            <a href="/admin/showDetailRiwayatLagi/{{$p->id_penyuluhan}}" class="btn btn-success"><i class="ti-zoom-in"></i>Hasil Akhir</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -387,11 +270,6 @@
 <script>
     $(document).ready(function() {
         $('#nilai-table').DataTable();
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('#hasil-table').DataTable();
     });
 </script>
 @endpush

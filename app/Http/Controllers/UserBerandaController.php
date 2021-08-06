@@ -9,7 +9,7 @@ class UserBerandaController extends Controller
 {
     public function showPenyuluhan()
     {
-        $penyuluhan = Penyuluhan::all();
+        $penyuluhan = Penyuluhan::where('status', "Belum Dilaksanakan");
         return view('petani/content/beranda/penyuluhan', compact('penyuluhan'));
     }
 

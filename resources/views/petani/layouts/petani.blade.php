@@ -180,7 +180,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="map-google.html">
+                                    <a href="{{route('petani/showHasil')}}">
                                         <span class="pcoded-micon"><i class="icofont icofont-chart-bar-graph"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
                                         <span class="pcoded-mcaret"></span>

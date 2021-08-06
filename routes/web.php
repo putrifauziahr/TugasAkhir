@@ -5,7 +5,7 @@ use App\model\Penyuluhan;
 
 
 Route::get('/', function () {
-    $penyuluhan = Penyuluhan::all();
+    $penyuluhan = Penyuluhan::where('status', "Belum Dilaksanakan");
     return view('petani/content/beranda/home', compact('penyuluhan'));
 });
 
@@ -91,6 +91,7 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     //hasil kuisioner
     Route::get('admin/showHasilKuis', 'HasilKuisionerController@index')->name('admin/showHasilKuis');
     Route::get('admin/showHasilKuisLagi', 'HasilKuisionerController@index2')->name('admin/showHasilKuisLagi');
+    Route::get('admin/showDetailRiwayatLagi/{id_penyuluhan}', 'HasilKuisionerController@showDetailRiwayatLagi')->name('admin/showDetailRiwayatLagi');
 
     //fuzzyfikasi
     Route::post('admin/tambahFuzzyfikasi', 'FuzzyfikasiController@tambah')->name('admin/tambahFuzzyfikasi');
@@ -153,4 +154,5 @@ Route::group(['middleware' => ['CheckLoginPetani']], function () {
 
     //riwayat
     Route::get('petani/showRiwayat/{id_petani}', 'UserRiwayatController@index')->name('petani/showRiwayat');
+    Route::get('petani/showHasil', 'UserRiwayatController@hasil')->name('petani/showHasil');
 });
