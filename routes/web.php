@@ -106,6 +106,15 @@ Route::group(['middleware' => ['CheckLoginAdmin']], function () {
     Route::get('admin/showRiwayat', 'DefuzzyfikasiController@riwayatHasil')->name('admin/showRiwayat');
     Route::get('admin/showDetailRiwayat/{id_penyuluhan}', 'DefuzzyfikasiController@detailRiwayat')->name('admin/showDetailRiwayat');
 
+    //Hasil akhir tanpa database
+    Route::post('admin/tambahRiwayat', 'HasilAkhirController@tambah')->name('admin/tambahRiwayat');
+    Route::get('admin/hapusRiwayat/{riwayat}', 'HasilAkhirController@hapus')->name('admin/hapusRiwayat');
+
+    Route::get('admin/showHasilAkhir', 'HasilAkhirController@final')->name('admin/showHasilAkhir');
+    Route::get('admin/showProsesData', 'HasilAkhirController@prosesData')->name('admin/showHasil');
+    Route::get('admin/showRiwayatHasil', 'HasilAkhirController@riwayat')->name('admin/showRiwayatHasil');
+    Route::get('admin/showDetailRiwayatAkhir/{riwayat}', 'HasilAkhirController@detailRiwayat')->name('admin/showDetailRiwayatAkhir');
+
     //Admin
     Route::get('admin/showAdmin', 'AdminController@index')->name('admin/showAdmin')->middleware('CheckLoginAdmin');
     Route::post('admin/tambahAdmin', 'AdminController@tambahAdmin')->name('admin/tambahAdmin');
@@ -138,7 +147,7 @@ Route::group(['middleware' => ['CheckLoginPetani']], function () {
     //dashboard petani
     Route::get('petani/dashboard', 'UserPetaniController@dashboard')->name('petani/dashboard');
 
-    //penyuluhan
+    //penyuluhanv
     Route::get('petani/showPenyuluhan', 'UserPetaniController@showPenyuluhan')->name('petani/showPenyuluhan')->middleware('CheckLoginPetani');
     Route::get('petani/showDetailPenyuluhan/{penyuluhan}', 'UserPetaniController@showDetailPenyuluhan')->name('petani/showDetailPenyuluhan');
 

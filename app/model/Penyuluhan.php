@@ -14,4 +14,9 @@ class Penyuluhan extends Model
     {
         return $this->hasMany('App\Model\HasilKuisioner', 'id_penyuluhan');
     }
+
+    public function Riwayats()
+    {
+        return $this->hasMany('App\Model\Riwayat', 'id_penyuluhan');
+    }
 }

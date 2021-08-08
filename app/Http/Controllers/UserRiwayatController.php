@@ -222,39 +222,43 @@ class UserRiwayatController extends Controller
 
         $penyuluhans = Penyuluhan::where('status', "Sedang Dilaksanakan")->first();
         $penyuluhan = Penyuluhan::all();
-        return view('petani/content/kuisioner/hasil', compact(
-            'hasil',
-            'tp',
-            'kp',
-            'cp',
-            'p',
-            'sp',
-            'tpp',
-            'kpp',
-            'cpp',
-            'pp',
-            'spp',
-            'bbh',
-            'bth',
-            'bah',
-            'bbp',
-            'btp',
-            'bap',
-            'defuzzyh',
-            'defuzzyp',
-            'penyuluhan',
-            'penyuluhans',
-            'tang',
-            'tangp',
-            'reli',
-            'relip',
-            'respon',
-            'responp',
-            'assu',
-            'assup',
-            'em',
-            'emp'
-        ));
-        // dd($fuzzy6);
+        if ($bbh == "0") {
+            return redirect('petani/dashboard')->with('alertF', 'Tidak Ada Hasil');
+        } else {
+            return view('petani/content/kuisioner/hasil', compact(
+                'hasil',
+                'tp',
+                'kp',
+                'cp',
+                'p',
+                'sp',
+                'tpp',
+                'kpp',
+                'cpp',
+                'pp',
+                'spp',
+                'bbh',
+                'bth',
+                'bah',
+                'bbp',
+                'btp',
+                'bap',
+                'defuzzyh',
+                'defuzzyp',
+                'penyuluhan',
+                'penyuluhans',
+                'tang',
+                'tangp',
+                'reli',
+                'relip',
+                'respon',
+                'responp',
+                'assu',
+                'assup',
+                'em',
+                'emp'
+            ));
+            // dd($fuzzy6);
+        }
     }
 }

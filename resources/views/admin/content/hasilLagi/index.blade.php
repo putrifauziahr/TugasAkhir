@@ -1,6 +1,6 @@
-@extends('petani/layouts/petani')
+@extends('admin/layouts/admin')
 
-@section('title', 'Petani | Hasil Kuisioner')
+@section('title', 'Admin | Hasil Kuisioner')
 
 @section ('container')
 <script src="{{ asset('assets/js/Chart.js')}}"></script>
@@ -14,7 +14,7 @@
                             <div class="page-header-title">
                                 <div class="d-inline">
                                     <h4>Hasil Kuisioner</h4>
-                                    <span>Dashboard Petani</span>
+                                    <span>Dashboard Admin</span>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +51,7 @@
                 </div>
                 @endif
 
+                @if($pen == "1")
                 <div class="page-body">
                     <div class="card">
                         <div class="card-header">
@@ -60,7 +61,6 @@
                             <div class="col-lg-8">
                                 <canvas id="myChart"></canvas>
                             </div>
-
 
                             <script>
                                 var ctx = document.getElementById("myChart").getContext('2d');
@@ -257,10 +257,27 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <form action="/admin/tambahRiwayat" method="POST">
+                                    {{csrf_field()}}
+                                    <input hidden name="id_penyuluhan" value="{{$penyuluhans->id_penyuluhan}}"></input>
+                                    <input hidden name="tangibles" value="{{$tangp - $tang}}"></input>
+                                    <input hidden name="reliability" value="{{$relip - $reli}}"></input>
+                                    <input hidden name="respon" value="{{$responp - $respon}}"></input>
+                                    <input hidden name="assurance" value="{{$assup - $assu}}"></input>
+                                    <input hidden name="empati" value="{{$emp - $em}}"></input>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <button type="submit" class="btn btn-primary mx-auto mx-md-0 text-white">Simpan Sebagai Riwayat</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                @else
+                @endif
             </div>
         </div>
     </div>
@@ -271,6 +288,11 @@
 <script>
     $(document).ready(function() {
         $('#nilai-table').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#hasil-table').DataTable();
     });
 </script>
 @endpush

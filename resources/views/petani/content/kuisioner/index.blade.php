@@ -57,13 +57,27 @@
                     <div class="card-header">
                         <h5>Petunjuk Pengisian !</h5>
                     </div>
-                    <div class="col-md-8">
-                        <p>1. </p>
+                    <div class="col-md-12">
+                        <p style="font-size:14px; text-align:justify">
+                            1. Bacalah setiap pertanyaan dengan teliti dan berikan jawaban sesuai dengan
+                            kenyataan yang diterima saat kegiatan penyuluhan berlangsung
+                        </p>
+                        <p style="font-size:14px; text-align:justify">
+                            2. Harapan merupakan harapan petani terhadap pelayanan penyuluhan
+                            yang diberikan oleh BPP Kecamatan Gabuswetan, sebelum berlangsungnya kegiatan penyuluhan.
+                        </p>
+                        <p style="font-size:14px; text-align:justify">
+                            3. Pengisian kuisioner hanya dapat dilakukan Satu kali pada satu kegiatan,
+                            jika melakukan percobaan pengisian kedua dan seterusnya, maka
+                            jawaban tidak tersimpan dan muncul status bahwa "Kuisioner Sudah Pernah Diisi"
+                        </p>
                     </div>
                 </div>
+                @foreach($pen as $penn)
+                @if($penn->status == "Sedang Dilaksanakan")
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="sub-title" style="font-weight: bold; font-size:20px; text-align:center">Kuisioner</h4>
+                        <h4 class="sub-title" style="font-weight: bold; font-size:16px; text-align:center">Kuisioner Kegiatan "{{$penn->kegiatan}}, {{$penn->tanggal}}" </h4>
                     </div>
                     <form action="/petani/postTambahKuisioner" method="POST">
                         {{csrf_field()}}
@@ -143,6 +157,9 @@
                         </div>
                     </form>
                 </div>
+                @else
+                @endif
+                @endforeach
             </div>
         </div>
 

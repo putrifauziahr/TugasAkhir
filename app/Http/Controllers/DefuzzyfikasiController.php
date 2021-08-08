@@ -327,7 +327,7 @@ class DefuzzyfikasiController extends Controller
 
     public function riwayatHasil()
     {
-        $penyuluhan = Penyuluhan::all();
+        $penyuluhan = DB::table('penyuluhans')->where('status', '=', "Sudah Dilaksanakan")->get();
         return view('admin/content/hasil/riwayat', compact(
             'penyuluhan'
         ));

@@ -228,31 +228,15 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
+                                <li>
+                                    <a href="{{url('admin/showProsesData')}}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Proses Data</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
-                                    <ul class="pcoded-submenu">
-                                        <li>
-                                            <a href="{{route('admin/showFuzzy')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Fuzzyfikasi</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('admin/showDefuzzy')}}">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Defuzzyfikasi</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin/showHasil')}}">
+                                    <a href="{{url('admin/showHasilAkhir')}}">
                                         <span class="pcoded-micon">
                                             <i class="icofont icofont-chart-bar-graph"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Hasil</span>
@@ -260,7 +244,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin/showRiwayat')}}">
+                                    <a href="{{route('admin/showRiwayatHasil')}}">
                                         <span class="pcoded-micon">
                                             <i class="icofont icofont-chart-bar-graph"></i><b></b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Riwayat Hasil</span>

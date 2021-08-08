@@ -1,20 +1,22 @@
-@extends('petani/layouts/petani')
+@extends('admin/layouts/admin')
 
-@section('title', 'Petani | Hasil Kuisioner')
+@section('title', 'Admin | Detail Riwayat')
 
 @section ('container')
 <script src="{{ asset('assets/js/Chart.js')}}"></script>
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
+
         <div class="main-body">
             <div class="page-wrapper">
+                <!-- Page-header start -->
                 <div class="page-header card">
                     <div class="row align-items-end">
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Hasil Kuisioner</h4>
-                                    <span>Dashboard Petani</span>
+                                    <h4>Detail Riwayat</h4>
+                                    <span>Dashboard Admin</span>
                                 </div>
                             </div>
                         </div>
@@ -28,33 +30,19 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Dashboard</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Hasil Kuisioner</a>
+                                    <li class="breadcrumb-item"><a href="#">Detail Riwayat</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                @if(Session::has('alert'))
-                <div class="alert alert-success">
-                    {{ Session::get('alert') }}
-                    @php
-                    Session::forget('alert');
-                    @endphp
-                </div>
-                @elseif(Session::get('alertF'))
-                <div class="alert alert-danger">
-                    {{ Session::get('alertF') }}
-                    @php
-                    Session::forget('alertF');
-                    @endphp
-                </div>
-                @endif
+                <!-- Page-header end -->
 
                 <div class="page-body">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Hasil Akhir Kegiatan " {{$penyuluhans->kegiatan}} - {{$penyuluhans->tanggal}} "</h5>
+                            <h5>Hasil Akhir Kegiatan " {{$riwayat->Penyuluhans->kegiatan}} - {{$riwayat->Penyuluhans->tanggal}} "</h5>
                         </div>
                         <div class="row">
                             <div class="col-lg-8">
@@ -72,19 +60,19 @@
                                             label: '# of Votes',
                                             data: [
                                                 <?php
-                                                echo  $tangp - $tang
+                                                echo  $riwayat->tangibles
                                                 ?>,
                                                 <?php
-                                                echo  $relip - $reli
+                                                echo  $riwayat->reliability
                                                 ?>,
                                                 <?php
-                                                echo  $responp - $respon
+                                                echo  $riwayat->respon
                                                 ?>,
                                                 <?php
-                                                echo  $assup - $assu
+                                                echo  $riwayat->assurance
                                                 ?>,
                                                 <?php
-                                                echo  $emp - $em
+                                                echo $riwayat->empati
                                                 ?>
                                             ],
                                             backgroundColor: [
@@ -124,7 +112,7 @@
                 <div class="page-body">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Hasil Akhir Kegiatan " {{$penyuluhans->kegiatan}} - {{$penyuluhans->tanggal}} "</h5>
+                            <h5>Hasil Akhir Kegiatan " {{$riwayat->Penyuluhans->kegiatan}} - {{$riwayat->Penyuluhans->tanggal}} "</h5>
                         </div>
 
                         <div class="card-block table-border-style">
@@ -142,15 +130,15 @@
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>Tangibles</td>
-                                            <td>{{$tangp - $tang}}</td>
-                                            @if($tangp - $tang >= "0")
+                                            <td>{{$riwayat->tangibles}}</td>
+                                            @if($riwayat->tangibles >= "0")
                                             <td>
                                                 <p>
                                                     Pelayanan yang diberikan sudah sesuai harapan petani,
                                                     <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
                                                 </p>
                                             </td>
-                                            @else($tangp - $tang < "0" ) <td>
+                                            @else($riwayat->tangibles < "0" ) <td>
                                                 <p>
                                                     1. Terkait Kebersihan, kenyaman dan keamanan ruang kegiatan penyuluhan berlangsung, harus ditingkat dan diperbaiki
                                                 </p>
@@ -168,15 +156,15 @@
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>Reliability</td>
-                                            <td>{{$relip - $reli}}</td>
-                                            @if($relip - $reli >= "0")
+                                            <td>{{$riwayat->reliability}}</td>
+                                            @if($riwayat->reliability >= "0")
                                             <td>
                                                 <p>
                                                     Pelayanan yang diberikan sudah sesuai harapan petani,
                                                     <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
                                                 </p>
                                             </td>
-                                            @else($relip - $reli < "0" ) <td>
+                                            @else($riwayat->reliability < "0" ) <td>
                                                 <p>
                                                     1. Kesesuaikan kegiatan dengan waktu yang dijadwalkan sesuai, penyelenggaraan penyuluhan harus
                                                     disiplin,
@@ -198,15 +186,15 @@
                                         <tr>
                                             <th scope="row">3</th>
                                             <td>Responsiveness</td>
-                                            <td>{{$responp - $respon}}</td>
-                                            @if($responp - $respon >= "0")
+                                            <td>{{$riwayat->respon}}</td>
+                                            @if($riwayat->respon >= "0")
                                             <td>
                                                 <p>
                                                     Pelayanan yang diberikan sudah sesuai harapan petani,
                                                     <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
                                                 </p>
                                             </td>
-                                            @else($responp - $respon < "0" ) <td>
+                                            @else($riwayat->respon < "0" ) <td>
                                                 <p>
                                                     1. Petugas penyuluhan cepat tanggap dalam memberikan pelayanan
                                                 </p>
@@ -219,15 +207,15 @@
                                         <tr>
                                             <th scope="row">4</th>
                                             <td>Assurance</td>
-                                            <td>{{$assup - $assu}}</td>
-                                            @if($assup - $assu >= "0")
+                                            <td>{{$riwayat->assurance}}</td>
+                                            @if($riwayat->assurance >= "0")
                                             <td>
                                                 <p>
                                                     Pelayanan yang diberikan sudah sesuai harapan petani,
                                                     <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
                                                 </p>
                                             </td>
-                                            @else($assup - $assu < "0" ) <td>
+                                            @else($riwayat->assurance < "0" ) <td>
                                                 <p>
                                                     1. Penyuluh sudah berpengalaman dalam memberikan penyuluhan pertanian
                                                 </p>
@@ -239,15 +227,15 @@
                                         <tr>
                                             <th scope="row">5</th>
                                             <td>Emphaty</td>
-                                            <td>{{$emp - $em}}</td>
-                                            @if($emp - $em >= "0")
+                                            <td>{{$riwayat->empati}}</td>
+                                            @if($riwayat->empati >= "0")
                                             <td>
                                                 <p>
                                                     Pelayanan yang diberikan sudah sesuai harapan petani,
                                                     <br>pelayanan dapat dipertahankan atau ditingkatkan untuk penyuluhan berikutnya
                                                 </p>
                                             </td>
-                                            @else($emp - $em < "0" ) <td>
+                                            @else($riwayat->empati < "0" ) <td>
                                                 <p>1. Petugas penyuluhan memberikan perhatian saat kegiatan penyuluhan</p>
                                                 <p>2. Keramahan, kesopanan dan sikap petugas penyuluhan dalam memberikan pelayanan</p>
                                                 <p>3. Petugas penyuluhan berkomunikasi dengan Bahasa yang mudah dimengerti</p>
@@ -257,6 +245,11 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <a type="button" class="btn btn-danger mx-auto mx-md-0 text-white" href="{{route('admin/showRiwayatHasil')}}">Kembali</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -265,12 +258,13 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('js')
 <script>
     $(document).ready(function() {
-        $('#nilai-table').DataTable();
+        $('#hasil-table').DataTable();
     });
 </script>
 @endpush

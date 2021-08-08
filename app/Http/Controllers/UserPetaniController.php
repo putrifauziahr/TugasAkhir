@@ -20,9 +20,7 @@ class UserPetaniController extends Controller
     public function dashboard()
     {
         if (session('berhasil_login')) {
-            $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
-            $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
-            $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
+            $pen = Penyuluhan::count();
             return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
         } else {
             return redirect('/petani/login');
@@ -34,9 +32,7 @@ class UserPetaniController extends Controller
     public function login()
     {
         if (session('berhasil_login')) {
-            $pen = Penyuluhan::where('status', '=', 'Belum Dilaksanakan')->count();
-            $penyu = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->count();
-            $penyul = Penyuluhan::where('status', '=', 'Sudah Dilaksanakan')->count();
+            $pen = Penyuluhan::count();
             return view('petani.content.index', compact('pen', 'penyu', 'penyul'));
         } else {
             return view('petani/content/login');
@@ -147,7 +143,8 @@ class UserPetaniController extends Controller
         $kuiss = Kuisioner::all();
         $kuisss = Kuisioner::all();
         $penyuluhan = Penyuluhan::where('status', '=', 'Sedang Dilaksanakan')->get();
-        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan', 'kuisss'));
+        $pen = Penyuluhan::all();
+        return view('petani/content/kuisioner/index', compact('kuiss', 'penyuluhan', 'kuisss', 'pen'));
     }
 
     public function postTambahKuisioner(Request $request)
@@ -177,7 +174,7 @@ class UserPetaniController extends Controller
                     'updated_at' => $current_date_time,
                 ];
             } else {
-                return redirect('petani/showKuisioner')->with('alertF', 'Tidak Dapat Mengisi Kuisioner Berulang !');
+                return redirect('petani/showKuisioner')->with('alertF', 'Kuisioner pada kegiatan yang sama sudah pernah diisi !');
             }
         }
         HasilKuisioner::insert($answers);
