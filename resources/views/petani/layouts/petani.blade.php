@@ -79,9 +79,9 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="{{route('petani/dashboard')}}">
-                            <span style="padding-left: 40px; font-weight:bold;">Aplikasi Analisis </span>
+                            <span style="font-weight:bold;">Analisis Kepuasan Petani </span>
                             <br>
-                            <span style="padding-left: 40px; font-weight:bold;">Kepuasan Petani</span>
+                            <span style="font-weight:bold;">BPP Gabuswetan</span>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>

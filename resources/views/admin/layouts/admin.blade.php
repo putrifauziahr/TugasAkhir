@@ -81,9 +81,9 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="{{route('admin/dashboard')}}">
-                            <span style="padding-left: 40px; font-weight:bold;">Aplikasi Analisis </span>
+                            <span style="font-weight:bold;">Analisis Kepuasan Petani </span>
                             <br>
-                            <span style="padding-left: 40px; font-weight:bold;">Kepuasan Petani</span>
+                            <span style="font-weight:bold;">BPP Gabuswetan</span>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -159,7 +159,7 @@
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-micon"><i class="ti-folder"></i></span>
                                         <span class="pcoded-mtext" data-i18n="nav.basic-components.main"></span>
                                         <span class="pcoded-mcaret">Data Master</span>
                                     </a>
@@ -223,14 +223,14 @@
                                     </ul>
                                 <li>
                                     <a href="{{route('admin/showHasilKuis')}}">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-micon"><i class="ti-folder"></i></span>
                                         <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Hasil Kuisioner</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{url('admin/showProsesData')}}">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="ti-folder"></i></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Proses Data</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>

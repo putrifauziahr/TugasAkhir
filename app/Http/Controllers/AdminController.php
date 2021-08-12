@@ -28,7 +28,8 @@ class AdminController extends Controller
             $penyuluhan = Penyuluhan::count();
             $desa = Desa::count();
             $gapoktan = Gapoktan::count();
-            return view('admin.content.index', compact('gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
+            $admin = Admin::count();
+            return view('admin.content.index', compact('admin', 'gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
         } else {
             return view('admin/content/login');
         }
@@ -147,7 +148,8 @@ class AdminController extends Controller
         $penyuluhan = Penyuluhan::count();
         $desa = Desa::count();
         $gapoktan = Gapoktan::count();
-        return view('admin/content/index', compact('gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
+        $admin = Admin::count();
+        return view('admin/content/index', compact('admin', 'gapoktan', 'kuis', 'kategori', 'poktan', 'petani', 'penyuluhan', 'desa'));
     }
 
     public function kebutuhanFuzzy()

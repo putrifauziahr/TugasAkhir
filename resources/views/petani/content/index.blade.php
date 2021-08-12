@@ -16,7 +16,7 @@
                                 <div class="card-block-small">
                                     <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
                                     <span class="text-c-blue f-w-600">Penyuluhan</span>
-                                    <h4>{{$pen}}</h4>
+                                    <h4 style="color: white;">p</h4>
                                     <div>
                                         <span class="f-left m-t-10 text-muted">
                                             <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>
